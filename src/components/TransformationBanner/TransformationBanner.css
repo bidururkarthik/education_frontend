@@ -1,0 +1,32 @@
+.mmc-transform-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.mmc-transform-points {
+  margin: 0 0 28px;
+}
+.mmc-transform-points li {
+  padding: 8px 0;
+  font-weight: 500;
+  color: var(--mmc-navy);
+}
+
+.mmc-transform-image {
+  background: radial-gradient(circle at center, rgba(13,109,173,0.08), transparent 70%);
+  border-radius: var(--mmc-radius);
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+.mmc-transform-image img {
+  max-height: 420px;
+  object-fit: contain;
+}
+
+@media (max-width: 900px) {
+  .mmc-transform-inner { grid-template-columns: 1fr; }
+  .mmc-transform-image { order: -1; }
+}

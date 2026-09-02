@@ -1,0 +1,165 @@
+/* ===========================================================
+   MapMyCareer360 — KCET / PGCET Predictor pages
+   Same cartography / route-mapping language as the About page.
+   Console feel: numbered field groups, Safe/Moderate/Dream legend
+   on the results side, input → output reading order.
+   Fonts (same import as About.css): Fraunces, Inter, IBM Plex Mono.
+   =========================================================== */
+
+.mmc-predictor-page{
+  --ink:#15253B;
+  --ink-2:#1D3A5C;
+  --ink-light:#51677C;
+  --paper:#F7FAFC;
+  --paper-2:#EAF2FB;
+  --brass:#0074CC;
+  --coral:#F57C00;
+  --sage:#2E6690;
+  --success:#16A34A;
+  --white:#FFFFFF;
+  --line: rgba(0,116,204,0.22);
+  --radius: 4px;
+
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Inter',sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+
+.mmc-predictor-page *{ box-sizing:border-box; }
+.mmc-predictor-page h1,
+.mmc-predictor-page h2,
+.mmc-predictor-page h3,
+.mmc-predictor-page h4{
+  font-family:'Fraunces',serif;
+  margin:0;
+  font-weight:600;
+  letter-spacing:-0.01em;
+}
+.mmc-predictor-page p{ line-height:1.7; color:var(--ink-light); margin:0; }
+.mmc-predictor-page .mono{
+  font-family:'IBM Plex Mono',monospace;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  font-size:0.72rem;
+}
+.mmc-predictor-page a{ color:inherit; text-decoration:none; }
+.mmc-predictor-page .container{ max-width:1140px; margin:0 auto; padding:0 32px; }
+
+.mmc-predictor-page .btn-primary{
+  background:var(--coral); color:var(--white);
+  padding:14px 26px; border-radius:var(--radius);
+  font-weight:600; font-size:0.9rem; font-family:'Inter',sans-serif;
+  border:none; cursor:pointer; width:100%;
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  transition:transform .15s ease, opacity .15s ease;
+}
+.mmc-predictor-page .btn-primary:hover:not(:disabled){ transform:translateY(-1px); }
+.mmc-predictor-page .btn-primary:disabled{ opacity:0.5; cursor:not-allowed; }
+
+.mmc-eyebrow{
+  display:inline-flex; align-items:center; gap:10px;
+  color:var(--brass); margin-bottom:20px;
+}
+.mmc-eyebrow::before{ content:''; width:22px; height:1px; background:var(--brass); }
+
+/* ---------- HERO ---------- */
+.mmc-pred-hero{ position:relative; overflow:hidden; background:var(--ink); color:var(--paper); padding:64px 0 56px; }
+.mmc-pred-hero-contours{ position:absolute; inset:0; opacity:0.35; pointer-events:none; }
+.mmc-pred-hero-inner{ position:relative; z-index:2; }
+.mmc-pred-hero h1{
+  font-size:clamp(1.8rem, 3.6vw, 2.7rem); color:var(--white); max-width:16ch; line-height:1.12; margin-bottom:16px;
+}
+.mmc-pred-hero-inner p{ max-width:52ch; color:#C9D6DC; font-size:1rem; }
+
+/* ---------- LAYOUT ---------- */
+.mmc-pred-section{ padding:70px 0 90px; }
+.mmc-predictor-layout{
+  display:grid;
+  grid-template-columns:0.8fr 1.2fr;
+  gap:30px;
+  align-items:start;
+}
+
+/* ---------- FORM (console card) ---------- */
+.mmc-pred-form{
+  background:var(--white);
+  border:1px solid var(--line);
+  border-top:3px solid var(--brass);
+  border-radius:var(--radius);
+  padding:0;
+  position:sticky;
+  top:96px;
+  overflow:hidden;
+}
+.mmc-pred-form h3{
+  margin:0; padding:24px 30px 18px; color:var(--ink);
+  border-bottom:1px solid var(--line);
+}
+.mmc-pred-form .btn-primary{ width:calc(100% - 60px); margin:4px 30px 22px; }
+.mmc-pred-error{ color:var(--coral); font-size:0.85rem; margin:0 30px 12px; }
+
+.mmc-form-section{ padding:22px 30px; border-bottom:1px dashed var(--line); }
+.mmc-form-section:last-of-type{ border-bottom:none; padding-bottom:6px; }
+.mmc-form-section-label{ display:block; color:var(--sage); margin-bottom:16px; }
+
+.mmc-pred-form .form-group{ margin-bottom:16px; }
+.mmc-pred-form .form-group:last-child{ margin-bottom:0; }
+.mmc-pred-form label{
+  display:block; font-size:0.82rem; font-weight:600; color:var(--ink-2); margin-bottom:6px;
+}
+.mmc-pred-form input[type="text"],
+.mmc-pred-form input[type="tel"],
+.mmc-pred-form input[type="email"],
+.mmc-pred-form input[type="number"],
+.mmc-pred-form select{
+  width:100%; padding:11px 14px; font-size:0.92rem; font-family:'Inter',sans-serif;
+  color:var(--ink); background:var(--paper); border:1.5px solid var(--line); border-radius:var(--radius);
+  transition:border-color 0.15s;
+}
+.mmc-pred-form input:focus,
+.mmc-pred-form select:focus{ outline:none; border-color:var(--coral); }
+
+.mmc-form-row{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.mmc-form-row .form-group{ margin:0; }
+
+.mmc-checkbox-group label{ display:flex; align-items:center; gap:8px; font-weight:500; color:var(--ink); }
+.mmc-checkbox-group input{ width:auto; accent-color:var(--coral); }
+
+.mmc-pred-hint{ font-size:0.8rem; color:var(--ink-light); text-align:center; margin:0 30px 22px; }
+
+/* ---------- OUTPUT SIDE ---------- */
+.mmc-predictor-output{ min-height:200px; }
+
+.mmc-output-label{
+  display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; margin-bottom:16px;
+}
+.mmc-output-label .mono{ color:var(--ink); }
+.mmc-output-legend{ display:flex; align-items:center; gap:6px; font-size:0.78rem; color:var(--ink-light); }
+.mmc-output-legend .dot{ display:inline-block; width:9px; height:9px; border-radius:50%; margin:0 4px 0 10px; font-style:normal; }
+.mmc-output-legend .dot:first-child{ margin-left:0; }
+.mmc-output-legend .dot.safe{ background:var(--success); }
+.mmc-output-legend .dot.moderate{ background:var(--brass); }
+.mmc-output-legend .dot.dream{ background:var(--coral); }
+
+.mmc-empty-state{
+  display:flex; flex-direction:column; align-items:center; gap:14px; text-align:center;
+  padding:60px 30px; color:var(--ink-light);
+  border:1.5px dashed var(--line); border-radius:var(--radius); background:var(--paper-2);
+}
+.mmc-empty-state svg{ color:var(--coral); }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:900px){
+  .mmc-predictor-layout{ grid-template-columns:1fr; gap:20px; }
+  .mmc-pred-form{ position:static; }
+}
+@media (max-width:640px){
+  .mmc-form-row{ grid-template-columns:1fr; gap:0; }
+}
+@media (max-width:480px){
+  .mmc-pred-form h3{ padding:20px 20px 16px; }
+  .mmc-form-section{ padding:18px 20px; }
+  .mmc-pred-form .btn-primary{ width:calc(100% - 40px); margin:4px 20px 18px; }
+  .mmc-pred-hint{ margin:0 20px 18px; }
+}

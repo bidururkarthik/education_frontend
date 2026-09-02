@@ -1,0 +1,248 @@
+/* ============================================================================
+   TOP CONTACT BAR
+============================================================================ */
+.mmc-topbar {
+  background: var(--mmc-navy);
+  color: #cfd9e2;
+  font-size: 0.78rem;
+}
+.mmc-topbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 34px;
+}
+.mmc-topbar-contact { display: flex; gap: 18px; }
+.mmc-topbar-contact a:hover { color: var(--mmc-orange); }
+.mmc-topbar-email { display: none; }
+.mmc-topbar-cta { color: var(--mmc-orange); font-weight: 700; }
+.mmc-topbar-cta:hover { text-decoration: underline; }
+
+/* ============================================================================
+   MAIN NAVBAR
+============================================================================ */
+.mmc-navbar {
+  background: #fff;
+  box-shadow: 0 2px 14px rgba(13, 109, 173, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+
+/* Specificity note: this element renders with className="container mmc-navbar-inner".
+   The generic .container rule (index.css) caps max-width at 1180px, which isn't
+   enough room for 9 nav links + auth actions + logo on one line - that's what was
+   pushing "Sign Up" off the right edge. The compound selector below has higher
+   specificity than the single-class .container rule, so it reliably wins
+   regardless of stylesheet import order. */
+.mmc-navbar-inner.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+  gap: 14px;
+  max-width: 1360px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ============================================================================
+   LOGO - bulletproof two-layer render (see Navbar.jsx comment)
+   Text logo is the base layer and is ALWAYS visible; the real image sits on
+   top and only fades in once it has actually finished loading.
+============================================================================ */
+.mmc-brand {
+  display: flex;
+  align-items: center;
+  min-width: 120px;
+  height: 58px;
+  flex-shrink: 0;
+}
+
+.mmc-brand-img {
+  height: 100%;
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
+  object-position: left center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.mmc-brand-img.is-loaded { opacity: 1; }
+
+/* ============================================================================
+   NAV LINKS (desktop)
+============================================================================ */
+.mmc-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: nowrap;
+}
+
+.mmc-nav-links a {
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--mmc-navy);
+  padding: 6px 2px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+  white-space: nowrap;
+}
+
+.mmc-nav-links a:hover,
+.mmc-nav-links a.active {
+  color: var(--mmc-blue);
+  border-color: var(--mmc-orange);
+}
+
+.mmc-nav-auth {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 8px;
+  padding-left: 14px;
+  border-left: 1px solid var(--mmc-border);
+  flex-shrink: 0;
+}
+
+.mmc-nav-dash { color: var(--mmc-blue) !important; }
+
+/* ============================================================================
+   BURGER (mobile menu toggle)
+============================================================================ */
+.mmc-burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: 10px;
+  z-index: 210;
+}
+.mmc-burger span {
+  width: 24px;
+  height: 3px;
+  background: var(--mmc-navy);
+  border-radius: 3px;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+.mmc-burger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.mmc-burger.open span:nth-child(2) { opacity: 0; }
+.mmc-burger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+.mmc-nav-backdrop {
+  position: fixed;
+  inset: 0;
+  top: 76px;
+  background: rgba(15, 30, 45, 0.35);
+  z-index: 150;
+  overscroll-behavior: contain;
+}
+
+/* Belt-and-braces alongside the JS scroll-lock in Navbar.jsx: stop the
+   page underneath from scrolling while the mobile menu is open. */
+body.mmc-menu-open {
+  overflow: hidden;
+}
+
+/* ============================================================================
+   RESPONSIVE BREAKPOINTS
+============================================================================ */
+
+/* Large desktop - tighten spacing a touch before the mobile menu engages */
+@media (max-width: 1360px) and (min-width: 1181px) {
+  .mmc-nav-links { gap: 10px; }
+  .mmc-nav-links a { font-size: 0.82rem; }
+  .mmc-nav-auth { gap: 8px; margin-left: 4px; padding-left: 10px; }
+}
+
+/* Topbar: keep phone on all sizes, show email only once there's room */
+@media (min-width: 560px) {
+  .mmc-topbar-email { display: inline; }
+}
+@media (max-width: 480px) {
+  .mmc-topbar-inner { font-size: 0.7rem; }
+  .mmc-topbar-cta { font-size: 0.7rem; }
+}
+
+/* Tablet & phone: collapse into hamburger menu.
+   Raised from 980px to 1180px - below that, the full row of 9 links + auth
+   + logo genuinely doesn't fit on one line, which is what was pushing
+   "Sign Up" off the right edge of the screen.
+
+   FIX: the panel used to be hidden only via `max-height: 0` + `overflow-y: auto`.
+   On some mobile browsers that combination still lets the top of the first
+   item (the "Home" link) render/peek through before JS ever toggles the
+   `.open` class, because `overflow-y: auto` doesn't clip as aggressively as
+   `overflow: hidden`, and rounding on the collapsed box can leave a sliver of
+   content visible. The panel is now also taken fully out of the visual/flow
+   picture (`visibility: hidden`, `opacity: 0`, `pointer-events: none`) while
+   closed, so nothing can leak through no matter how the height collapses,
+   and it can't be tapped/tabbed into while hidden either. */
+@media (max-width: 1180px) {
+  .mmc-burger { display: flex; }
+
+  .mmc-navbar-inner { height: 68px; }
+  .mmc-brand { min-width: 100px; height: 46px; }
+  .mmc-brand-img { max-width: 180px; }
+
+  .mmc-nav-links {
+    position: fixed;
+    top: 68px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
+    padding: 10px 20px 30px;
+    max-height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    transition: max-height 0.3s ease, opacity 0.25s ease, visibility 0s linear 0.3s;
+    z-index: 190;
+  }
+  .mmc-nav-links.open {
+    max-height: calc(100vh - 68px);
+    overflow-y: auto;
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transition: max-height 0.3s ease, opacity 0.25s ease, visibility 0s linear 0s;
+  }
+  .mmc-nav-links a { width: 100%; padding: 13px 4px; border-bottom: 1px solid var(--mmc-border); }
+  .mmc-nav-links a:last-of-type { border-bottom: none; }
+
+  .mmc-nav-auth {
+    border-left: none;
+    border-top: 1px solid var(--mmc-border);
+    padding: 16px 0 0;
+    margin: 10px 0 0;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .mmc-nav-auth a.btn,
+  .mmc-nav-auth button.btn { width: 100%; text-align: center; }
+  .mmc-nav-login { text-align: center; padding: 10px 0; font-weight: 700; }
+
+  .mmc-nav-backdrop { top: 68px; }
+}
+
+/* Small phones - tighten container padding and topbar */
+@media (max-width: 560px) {
+  .mmc-topbar-contact { gap: 10px; }
+}
+@media (max-width: 400px) {
+  .mmc-topbar-cta { display: none; } /* keep the phone number visible, drop the CTA link to avoid crowding */
+  .mmc-brand { min-width: 90px; }
+  .mmc-brand-img { max-width: 150px; }
+}

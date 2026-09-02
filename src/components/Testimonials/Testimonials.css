@@ -1,0 +1,35 @@
+.mmc-testimonials-section { background: #fff; }
+
+.mmc-testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.mmc-testimonial-card {
+  padding: 28px 24px;
+  position: relative;
+}
+.mmc-testimonial-quote-mark {
+  font-size: 2.6rem;
+  color: var(--mmc-orange);
+  opacity: 0.3;
+  line-height: 1;
+  display: block;
+  margin-bottom: 6px;
+  font-family: Georgia, serif;
+}
+.mmc-testimonial-card p {
+  color: #4a5b6b;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin: 0 0 18px;
+  font-style: italic;
+}
+.mmc-testimonial-author { display: flex; flex-direction: column; }
+.mmc-testimonial-author strong { color: var(--mmc-navy); font-size: 0.9rem; }
+.mmc-testimonial-author span { color: #8b98a5; font-size: 0.78rem; }
+
+@media (max-width: 900px) {
+  .mmc-testimonials-grid { grid-template-columns: 1fr; }
+}

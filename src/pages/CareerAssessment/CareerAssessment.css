@@ -1,0 +1,282 @@
+/* ===========================================================
+   MapMyCareer360 — Career Assessment page
+   Same cartography / route-mapping language as the About page.
+   Uses Fraunces, Inter and IBM Plex Mono - imported once in your
+   global stylesheet or index.html (same import as About.css):
+   https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap
+   =========================================================== */
+
+.mmc-assessment-page{
+  --ink:#15253B;
+  --ink-2:#1D3A5C;
+  --ink-light:#51677C;
+  --paper:#F7FAFC;
+  --paper-2:#EAF2FB;
+  --brass:#0074CC;
+  --coral:#F57C00;
+  --sage:#2E6690;
+  --white:#FFFFFF;
+  --line: rgba(0,116,204,0.22);
+  --radius: 4px;
+
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Inter',sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+
+.mmc-assessment-page *{ box-sizing:border-box; }
+.mmc-assessment-page h1,
+.mmc-assessment-page h2,
+.mmc-assessment-page h3,
+.mmc-assessment-page h4{
+  font-family:'Fraunces',serif;
+  margin:0;
+  font-weight:600;
+  letter-spacing:-0.01em;
+}
+.mmc-assessment-page p{ line-height:1.7; color:var(--ink-light); margin:0; }
+.mmc-assessment-page .mono{
+  font-family:'IBM Plex Mono',monospace;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  font-size:0.72rem;
+}
+.mmc-assessment-page a{ color:inherit; text-decoration:none; }
+.mmc-assessment-page .container{ max-width:1140px; margin:0 auto; padding:0 32px; }
+
+.mmc-assessment-page .btn-primary,
+.mmc-assessment-page .btn-secondary,
+.mmc-assessment-page .btn-outline{
+  padding:14px 26px;
+  border-radius:var(--radius);
+  font-weight:600;
+  font-size:0.88rem;
+  font-family:'Inter',sans-serif;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  border:none;
+  cursor:pointer;
+  transition:transform .15s ease, opacity .15s ease;
+}
+.mmc-assessment-page .btn-primary{ background:var(--coral); color:var(--white); }
+.mmc-assessment-page .btn-primary:hover:not(:disabled){ transform:translateX(3px); }
+.mmc-assessment-page .btn-secondary{ background:var(--ink); color:var(--white); }
+.mmc-assessment-page .btn-outline{ background:transparent; color:var(--ink); border:1.5px solid var(--line); }
+.mmc-assessment-page .btn-primary:disabled,
+.mmc-assessment-page .btn-secondary:disabled,
+.mmc-assessment-page .btn-outline:disabled{ opacity:0.45; cursor:not-allowed; }
+
+.mmc-eyebrow{
+  display:inline-flex; align-items:center; gap:10px;
+  color:var(--brass); margin-bottom:26px;
+}
+.mmc-eyebrow::before{ content:''; width:26px; height:1px; background:var(--brass); }
+
+.mmc-label{ color:var(--sage); margin-bottom:16px; display:block; }
+.mmc-label--sage{ color:var(--sage); }
+
+.mmc-section-head{ max-width:60ch; margin-bottom:40px; }
+.mmc-section-head--tight{ margin-bottom:36px; }
+.mmc-section-head .mono{ color:var(--sage); }
+.mmc-section-head h2{ font-size:1.9rem; margin-top:14px; }
+
+.mmc-waypoint-card{
+  border:1px solid var(--line);
+  background:var(--white);
+  border-radius:var(--radius);
+  padding:30px;
+}
+.mmc-waypoint-card .mono{ color:var(--brass); margin-bottom:14px; display:block; }
+
+/* ---------- HERO ---------- */
+.mmc-ca-hero{
+  position:relative; overflow:hidden;
+  background:var(--ink);
+  color:var(--paper);
+  padding:80px 0 70px;
+}
+.mmc-ca-hero-contours{ position:absolute; inset:0; opacity:0.35; pointer-events:none; }
+.mmc-ca-hero-inner{ position:relative; z-index:2; }
+.mmc-ca-hero h1{
+  font-size:clamp(2.1rem, 4.4vw, 3.2rem);
+  color:var(--white);
+  max-width:16ch;
+  line-height:1.1;
+}
+.mmc-ca-hero h1 em{ font-style:italic; color:var(--brass); font-weight:500; }
+.mmc-ca-hero-sub{ margin-top:22px; max-width:52ch; color:#C9D6DC; font-size:1.02rem; }
+
+/* ---------- SHARED SECTION SPACING ---------- */
+.mmc-ca-section{ padding:76px 0; }
+.mmc-ca-section h2{ font-size:1.9rem; margin-top:14px; }
+
+.mmc-ca-copy p{ margin-bottom:16px; font-size:1rem; }
+.mmc-ca-copy--wide{ max-width:70ch; }
+
+/* ---------- WHAT IS IT + VIDEO ---------- */
+.mmc-ca-what{ background:var(--paper); }
+.mmc-ca-what-grid{
+  display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;
+}
+.mmc-ca-video-card{
+  border:1px solid var(--line);
+  background:var(--ink);
+  border-radius:var(--radius);
+  padding:8px;
+}
+.mmc-ca-video-frame{
+  position:relative; width:100%; padding-top:56.25%;
+  border-radius:2px; overflow:hidden; background:var(--ink);
+}
+.mmc-ca-video-frame iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+
+/* ---------- WHY IT MATTERS ---------- */
+.mmc-ca-why{ background:var(--paper-2); }
+
+/* ---------- DIMENSIONS ---------- */
+.mmc-ca-dimensions{ background:var(--paper); }
+.mmc-ca-dimension-grid{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+  background:var(--line); border:1px solid var(--line);
+}
+.mmc-ca-dimension-cell{ background:var(--paper); padding:30px 24px; }
+.mmc-ca-dimension-cell .mono{ color:var(--coral); margin-bottom:14px; display:block; }
+.mmc-ca-dimension-cell h4{ font-size:1.02rem; margin-bottom:10px; }
+.mmc-ca-dimension-cell p{ font-size:0.85rem; }
+
+/* ---------- BENEFITS ---------- */
+.mmc-ca-benefits{ background:var(--ink); color:var(--paper); }
+.mmc-ca-benefits-grid{
+  display:grid; grid-template-columns:0.8fr 1.2fr; gap:56px; align-items:start;
+}
+.mmc-ca-benefits h2{ color:var(--white); font-size:1.9rem; max-width:14ch; }
+.mmc-ca-check-list{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:14px 32px; }
+.mmc-ca-check-list li{
+  position:relative; padding-left:26px; color:#D7E1E6; font-size:0.95rem; line-height:1.55;
+}
+.mmc-ca-check-list li::before{
+  content:'✔'; position:absolute; left:0; top:0; color:var(--brass); font-weight:700; font-size:0.82rem;
+}
+
+/* ---------- WHO SHOULD TAKE ---------- */
+.mmc-ca-who{ background:var(--paper-2); }
+.mmc-ca-who .mmc-waypoint-card{ max-width:640px; }
+
+/* ---------- WHAT HAPPENS AFTER (route track, reused from About) ---------- */
+.mmc-ca-after{ background:var(--paper); }
+.mmc-ca-after-track{
+  position:relative;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:0;
+  margin-bottom:34px;
+}
+.mmc-ca-after-line{
+  position:absolute; top:19px; left:0; right:0; height:2px;
+  background-image:linear-gradient(to right, var(--ink-light) 0 6px, transparent 6px 14px);
+  background-size:14px 2px;
+  z-index:0;
+}
+.mmc-ca-after-stop{ position:relative; z-index:1; padding-right:18px; }
+.mmc-ca-after-pin{
+  width:38px; height:38px; border-radius:50%;
+  background:var(--ink); border:3px solid var(--paper);
+  display:flex; align-items:center; justify-content:center;
+  color:var(--brass); font-family:'IBM Plex Mono',monospace; font-size:0.72rem; font-weight:500;
+  margin-bottom:22px;
+}
+.mmc-ca-after-stop:nth-child(3) .mmc-ca-after-pin{ background:var(--coral); color:var(--white); }
+.mmc-ca-after-stop h4{ font-size:0.98rem; margin-bottom:8px; }
+.mmc-ca-after-stop p{ font-size:0.83rem; }
+
+.mmc-ca-callout{
+  padding:16px 20px;
+  border-radius:var(--radius);
+  background:var(--paper-2);
+  border-left:3px solid var(--brass);
+  color:var(--ink-2);
+  font-size:0.9rem;
+  font-style:italic;
+  max-width:70ch;
+}
+
+/* ---------- ACTION AREA (start card / quiz / result) ---------- */
+.mmc-ca-action{ background:var(--paper-2); padding:76px 0 90px; }
+.mmc-ca-action-inner{ max-width:640px; margin:0 auto; }
+
+.mmc-ca-start-card,
+.mmc-ca-quiz-card,
+.mmc-ca-result-card{
+  background:var(--white);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  border-top:3px solid var(--coral);
+  padding:40px;
+}
+.mmc-ca-start-card{ text-align:center; }
+.mmc-ca-start-card .mono{ color:var(--brass); }
+.mmc-ca-start-card h2{ font-size:1.7rem; margin:12px 0 22px; }
+.mmc-ca-start-card .btn-primary{ margin-top:10px; }
+
+.mmc-ca-dash-list{ list-style:none; margin:0 0 26px; padding:0; text-align:left; }
+.mmc-ca-dash-list li{
+  position:relative; padding-left:20px; margin-bottom:12px;
+  color:var(--ink-light); font-size:0.95rem; line-height:1.6;
+}
+.mmc-ca-dash-list li::before{ content:'–'; position:absolute; left:0; color:var(--coral); font-weight:700; }
+
+.mmc-ca-note{ margin-top:16px; font-size:0.85rem; color:var(--ink-light); }
+.mmc-ca-note a{ color:var(--coral); font-weight:600; }
+.mmc-ca-error{ color:var(--coral); font-size:0.88rem; margin:14px 0; text-align:left; }
+
+/* quiz */
+.mmc-ca-quiz-progress{ height:6px; background:var(--paper-2); border-radius:10px; overflow:hidden; margin-bottom:14px; }
+.mmc-ca-quiz-progress-bar{ height:100%; background:linear-gradient(90deg, var(--brass), var(--coral)); transition:width 0.3s; }
+.mmc-ca-quiz-counter{ color:var(--sage); margin:0 0 10px; }
+.mmc-ca-quiz-card h3{ margin:0 0 24px; font-size:1.25rem; color:var(--ink); }
+
+.mmc-ca-quiz-options{ display:flex; flex-direction:column; gap:12px; margin-bottom:26px; }
+.mmc-ca-quiz-option{
+  text-align:left; padding:14px 18px; border-radius:var(--radius);
+  border:1.5px solid var(--line); background:var(--paper);
+  font-size:0.95rem; font-family:'Inter',sans-serif; color:var(--ink);
+  cursor:pointer; transition:border-color 0.2s, background 0.2s;
+}
+.mmc-ca-quiz-option:hover{ border-color:var(--coral); }
+.mmc-ca-quiz-option.selected{ border-color:var(--coral); background:#FBE7E0; font-weight:600; }
+
+.mmc-ca-quiz-nav{ display:flex; justify-content:space-between; gap:12px; }
+
+/* result */
+.mmc-ca-result-card{ text-align:center; }
+.mmc-ca-result-card .mono{ color:var(--brass); }
+.mmc-ca-result-card h2{ font-size:1.7rem; margin:12px 0 14px; }
+.mmc-ca-result-streams{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin:20px 0; }
+.mmc-ca-badge{
+  background:var(--ink); color:var(--white);
+  padding:8px 16px; border-radius:20px; font-size:0.85rem; font-weight:600;
+}
+.mmc-ca-result-note{ color:var(--ink-light); font-size:0.88rem; margin-bottom:26px; }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:900px){
+  .mmc-ca-what-grid{ grid-template-columns:1fr; gap:36px; }
+  .mmc-ca-benefits-grid{ grid-template-columns:1fr; gap:28px; }
+  .mmc-ca-after-track{ grid-template-columns:1fr; gap:28px; }
+  .mmc-ca-after-line{ display:none; }
+}
+@media (max-width:800px){
+  .mmc-ca-dimension-grid{ grid-template-columns:1fr 1fr; }
+  .mmc-ca-check-list{ grid-template-columns:1fr; }
+}
+@media (max-width:560px){
+  .mmc-ca-section{ padding:52px 0; }
+  .mmc-ca-dimension-grid{ grid-template-columns:1fr; }
+  .mmc-ca-start-card, .mmc-ca-quiz-card, .mmc-ca-result-card{ padding:26px; }
+}
+@media (max-width:420px){
+  .mmc-ca-quiz-nav{ flex-direction:column-reverse; gap:10px; }
+  .mmc-ca-quiz-nav button{ width:100%; justify-content:center; }
+}

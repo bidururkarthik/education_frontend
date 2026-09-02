@@ -1,0 +1,131 @@
+/* ===========================================================
+   MapMyCareer360 — Contact page
+   Same cartography / route-mapping language as About & Services.
+   Left waypoint card for reach-us details, right card is the
+   "send a message" form, styled like the predictor's field groups.
+   Fonts (same import as About.css): Fraunces, Inter, IBM Plex Mono.
+   =========================================================== */
+
+.mmc-contact-page{
+  --ink:#15253B;
+  --ink-2:#1D3A5C;
+  --ink-light:#51677C;
+  --paper:#F7FAFC;
+  --paper-2:#EAF2FB;
+  --brass:#0074CC;
+  --coral:#F57C00;
+  --sage:#2E6690;
+  --success:#16A34A;
+  --white:#FFFFFF;
+  --line: rgba(0,116,204,0.22);
+  --radius: 4px;
+
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Inter',sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+
+.mmc-contact-page *{ box-sizing:border-box; }
+.mmc-contact-page h1,
+.mmc-contact-page h2,
+.mmc-contact-page h3,
+.mmc-contact-page h4{
+  font-family:'Fraunces',serif;
+  margin:0;
+  font-weight:600;
+  letter-spacing:-0.01em;
+}
+.mmc-contact-page p{ line-height:1.7; color:var(--ink-light); margin:0; }
+.mmc-contact-page .mono{
+  font-family:'IBM Plex Mono',monospace;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  font-size:0.72rem;
+}
+.mmc-contact-page a{ color:inherit; text-decoration:none; }
+.mmc-contact-page .container{ max-width:1140px; margin:0 auto; padding:0 32px; }
+
+.mmc-contact-page .btn-primary{
+  background:var(--coral); color:var(--white); padding:14px 26px;
+  border-radius:var(--radius); font-weight:600; font-size:0.88rem;
+  border:none; cursor:pointer;
+  display:inline-flex; align-items:center; gap:10px;
+  transition:transform .15s ease, opacity .15s ease;
+}
+.mmc-contact-page .btn-primary:hover:not(:disabled){ transform:translateX(3px); }
+.mmc-contact-page .btn-primary:disabled{ opacity:0.55; cursor:not-allowed; }
+
+.mmc-contact-page .mmc-eyebrow{
+  display:inline-flex; align-items:center; gap:10px;
+  color:var(--brass); margin-bottom:22px;
+}
+.mmc-contact-page .mmc-eyebrow::before{ content:''; width:24px; height:1px; background:var(--brass); }
+
+/* ---------- HERO ---------- */
+.mmc-ct-hero{ position:relative; overflow:hidden; background:var(--ink); color:var(--paper); padding:80px 0 70px; }
+.mmc-ct-hero-contours{ position:absolute; inset:0; opacity:0.35; pointer-events:none; }
+.mmc-ct-hero-inner{ position:relative; z-index:2; }
+.mmc-ct-hero h1{ font-size:clamp(2.1rem, 4.4vw, 3.2rem); color:var(--white); margin-bottom:18px; }
+.mmc-ct-hero-inner p{ max-width:56ch; color:#C9D6DC; font-size:1.02rem; }
+
+/* ---------- SECTION ---------- */
+.mmc-ct-section{ padding:70px 0 90px; background:var(--paper); }
+.mmc-contact-grid{ display:grid; grid-template-columns:0.8fr 1.2fr; gap:30px; align-items:start; }
+
+/* ---------- INFO CARD ---------- */
+.mmc-contact-info{
+  background:var(--ink); color:var(--paper);
+  border-radius:var(--radius); padding:36px 32px;
+}
+.mmc-contact-info .mono{ color:var(--brass); display:block; margin-bottom:14px; }
+.mmc-contact-info h3{ color:var(--white); margin-bottom:22px; font-size:1.35rem; }
+.mmc-contact-row{
+  display:flex; align-items:flex-start; gap:14px;
+  padding:14px 0; border-bottom:1px dashed rgba(255,255,255,0.12);
+}
+.mmc-contact-row:last-child{ border-bottom:none; }
+.mmc-contact-icon{
+  width:34px; height:34px; border-radius:50%; flex-shrink:0;
+  background:rgba(0,116,204,0.18); color:var(--brass);
+  display:flex; align-items:center; justify-content:center; font-size:0.95rem;
+}
+.mmc-contact-row p{ color:#C9D6DC; font-size:0.92rem; }
+.mmc-contact-row a{ color:var(--white); font-weight:600; }
+.mmc-contact-row a:hover{ color:var(--brass); }
+
+/* ---------- FORM CARD ---------- */
+.mmc-contact-form{
+  background:var(--white); border:1px solid var(--line);
+  border-radius:var(--radius); padding:36px 32px;
+}
+.mmc-contact-form h3{ margin-bottom:6px; font-size:1.35rem; }
+.mmc-contact-form-sub{ font-size:0.9rem; margin-bottom:26px; }
+
+.mmc-form-group{ margin-bottom:18px; }
+.mmc-form-group label{
+  display:block; margin-bottom:8px; font-size:0.8rem; font-weight:600;
+  color:var(--ink); font-family:'IBM Plex Mono',monospace; letter-spacing:0.04em; text-transform:uppercase; font-size:0.7rem;
+}
+.mmc-contact-form input,
+.mmc-contact-form textarea{
+  width:100%; padding:13px 16px; border-radius:var(--radius);
+  border:1.5px solid var(--line); font-family:'Inter',sans-serif;
+  font-size:0.92rem; color:var(--ink); background:var(--paper-2);
+  resize:vertical;
+}
+.mmc-contact-form input:focus,
+.mmc-contact-form textarea:focus{ outline:none; border-color:var(--coral); background:var(--white); }
+
+.mmc-error-msg{ color:#D64545; font-weight:600; font-size:0.88rem; margin-bottom:16px; }
+.mmc-success-msg{ color:var(--success); font-weight:600; font-size:0.88rem; margin-bottom:16px; }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:800px){
+  .mmc-contact-grid{ grid-template-columns:1fr; }
+}
+@media (max-width:480px){
+  .mmc-contact-info,
+  .mmc-contact-form{ padding:26px 22px; }
+  .mmc-ct-hero{ padding:60px 0 50px; }
+}

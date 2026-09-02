@@ -1,0 +1,136 @@
+/* ===========================================================
+   MapMyCareer360 — Subscription page
+   Same cartography / route-mapping language as About & Services.
+   The three plans read as waypoints 01 / 02 / 03 along the way
+   to full access.
+   Fonts (same import as About.css): Fraunces, Inter, IBM Plex Mono.
+   =========================================================== */
+
+.mmc-subscription-page{
+  --ink:#15253B;
+  --ink-2:#1D3A5C;
+  --ink-light:#51677C;
+  --paper:#F7FAFC;
+  --paper-2:#EAF2FB;
+  --brass:#0074CC;
+  --coral:#F57C00;
+  --sage:#2E6690;
+  --success:#16A34A;
+  --white:#FFFFFF;
+  --line: rgba(0,116,204,0.22);
+  --radius: 4px;
+
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Inter',sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+
+.mmc-subscription-page *{ box-sizing:border-box; }
+.mmc-subscription-page h1,
+.mmc-subscription-page h2,
+.mmc-subscription-page h3,
+.mmc-subscription-page h4{
+  font-family:'Fraunces',serif;
+  margin:0;
+  font-weight:600;
+  letter-spacing:-0.01em;
+}
+.mmc-subscription-page p{ line-height:1.7; color:var(--ink-light); margin:0; }
+.mmc-subscription-page .mono{
+  font-family:'IBM Plex Mono',monospace;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  font-size:0.72rem;
+}
+.mmc-subscription-page a{ color:inherit; text-decoration:none; }
+.mmc-subscription-page .container{ max-width:1140px; margin:0 auto; padding:0 32px; }
+
+.mmc-subscription-page .btn-primary,
+.mmc-subscription-page .btn-secondary{
+  width:100%; padding:14px 22px; border-radius:var(--radius);
+  font-weight:600; font-size:0.9rem; border:none; cursor:pointer;
+  transition:transform .15s ease, opacity .15s ease;
+}
+.mmc-subscription-page .btn-primary{ background:var(--coral); color:var(--white); }
+.mmc-subscription-page .btn-primary:hover:not(:disabled){ transform:translateY(-2px); }
+.mmc-subscription-page .btn-secondary{ background:var(--paper-2); color:var(--ink); border:1.5px solid var(--line); }
+.mmc-subscription-page .btn-secondary:hover:not(:disabled){ border-color:var(--brass); color:var(--brass); }
+.mmc-subscription-page button:disabled{ opacity:0.55; cursor:not-allowed; transform:none !important; }
+
+.mmc-subscription-page .mmc-eyebrow{
+  display:inline-flex; align-items:center; gap:10px;
+  color:var(--brass); margin-bottom:22px;
+}
+.mmc-subscription-page .mmc-eyebrow::before{ content:''; width:24px; height:1px; background:var(--brass); }
+
+/* ---------- HERO ---------- */
+.mmc-sub-hero{ position:relative; overflow:hidden; background:var(--ink); color:var(--paper); padding:80px 0 70px; }
+.mmc-sub-hero-contours{ position:absolute; inset:0; opacity:0.35; pointer-events:none; }
+.mmc-sub-hero-inner{ position:relative; z-index:2; }
+.mmc-sub-hero h1{ font-size:clamp(2.1rem, 4.4vw, 3.2rem); color:var(--white); margin-bottom:18px; }
+.mmc-sub-hero-inner p{ max-width:56ch; color:#C9D6DC; font-size:1.02rem; }
+
+/* ---------- SECTION ---------- */
+.mmc-sub-section{ padding:70px 0 90px; background:var(--paper); }
+
+/* ---------- BANNERS ---------- */
+.mmc-launch-banner{
+  text-align:center; background:rgba(245,124,0,0.08);
+  border:1.5px dashed var(--coral); color:var(--ink);
+  padding:14px 20px; border-radius:var(--radius);
+  margin-bottom:30px; font-size:0.9rem;
+}
+.mmc-launch-banner strong{ color:var(--coral); }
+
+.mmc-sub-message{
+  text-align:center; background:rgba(22,163,74,0.1); color:var(--success);
+  padding:14px; border-radius:var(--radius); margin-bottom:30px; font-weight:600;
+}
+
+/* ---------- PLANS GRID ---------- */
+.mmc-plans-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
+
+.mmc-plan-card{
+  position:relative; background:var(--white); border:1px solid var(--line);
+  border-radius:var(--radius); padding:38px 30px 30px; text-align:center;
+  display:flex; flex-direction:column;
+}
+.mmc-plan-card.featured{ border:2px solid var(--coral); transform:scale(1.03); }
+
+.mmc-plan-index{
+  width:38px; height:38px; border-radius:50%; margin:0 auto 18px;
+  background:var(--ink); color:var(--brass);
+  display:flex; align-items:center; justify-content:center;
+  font-family:'IBM Plex Mono',monospace; font-size:0.72rem; font-weight:500;
+}
+.mmc-plan-card.featured .mmc-plan-index{ background:var(--coral); color:var(--white); }
+
+.mmc-plan-badge{
+  position:absolute; top:-14px; left:50%; transform:translateX(-50%);
+  background:var(--coral); color:var(--white);
+  padding:5px 16px; border-radius:20px; font-size:0.72rem; font-weight:700;
+  font-family:'IBM Plex Mono',monospace; letter-spacing:0.04em;
+}
+
+.mmc-plan-card h3{ font-size:1.15rem; margin-bottom:14px; }
+.mmc-plan-price{ font-size:2.2rem; font-weight:700; color:var(--brass); margin-bottom:22px; }
+.mmc-plan-price span{ font-size:0.85rem; font-weight:500; color:var(--ink-light); font-family:'Inter',sans-serif; }
+
+.mmc-plan-features{ text-align:left; margin:0 0 28px; padding:0; list-style:none; flex:1; }
+.mmc-plan-features li{
+  padding:8px 0; font-size:0.88rem; color:var(--ink-light);
+  border-bottom:1px dashed var(--line);
+}
+.mmc-plan-features li:last-child{ border-bottom:none; }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:900px){
+  .mmc-plans-grid{ grid-template-columns:1fr; gap:22px; }
+  .mmc-plan-card.featured{ transform:none; }
+}
+@media (max-width:480px){
+  .mmc-plan-card{ padding:30px 22px 24px; }
+  .mmc-launch-banner{ padding:12px 14px; font-size:0.82rem; }
+  .mmc-sub-hero{ padding:60px 0 50px; }
+}

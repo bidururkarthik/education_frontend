@@ -1,0 +1,28 @@
+.mmc-stats {
+  background: linear-gradient(120deg, var(--mmc-blue-dark), var(--mmc-blue));
+  padding: 40px 0;
+}
+.mmc-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  text-align: center;
+}
+.mmc-stat-item { color: #fff; position: relative; }
+.mmc-stat-number { font-size: 2.2rem; font-weight: 800; }
+.mmc-stat-label { font-size: 0.85rem; opacity: 0.85; margin-top: 4px; }
+.mmc-stat-item.highlight .mmc-stat-number { color: var(--mmc-orange); }
+.mmc-stat-tag {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--mmc-orange);
+  background: rgba(247,148,29,0.15);
+  padding: 3px 10px;
+  border-radius: 12px;
+}
+
+@media (max-width: 700px) {
+  .mmc-stats-grid { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+}

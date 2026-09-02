@@ -1,0 +1,123 @@
+/* ===========================================================
+   MapMyCareer360 — Services page
+   Same cartography / route-mapping language as the About page.
+   Services are shown in the order a student actually moves
+   through them, connected by a single dashed line with numbered
+   waypoints - already close to the About page's route pattern.
+   Fonts (same import as About.css): Fraunces, Inter, IBM Plex Mono.
+   =========================================================== */
+
+.mmc-services-page{
+  --ink:#15253B;
+  --ink-2:#1D3A5C;
+  --ink-light:#51677C;
+  --paper:#F7FAFC;
+  --paper-2:#EAF2FB;
+  --brass:#0074CC;
+  --coral:#F57C00;
+  --sage:#2E6690;
+  --white:#FFFFFF;
+  --line: rgba(0,116,204,0.22);
+  --radius: 4px;
+
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Inter',sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+
+.mmc-services-page *{ box-sizing:border-box; }
+.mmc-services-page h1,
+.mmc-services-page h2,
+.mmc-services-page h3,
+.mmc-services-page h4{
+  font-family:'Fraunces',serif;
+  margin:0;
+  font-weight:600;
+  letter-spacing:-0.01em;
+}
+.mmc-services-page p{ line-height:1.7; color:var(--ink-light); margin:0; }
+.mmc-services-page .mono{
+  font-family:'IBM Plex Mono',monospace;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  font-size:0.72rem;
+}
+.mmc-services-page a{ color:inherit; text-decoration:none; }
+.mmc-services-page .container{ max-width:1140px; margin:0 auto; padding:0 32px; }
+
+.mmc-services-page .btn-primary{
+  background:var(--coral); color:var(--white); padding:14px 26px;
+  border-radius:var(--radius); font-weight:600; font-size:0.88rem;
+  display:inline-flex; align-items:center; gap:10px;
+  transition:transform .15s ease;
+}
+.mmc-services-page .btn-primary:hover{ transform:translateX(3px); }
+
+.mmc-eyebrow{
+  display:inline-flex; align-items:center; gap:10px;
+  color:var(--brass); margin-bottom:22px;
+}
+.mmc-eyebrow::before{ content:''; width:24px; height:1px; background:var(--brass); }
+
+/* ---------- HERO ---------- */
+.mmc-svc-hero{ position:relative; overflow:hidden; background:var(--ink); color:var(--paper); padding:80px 0 70px; }
+.mmc-svc-hero-contours{ position:absolute; inset:0; opacity:0.35; pointer-events:none; }
+.mmc-svc-hero-inner{ position:relative; z-index:2; }
+.mmc-svc-hero h1{
+  font-size:clamp(2.1rem, 4.4vw, 3.2rem); color:var(--white); margin-bottom:18px;
+}
+.mmc-svc-hero-inner p{ max-width:52ch; color:#C9D6DC; font-size:1.02rem; }
+
+/* ---------- SERVICE ROUTE LIST ---------- */
+.mmc-svc-section{ padding:80px 0 90px; background:var(--paper); }
+
+.mmc-services-list{ position:relative; max-width:880px; margin:0 auto; }
+
+.mmc-services-line{
+  position:absolute; top:8px; bottom:8px; left:27px; width:2px;
+  background-image:linear-gradient(var(--ink-light) 0 6px, transparent 6px 14px);
+  background-size:2px 14px;
+  z-index:0;
+}
+
+.mmc-service-row{
+  position:relative; z-index:1; display:flex; align-items:flex-start; gap:22px; margin-bottom:22px;
+}
+
+.mmc-service-index{
+  width:56px; height:56px; border-radius:50%; flex-shrink:0;
+  display:flex; align-items:center; justify-content:center;
+  font-size:0.82rem; font-weight:600; color:var(--white);
+  background:var(--ink); border:3px solid var(--paper);
+}
+.mmc-service-row--alt .mmc-service-index{ background:var(--coral); }
+
+.mmc-service-card{
+  flex:1; display:flex; gap:18px; padding:24px 26px;
+  background:var(--white); border:1px solid var(--line); border-radius:var(--radius);
+}
+.mmc-service-row-icon{
+  font-size:1.7rem; flex-shrink:0; width:52px; height:52px;
+  background:var(--paper-2); border-radius:12px;
+  display:flex; align-items:center; justify-content:center;
+}
+.mmc-service-row-body h3{ margin:0 0 8px; font-size:1.08rem; color:var(--ink); }
+.mmc-service-row-body p{ margin:0 0 12px; font-size:0.88rem; color:var(--ink-light); line-height:1.6; }
+.mmc-service-row-link{ color:var(--coral); font-weight:700; font-size:0.85rem; }
+.mmc-service-row-link:hover{ color:var(--brass); }
+
+/* ---------- CTA ---------- */
+.mmc-svc-cta{ background:var(--brass); padding:70px 0; text-align:center; }
+.mmc-svc-cta h2{ font-size:2rem; color:var(--ink); margin-bottom:16px; }
+.mmc-svc-cta p{ color:var(--ink-2); margin-bottom:30px; }
+.mmc-svc-cta .btn-primary{ background:var(--ink); }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:700px){
+  .mmc-services-line{ left:21px; }
+  .mmc-service-index{ width:44px; height:44px; font-size:0.72rem; }
+  .mmc-service-row{ gap:14px; margin-bottom:16px; }
+  .mmc-service-card{ flex-direction:column; padding:18px; gap:12px; }
+  .mmc-service-row-icon{ width:42px; height:42px; font-size:1.4rem; }
+}

@@ -1,0 +1,219 @@
+  /* ===========================================================
+    MapMyCareer360 — About page
+    Concept: cartography / route-mapping, matched to the brand name.
+    Import Fraunces, Inter and IBM Plex Mono in your global stylesheet
+    or index.html, e.g.:
+    https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap
+    =========================================================== */
+
+  .mmc-about{
+    --ink:#15253B;
+    --ink-2:#1D3A5C;
+    --ink-light:#51677C;
+    --paper:#F7FAFC;
+    --paper-2:#EAF2FB;
+    --brass:#0074CC;
+    --coral:#F57C00;
+    --sage:#2E6690;
+    --white:#FFFFFF;
+    --line: rgba(0,116,204,0.22);
+    --radius: 4px;
+
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .mmc-about *{ box-sizing:border-box; }
+  .mmc-about h1,
+  .mmc-about h2,
+  .mmc-about h3,
+  .mmc-about h4{
+    font-family:'Fraunces',serif;
+    margin:0;
+    font-weight:600;
+    letter-spacing:-0.01em;
+  }
+  .mmc-about p{ line-height:1.7; color:var(--ink-light); margin:0; }
+  .mmc-about .mono{
+    font-family:'IBM Plex Mono',monospace;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    font-size:0.72rem;
+  }
+  .mmc-about a{ color:inherit; text-decoration:none; }
+  .mmc-about .container{ max-width:1140px; margin:0 auto; padding:0 32px; }
+
+  .mmc-about .btn-primary{
+    background:var(--coral); color:var(--white); padding:14px 26px;
+    border-radius:var(--radius); font-weight:600; font-size:0.88rem;
+    display:inline-flex; align-items:center; gap:10px;
+    transition:transform .15s ease;
+  }
+  .mmc-about .btn-primary:hover{ transform:translateX(3px); }
+
+  /* ---------- HERO ---------- */
+  .mmc-hero{
+    position:relative; overflow:hidden;
+    background:var(--ink);
+    color:var(--paper);
+    padding:110px 0 90px;
+  }
+  .mmc-hero-contours{
+    position:absolute; inset:0; opacity:0.35; pointer-events:none;
+  }
+  .mmc-hero-inner{ position:relative; z-index:2; }
+  .mmc-eyebrow{
+    display:inline-flex; align-items:center; gap:10px;
+    color:var(--brass); margin-bottom:26px;
+  }
+  .mmc-eyebrow::before{
+    content:''; width:26px; height:1px; background:var(--brass);
+  }
+  .mmc-hero h1{
+    font-size:clamp(2.4rem, 5vw, 4.1rem);
+    color:var(--white);
+    max-width:14ch;
+    line-height:1.05;
+  }
+  .mmc-hero h1 em{ font-style:italic; color:var(--brass); font-weight:500; }
+  .mmc-hero-sub{
+    margin-top:26px; max-width:46ch;
+    color:#C9D6DC; font-size:1.05rem;
+  }
+  .mmc-hero-actions{ margin-top:38px; display:flex; gap:18px; align-items:center; flex-wrap:wrap; }
+  .mmc-hero-coords{ color:#8FA6B0; }
+
+  /* ---------- ROUTE / PROCESS STRIP ---------- */
+  .mmc-route{
+    background:var(--paper-2);
+    padding:80px 0 90px;
+    position:relative;
+  }
+  .mmc-section-head{ max-width:60ch; margin-bottom:64px; }
+  .mmc-section-head--tight{ margin-bottom:44px; }
+  .mmc-section-head .mono{ color:var(--sage); }
+  .mmc-section-head h2{ font-size:2rem; margin-top:14px; }
+  .mmc-section-head--tight h2{ font-size:1.8rem; }
+
+  .mmc-route-track{
+    position:relative;
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:0;
+  }
+  .mmc-route-line{
+    position:absolute; top:19px; left:0; right:0; height:2px;
+    background-image:linear-gradient(to right, var(--ink-light) 0 6px, transparent 6px 14px);
+    background-size:14px 2px;
+    z-index:0;
+  }
+  .mmc-route-stop{ position:relative; z-index:1; padding-right:18px; }
+  .mmc-route-pin{
+    width:38px; height:38px; border-radius:50%;
+    background:var(--ink); border:3px solid var(--paper-2);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--brass); font-family:'IBM Plex Mono',monospace; font-size:0.72rem; font-weight:500;
+    margin-bottom:22px;
+  }
+  .mmc-route-stop:nth-child(2) .mmc-route-pin{ background:var(--coral); color:var(--white); }
+  .mmc-route-stop h4{ font-size:0.98rem; margin-bottom:8px; }
+  .mmc-route-stop p{ font-size:0.83rem; }
+
+  /* ---------- STORY ---------- */
+  .mmc-story{ padding:100px 0; background:var(--paper); }
+  .mmc-story-grid{
+    display:grid; grid-template-columns:0.85fr 1.15fr; gap:64px; align-items:start;
+  }
+  .mmc-label{ color:var(--sage); margin-bottom:16px; display:block; }
+  .mmc-label--sage{ color:var(--sage); }
+  .mmc-story h2{ font-size:2.1rem; margin-bottom:22px; }
+  .mmc-story-copy p{ margin-bottom:18px; font-size:1.02rem; }
+  .mmc-story-copy strong{ color:var(--ink); font-weight:600; }
+
+  .mmc-waypoint-card{
+    border:1px solid var(--line);
+    background:var(--white);
+    border-radius:var(--radius);
+    padding:30px;
+  }
+  .mmc-waypoint-card + .mmc-waypoint-card{ margin-top:20px; }
+  .mmc-waypoint-card .mono{ color:var(--brass); margin-bottom:10px; display:block; }
+  .mmc-waypoint-card h3{ font-size:1.25rem; margin-bottom:12px; }
+  .mmc-waypoint-card p{ font-size:0.92rem; }
+
+  /* ---------- VALUES ---------- */
+  .mmc-values{ padding:90px 0; background:var(--paper); }
+  .mmc-values-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+    background:var(--line); border:1px solid var(--line);
+  }
+  .mmc-value-cell{ background:var(--paper); padding:32px 26px; }
+  .mmc-value-cell .mono{ color:var(--coral); margin-bottom:14px; display:block; }
+  .mmc-value-cell h4{ font-size:1.02rem; margin-bottom:10px; }
+  .mmc-value-cell p{ font-size:0.85rem; }
+
+  /* ---------- TEAM ---------- */
+  .mmc-team{ padding:100px 0; background:var(--ink); color:var(--paper); }
+  .mmc-team-head{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    margin-bottom:60px; flex-wrap:wrap; gap:20px;
+  }
+  .mmc-team-head .mono{ color:var(--brass); }
+  .mmc-team-head h2{ font-size:2.1rem; color:var(--white); margin-top:12px; max-width:16ch; }
+  .mmc-team-head p{ max-width:34ch; color:#9FB4BE; font-size:0.92rem; }
+
+  .mmc-team-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:30px; }
+  .mmc-agent-card{
+    background:var(--ink-2);
+    border:1px solid rgba(200,155,60,0.25);
+    border-radius:var(--radius);
+    padding:34px 26px 30px;
+    text-align:center;
+    position:relative;
+  }
+  .mmc-agent-badge{
+    width:104px; height:104px; margin:0 auto 22px;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Fraunces',serif; font-size:2rem; font-weight:600;
+    color:var(--ink);
+  }
+  .mmc-agent-badge--brass{ background:var(--brass); }
+  .mmc-agent-badge--coral{ background:var(--coral); color:var(--white); }
+  .mmc-agent-badge--sage{ background:var(--sage); color:var(--white); }
+  .mmc-agent-pin{
+    position:absolute; top:-6px; right:calc(50% - 46px);
+    width:20px; height:20px; border-radius:50%;
+    background:var(--paper); border:2px solid var(--ink-2);
+  }
+  .mmc-agent-card h4{ color:var(--white); font-size:1.1rem; margin-bottom:6px; }
+  .mmc-agent-role{ font-size:0.8rem; color:var(--brass); margin-bottom:16px; }
+  .mmc-agent-coords{ font-size:0.7rem; color:#7C93A0; letter-spacing:0.06em; }
+
+  /* ---------- CTA ---------- */
+  .mmc-cta{
+    background:var(--brass);
+    padding:70px 0;
+    text-align:center;
+  }
+  .mmc-cta h2{ font-size:2rem; color:var(--ink); margin-bottom:16px; }
+  .mmc-cta p{ color:var(--ink-2); margin-bottom:30px; }
+  .mmc-cta .btn-primary{ background:var(--ink); }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:900px){
+    .mmc-route-track{ grid-template-columns:1fr; gap:36px; }
+    .mmc-route-line{ display:none; }
+  }
+  @media (max-width:860px){
+    .mmc-story-grid{ grid-template-columns:1fr; }
+  }
+  @media (max-width:800px){
+    .mmc-values-grid{ grid-template-columns:1fr 1fr; }
+    .mmc-team-grid{ grid-template-columns:1fr; }
+  }
+  @media (max-width:520px){
+    .mmc-values-grid{ grid-template-columns:1fr; }
+  }
