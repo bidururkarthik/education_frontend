@@ -7,7 +7,12 @@ import '../Login/Login.css';
 export default function Register() {
   const [params] = useSearchParams();
   const referredBy = params.get('ref') || '';
-  const [form, setForm] = useState({ fullName: '', email: '', phone: '', password: '' });
+  const [form, setForm] = useState({
+    fullName: '',
+    email: params.get('email') || '',
+    phone: '',
+    password: '',
+  });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const { login } = useAuth();

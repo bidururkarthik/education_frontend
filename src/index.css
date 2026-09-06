@@ -2,33 +2,37 @@
   /* Colors taken from the MapMyCareer360 logo */
   --mmc-blue: #0d6dad;
   --mmc-blue-dark: #084a79;
-  --mmc-blue-light: #eaf3fb;          /* NEW — light blue tint, for hover/focus backgrounds */
+  --mmc-blue-light: #eaf3fb;
   --mmc-orange: #f7941d;
   --mmc-orange-dark: #d97a08;
-  --mmc-orange-light: #fff4e0;        /* NEW — reuses the badge-moderate tint as a shared variable */
+  --mmc-orange-light: #fff4e0;
   --mmc-navy: #253746;
-  --mmc-bg: #f6f9fc;
+  --mmc-ink: #111827;
+  --mmc-bg: #ffffff;
   --mmc-white: #ffffff;
-  --mmc-border: #e3e9f0;
+  --mmc-border: #e6ebf0;
   --mmc-success: #1f9d55;
-  --mmc-success-bg: #e4f8ec;          /* NEW — reuses the badge-safe tint as a shared variable */
+  --mmc-success-bg: #e4f8ec;
   --mmc-danger: #d64545;
-  --mmc-danger-bg: #fdeaea;           /* NEW — reuses the badge-dream / error-state tint */
-  --mmc-muted: #6b7c8c;               /* NEW — single shared gray for secondary text site-wide */
-  --mmc-shadow: 0 8px 24px rgba(13, 109, 173, 0.10);
-  --mmc-radius: 14px;
+  --mmc-danger-bg: #fdeaea;
+  --mmc-muted: #6b7c8c;
+  --mmc-highlight: #ffe08a;
+  --mmc-shadow: 0 10px 30px rgba(17, 24, 39, 0.06);
+  --mmc-shadow-lift: 0 18px 40px rgba(17, 24, 39, 0.10);
+  --mmc-radius: 18px;
+  --mmc-radius-lg: 28px;
   --mmc-font: 'Poppins', 'Segoe UI', sans-serif;
   --mmc-font-serif: 'Merriweather', serif;
-  --mmc-font-mono: 'IBM Plex Mono', 'Courier New', monospace; /* NEW — used for eyebrow/label text on predictor & services pages */
+  --mmc-font-mono: 'IBM Plex Mono', 'Courier New', monospace;
 }
 
 * { box-sizing: border-box; }
 
-html, body {
+html, body, #root {
   margin: 0;
   padding: 0;
   font-family: var(--mmc-font);
-  background: var(--mmc-bg);
+  background: #fff;
   color: var(--mmc-navy);
   scroll-behavior: smooth;
   /* Safety net: stops any stray element (long words, fixed-width widgets,
@@ -41,6 +45,17 @@ a { text-decoration: none; color: inherit; }
 ul { list-style: none; margin: 0; padding: 0; }
 button { font-family: var(--mmc-font); cursor: pointer; }
 img { max-width: 100%; display: block; }
+
+.mmc-public-main {
+  min-height: 60vh;
+  padding-top: 72px;
+}
+
+@media (max-width: 1180px) {
+  .mmc-public-main {
+    padding-top: 64px;
+  }
+}
 
 .container {
   width: 100%;
@@ -59,10 +74,24 @@ img { max-width: 100%; display: block; }
   border: none;
   font-weight: 600;
   font-size: 0.95rem;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease;
+  transition:
+    transform var(--mmc-duration-hover, 250ms) var(--mmc-ease, cubic-bezier(0.22, 1, 0.36, 1)),
+    box-shadow var(--mmc-duration-hover, 250ms) var(--mmc-ease, cubic-bezier(0.22, 1, 0.36, 1)),
+    background var(--mmc-duration-hover, 250ms) var(--mmc-ease, cubic-bezier(0.22, 1, 0.36, 1)),
+    color var(--mmc-duration-hover, 250ms) var(--mmc-ease, cubic-bezier(0.22, 1, 0.36, 1)),
+    border-color var(--mmc-duration-hover, 250ms) var(--mmc-ease, cubic-bezier(0.22, 1, 0.36, 1));
 }
-.btn:hover { transform: translateY(-2px); }
+.btn:hover { transform: translateY(-2px) scale(1.02); }
+.btn:hover .mmc-outline-icon { transform: translateX(3px); }
+.btn:active { transform: translateY(0) scale(0.99); }
+.btn .mmc-outline-icon {
+  transition: transform var(--mmc-duration-micro, 180ms) var(--mmc-ease, cubic-bezier(0.22, 1, 0.36, 1));
+}
 .btn:disabled { opacity: 0.65; cursor: not-allowed; transform: none; }
+.btn:focus-visible {
+  outline: 2px solid var(--mmc-blue);
+  outline-offset: 3px;
+}
 
 .btn-primary {
   background: linear-gradient(135deg, var(--mmc-orange), var(--mmc-orange-dark));
@@ -91,17 +120,35 @@ img { max-width: 100%; display: block; }
   background: var(--mmc-blue-light);
 }
 
+.btn-ink {
+  background: var(--mmc-ink);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(17, 24, 39, 0.18);
+}
+.btn-ink:hover:not(:disabled) {
+  background: #000;
+  box-shadow: 0 12px 24px rgba(17, 24, 39, 0.22);
+}
+
+.mmc-mark {
+  background: linear-gradient(transparent 58%, var(--mmc-highlight) 58%);
+  padding: 0 3px;
+  border-radius: 4px;
+}
+
 .section {
-  padding: 70px 0;
+  padding: 88px 0;
 }
 .section-title {
   text-align: center;
   margin-bottom: 42px;
 }
 .section-title h2 {
-  font-size: 2rem;
-  color: var(--mmc-navy);
-  margin: 0 0 10px;
+  font-size: 2.35rem;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  color: var(--mmc-ink);
+  margin: 0 0 12px;
 }
 .section-title span {
   color: var(--mmc-orange);
@@ -112,11 +159,28 @@ img { max-width: 100%; display: block; }
   margin: 0 auto;
 }
 
+.mmc-section-eyebrow {
+  margin: 0 0 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #8b93a0;
+}
+
+.mmc-section-eyebrow--light {
+  color: rgba(255, 255, 255, 0.78);
+}
+
 .card {
   background: var(--mmc-white);
   border-radius: var(--mmc-radius);
   box-shadow: var(--mmc-shadow);
-  border: 1px solid var(--mmc-border);
+  border: 1px solid rgba(227, 233, 240, 0.8);
+  transition:
+    transform var(--mmc-duration-hover, 250ms) var(--mmc-ease, cubic-bezier(0.22, 1, 0.36, 1)),
+    box-shadow var(--mmc-duration-hover, 250ms) var(--mmc-ease, cubic-bezier(0.22, 1, 0.36, 1)),
+    border-color var(--mmc-duration-hover, 250ms) var(--mmc-ease, cubic-bezier(0.22, 1, 0.36, 1));
 }
 
 .badge {
@@ -153,11 +217,18 @@ img { max-width: 100%; display: block; }
   font-size: 0.95rem;
   background: #fff;
 }
+.form-group input,
+.form-group select,
+.form-group textarea {
+  transition: border-color var(--mmc-duration-hover, 250ms) var(--mmc-ease, cubic-bezier(0.22, 1, 0.36, 1)),
+    box-shadow var(--mmc-duration-hover, 250ms) var(--mmc-ease, cubic-bezier(0.22, 1, 0.36, 1));
+}
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
   border-color: var(--mmc-blue);
+  box-shadow: 0 0 0 4px rgba(13, 109, 173, 0.12);
 }
 
 .table-wrap { overflow-x: auto; }
@@ -168,7 +239,7 @@ table th, table td {
   text-align: left;
   font-size: 0.9rem;
 }
-table th { background: #f0f5fa; color: var(--mmc-navy); font-weight: 700; }
+table th { background: #fff; color: var(--mmc-navy); font-weight: 700; }
 
 .empty-state { text-align: center; padding: 40px 20px; color: var(--mmc-muted); }
 .loading-state { text-align: center; padding: 40px 20px; color: var(--mmc-blue); font-weight: 600; }

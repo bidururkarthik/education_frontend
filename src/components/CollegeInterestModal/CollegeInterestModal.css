@@ -4,6 +4,7 @@
   display: flex; align-items: center; justify-content: center;
   z-index: 500;
   padding: 20px;
+  animation: mmc-backdrop-in var(--mmc-duration-micro) var(--mmc-ease) both;
 }
 .mmc-interest-modal {
   background: #fff;
@@ -13,6 +14,7 @@
   max-width: 420px;
   max-height: 88vh;
   overflow-y: auto;
+  animation: mmc-modal-in var(--mmc-duration-enter) var(--mmc-ease) both;
 }
 .mmc-interest-modal h3 { margin: 0 0 8px; }
 .mmc-interest-sub { color: #6b7c8c; font-size: 0.88rem; margin: 0 0 20px; }

@@ -1,123 +1,240 @@
-/* ===========================================================
-   MapMyCareer360 — Services page
-   Same cartography / route-mapping language as the About page.
-   Services are shown in the order a student actually moves
-   through them, connected by a single dashed line with numbered
-   waypoints - already close to the About page's route pattern.
-   Fonts (same import as About.css): Fraunces, Inter, IBM Plex Mono.
-   =========================================================== */
-
-.mmc-services-page{
-  --ink:#15253B;
-  --ink-2:#1D3A5C;
-  --ink-light:#51677C;
-  --paper:#F7FAFC;
-  --paper-2:#EAF2FB;
-  --brass:#0074CC;
-  --coral:#F57C00;
-  --sage:#2E6690;
-  --white:#FFFFFF;
-  --line: rgba(0,116,204,0.22);
-  --radius: 4px;
-
-  background:var(--paper);
-  color:var(--ink);
-  font-family:'Inter',sans-serif;
-  -webkit-font-smoothing:antialiased;
+.mmc-services-page {
+  background: #fff;
+  color: #111;
 }
 
-.mmc-services-page *{ box-sizing:border-box; }
-.mmc-services-page h1,
-.mmc-services-page h2,
-.mmc-services-page h3,
-.mmc-services-page h4{
-  font-family:'Fraunces',serif;
-  margin:0;
-  font-weight:600;
-  letter-spacing:-0.01em;
-}
-.mmc-services-page p{ line-height:1.7; color:var(--ink-light); margin:0; }
-.mmc-services-page .mono{
-  font-family:'IBM Plex Mono',monospace;
-  letter-spacing:0.08em;
-  text-transform:uppercase;
-  font-size:0.72rem;
-}
-.mmc-services-page a{ color:inherit; text-decoration:none; }
-.mmc-services-page .container{ max-width:1140px; margin:0 auto; padding:0 32px; }
-
-.mmc-services-page .btn-primary{
-  background:var(--coral); color:var(--white); padding:14px 26px;
-  border-radius:var(--radius); font-weight:600; font-size:0.88rem;
-  display:inline-flex; align-items:center; gap:10px;
-  transition:transform .15s ease;
-}
-.mmc-services-page .btn-primary:hover{ transform:translateX(3px); }
-
-.mmc-eyebrow{
-  display:inline-flex; align-items:center; gap:10px;
-  color:var(--brass); margin-bottom:22px;
-}
-.mmc-eyebrow::before{ content:''; width:24px; height:1px; background:var(--brass); }
-
-/* ---------- HERO ---------- */
-.mmc-svc-hero{ position:relative; overflow:hidden; background:var(--ink); color:var(--paper); padding:80px 0 70px; }
-.mmc-svc-hero-contours{ position:absolute; inset:0; opacity:0.35; pointer-events:none; }
-.mmc-svc-hero-inner{ position:relative; z-index:2; }
-.mmc-svc-hero h1{
-  font-size:clamp(2.1rem, 4.4vw, 3.2rem); color:var(--white); margin-bottom:18px;
-}
-.mmc-svc-hero-inner p{ max-width:52ch; color:#C9D6DC; font-size:1.02rem; }
-
-/* ---------- SERVICE ROUTE LIST ---------- */
-.mmc-svc-section{ padding:80px 0 90px; background:var(--paper); }
-
-.mmc-services-list{ position:relative; max-width:880px; margin:0 auto; }
-
-.mmc-services-line{
-  position:absolute; top:8px; bottom:8px; left:27px; width:2px;
-  background-image:linear-gradient(var(--ink-light) 0 6px, transparent 6px 14px);
-  background-size:2px 14px;
-  z-index:0;
+.mmc-svc-banner {
+  position: relative;
+  text-align: center;
+  padding: 12px 20px 36px;
+  overflow: hidden;
 }
 
-.mmc-service-row{
-  position:relative; z-index:1; display:flex; align-items:flex-start; gap:22px; margin-bottom:22px;
+.mmc-svc-banner-glow {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 520px;
+  height: 280px;
+  background: radial-gradient(ellipse at center, rgba(182, 230, 74, 0.45) 0%, rgba(255, 236, 120, 0.18) 40%, transparent 70%);
+  pointer-events: none;
 }
 
-.mmc-service-index{
-  width:56px; height:56px; border-radius:50%; flex-shrink:0;
-  display:flex; align-items:center; justify-content:center;
-  font-size:0.82rem; font-weight:600; color:var(--white);
-  background:var(--ink); border:3px solid var(--paper);
+.mmc-svc-banner-grid {
+  position: absolute;
+  inset: 0 10% 42%;
+  background-image:
+    linear-gradient(rgba(17, 24, 39, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 24, 39, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(ellipse at 50% 20%, #000 20%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 20%, #000 20%, transparent 75%);
+  pointer-events: none;
 }
-.mmc-service-row--alt .mmc-service-index{ background:var(--coral); }
 
-.mmc-service-card{
-  flex:1; display:flex; gap:18px; padding:24px 26px;
-  background:var(--white); border:1px solid var(--line); border-radius:var(--radius);
+.mmc-svc-orbit {
+  position: relative;
+  height: 280px;
+  max-width: 720px;
+  margin: 0 auto 8px;
 }
-.mmc-service-row-icon{
-  font-size:1.7rem; flex-shrink:0; width:52px; height:52px;
-  background:var(--paper-2); border-radius:12px;
-  display:flex; align-items:center; justify-content:center;
+
+.mmc-svc-arc {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 8px;
+  width: 100%;
+  height: 240px;
+  pointer-events: none;
 }
-.mmc-service-row-body h3{ margin:0 0 8px; font-size:1.08rem; color:var(--ink); }
-.mmc-service-row-body p{ margin:0 0 12px; font-size:0.88rem; color:var(--ink-light); line-height:1.6; }
-.mmc-service-row-link{ color:var(--coral); font-weight:700; font-size:0.85rem; }
-.mmc-service-row-link:hover{ color:var(--brass); }
 
-/* ---------- CTA ---------- */
-.mmc-svc-cta{ background:var(--brass); padding:70px 0; text-align:center; }
-.mmc-svc-cta h2{ font-size:2rem; color:var(--ink); margin-bottom:16px; }
-.mmc-svc-cta p{ color:var(--ink-2); margin-bottom:30px; }
-.mmc-svc-cta .btn-primary{ background:var(--ink); }
+.mmc-svc-hub {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  width: 88px;
+  height: 88px;
+  border-radius: 22px;
+  background: #0d4d3e;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 16px 36px rgba(13, 77, 62, 0.28);
+  z-index: 2;
+  animation: mmc-hub-pulse 4.5s var(--mmc-ease) infinite;
+}
 
-/* ---------- RESPONSIVE ---------- */
-@media (max-width:700px){
-  .mmc-services-line{ left:21px; }
-  .mmc-service-index{ width:44px; height:44px; font-size:0.72rem; }
-  .mmc-service-row{ gap:14px; margin-bottom:16px; }
-  .mmc-service-card{ flex-direction:column; padding:18px; gap:12px; }
-  .mmc-service-row-icon{ width:42px; height:42px; font-size:1.4rem; }
+.mmc-svc-hub img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 14px;
+  padding: 6px;
+}
+
+@keyframes mmc-hub-pulse {
+  0%, 100% { transform: translateX(-50%) scale(1); }
+  50% { transform: translateX(-50%) scale(1.04); }
+}
+
+.mmc-svc-node {
+  position: absolute;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  box-shadow: 0 10px 22px rgba(17, 24, 39, 0.1);
+  color: #1f5c4a;
+  z-index: 3;
+  transition: transform var(--mmc-duration-hover) var(--mmc-ease);
+}
+
+.mmc-svc-node:hover { transform: scale(1.08); }
+
+.mmc-svc-node--lime { color: #3a4a12; background: #eef8c8; }
+.mmc-svc-node--mint { color: #1f5c4a; background: #d8efe4; }
+.mmc-svc-node--sky { color: #0d4d3e; background: #e7f4ee; }
+.mmc-svc-node--ink { color: #111; background: #f3f5f4; }
+
+.mmc-svc-node--1 { left: 4%; top: 58%; }
+.mmc-svc-node--2 { left: 14%; top: 28%; }
+.mmc-svc-node--3 { left: 30%; top: 8%; }
+.mmc-svc-node--4 { left: calc(50% - 26px); top: 0; }
+.mmc-svc-node--4:hover { transform: scale(1.08); }
+.mmc-svc-node--5 { right: 30%; top: 8%; }
+.mmc-svc-node--6 { right: 14%; top: 28%; }
+.mmc-svc-node--7 { right: 4%; top: 58%; }
+
+.mmc-svc-banner h1 {
+  position: relative;
+  z-index: 1;
+  margin: 8px auto 12px;
+  max-width: 16ch;
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+}
+
+.mmc-svc-banner h1 span { color: #8b93a0; }
+
+.mmc-svc-banner > p {
+  position: relative;
+  z-index: 1;
+  margin: 0 auto 22px;
+  max-width: 46ch;
+  color: #6b7580;
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.mmc-svc-banner .mmc-why-cta {
+  position: relative;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mmc-svc-hub,
+  .mmc-svc-node { animation: none !important; }
+}
+
+@media (max-width: 700px) {
+  .mmc-svc-orbit { height: 210px; }
+  .mmc-svc-hub { width: 72px; height: 72px; }
+  .mmc-svc-hub img { width: 52px; height: 52px; }
+  .mmc-svc-node { width: 42px; height: 42px; }
+}
+
+.mmc-svc-section {
+  padding: 28px 0 64px;
+}
+
+.mmc-svc-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 28px 22px;
+}
+
+.mmc-svc-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: inherit;
+}
+
+.mmc-svc-card.is-in:hover .mmc-svc-frame {
+  transform: translateY(-4px);
+  border-color: #1f5c4a;
+}
+
+.mmc-svc-frame {
+  width: 100%;
+  aspect-ratio: 1;
+  background: transparent;
+  border: 1.5px solid #1f5c4a;
+  border-radius: 22px;
+  padding: 18px;
+  box-shadow: none;
+  margin-bottom: 14px;
+  transition:
+    transform var(--mmc-duration-hover) var(--mmc-ease),
+    border-color var(--mmc-duration-hover) var(--mmc-ease);
+}
+
+.mmc-svc-photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  background: transparent;
+  display: grid;
+  place-items: center;
+  color: #1f5c4a;
+}
+
+.mmc-svc-card strong {
+  display: block;
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+
+.mmc-svc-card span {
+  display: block;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: #6b7580;
+  max-width: 24ch;
+}
+
+.mmc-svc-cta {
+  text-align: center;
+  padding: 0 0 72px;
+}
+
+.mmc-svc-cta h2 {
+  margin: 0 0 8px;
+  font-size: 1.6rem;
+  letter-spacing: -0.03em;
+}
+
+.mmc-svc-cta p {
+  margin: 0 0 20px;
+  color: #6b7580;
+}
+
+.mmc-services-page .mmc-why-cta {
+  display: inline-flex;
+}
+
+@media (max-width: 980px) {
+  .mmc-svc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 560px) {
+  .mmc-svc-grid { grid-template-columns: 1fr; max-width: 320px; }
 }
