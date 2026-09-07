@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import MotionReveal, { staggerDelay } from '../../motion/MotionReveal.jsx';
+import ScrollCard from '../../motion/ScrollCard.jsx';
+import { staggerDelay } from '../../motion/MotionReveal.jsx';
 import OutlineIcon from '../../components/icons/OutlineIcon.jsx';
 import { formatBlogDate } from './blogData.js';
 
 export default function BlogCard({ post, index = 0 }) {
   return (
-    <MotionReveal as={Link} to={`/blog/${post.slug}`} className="mmc-blog-card" delay={staggerDelay(index, 50)}>
+    <ScrollCard as={Link} to={`/blog/${post.slug}`} className="mmc-blog-card" index={index} delay={staggerDelay(index, 90)}>
       <div className="mmc-blog-card-media">
         <img src={post.image} alt="" />
       </div>
@@ -22,6 +23,6 @@ export default function BlogCard({ post, index = 0 }) {
           Read more <OutlineIcon name="arrow" size={16} />
         </span>
       </div>
-    </MotionReveal>
+    </ScrollCard>
   );
 }

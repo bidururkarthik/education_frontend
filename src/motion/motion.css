@@ -209,15 +209,15 @@
   display: inline-flex;
   align-items: center;
   padding: 6px 12px;
-  border: 1px solid #dbe7de;
+  border: 1px solid var(--mmc-border);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.92);
-  color: #1f5c4a;
+  color: var(--mmc-blue);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.04em;
   white-space: nowrap;
-  box-shadow: 0 8px 18px rgba(31, 92, 74, 0.06);
+  box-shadow: 0 8px 18px rgba(1, 116, 204, 0.08);
   transform: translate3d(
       calc(var(--mmc-px, 0) * var(--mmc-pill-x, 10px)),
       calc(var(--mmc-py, 0) * var(--mmc-pill-y, 8px)),
@@ -263,16 +263,16 @@
 }
 
 .mmc-flow-ring {
-  stroke: #c5d9ce;
+  stroke: var(--mmc-blue-soft);
   stroke-width: 1;
   fill: none;
 }
 
-.mmc-flow-ring--2 { stroke: #d7e6dc; }
-.mmc-flow-ring--3 { stroke: #e7f0ea; }
+.mmc-flow-ring--2 { stroke: var(--mmc-border); }
+.mmc-flow-ring--3 { stroke: var(--mmc-blue-light); }
 
 .mmc-flow-dots circle {
-  fill: #76c72d;
+  fill: var(--mmc-orange);
   opacity: 0.55;
 }
 

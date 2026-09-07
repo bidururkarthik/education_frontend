@@ -5,8 +5,8 @@ import OutlineIcon from '../icons/OutlineIcon.jsx';
 import AnimatedText from '../../motion/AnimatedText.jsx';
 import CursorPills from '../../motion/CursorPills.jsx';
 import CenterFlow from '../../motion/CenterFlow.jsx';
-import ParallaxElement from '../../motion/ParallaxElement.jsx';
 import './HeroHome.css';
+import SplineHome from './SplineHome.jsx';
 
 const HERO_PILLS = [
   { to: '/career-assessment', label: 'Assessment', icon: 'compass' },
@@ -98,15 +98,7 @@ export default function HeroHome() {
           <CursorPills />
           <CenterFlow className="mmc-hero-flow" />
           <div className="mmc-hero-figure">
-            <ParallaxElement speed={0.07}>
-              <img
-                src="/images/hero-journey.png"
-                alt="Student journey from learning to a professional career"
-                className="mmc-hero-campus"
-                fetchPriority="high"
-                decoding="async"
-              />
-            </ParallaxElement>
+            <SplineHome />
           </div>
         </div>
       </div>

@@ -14,18 +14,18 @@
   font-size: clamp(1.7rem, 3.2vw, 2.5rem);
   line-height: 1.15;
   letter-spacing: -0.035em;
-  color: #111;
+  color: var(--mmc-dark);
   max-width: 14ch;
 }
 
 .mmc-why-copy h2 span {
-  color: #8b93a0;
+  color: var(--mmc-muted);
 }
 
 .mmc-why-copy p {
   margin: 0 0 26px;
   max-width: 42ch;
-  color: #6b7580;
+  color: var(--mmc-muted);
   font-size: 1rem;
   line-height: 1.6;
 }
@@ -34,8 +34,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: #1f5c4a;
-  color: #fff;
+  background: var(--mmc-orange);
+  color: var(--mmc-white);
   font-weight: 700;
   font-size: 0.78rem;
   letter-spacing: 0.1em;
@@ -46,12 +46,12 @@
 }
 
 .mmc-why-cta:hover {
-  background: #163f34;
+  background: var(--mmc-orange-dark);
   transform: translateY(-1px);
 }
 
 .mmc-why-stack {
-  border: 1px solid #eceff3;
+  border: 1px solid var(--mmc-border);
   padding: 8px 20px;
 }
 
@@ -61,7 +61,7 @@
   align-items: center;
   gap: 14px;
   padding: 16px 0;
-  border-bottom: 1px solid #f0f2f5;
+  border-bottom: 1px solid var(--mmc-border);
 }
 
 .mmc-why-person:last-child {
@@ -75,8 +75,8 @@
   place-items: center;
   font-size: 0.75rem;
   font-weight: 800;
-  background: #eef6ea;
-  color: #0d4d3e;
+  background: var(--mmc-blue-light);
+  color: var(--mmc-dark);
 }
 
 .mmc-why-person strong {
@@ -87,11 +87,11 @@
 .mmc-why-person small {
   display: block;
   font-size: 0.78rem;
-  color: #8b93a0;
+  color: var(--mmc-muted);
 }
 
 .mmc-why-more {
-  color: #c5ccd3;
+  color: var(--mmc-muted);
   letter-spacing: 2px;
   font-weight: 700;
 }

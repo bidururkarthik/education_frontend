@@ -1,24 +1,43 @@
 :root {
-  /* Colors taken from the MapMyCareer360 logo */
-  --mmc-blue: #0d6dad;
-  --mmc-blue-dark: #084a79;
-  --mmc-blue-light: #eaf3fb;
-  --mmc-orange: #f7941d;
-  --mmc-orange-dark: #d97a08;
-  --mmc-orange-light: #fff4e0;
-  --mmc-navy: #253746;
-  --mmc-ink: #111827;
+  /* MMC 360 brand tokens — use these everywhere instead of raw hex */
+  --mmc-orange: #f57c00;
+  --mmc-blue: #0174cc;
+  /* --mmc-dark: #1e293b; */
+
+  --mmc-orange-dark: #d66a00;
+  --mmc-orange-light: #fff3e6;
+  --mmc-orange-soft: rgba(245, 124, 0, 0.14);
+  /* --mmc-orange-glow: rgba(245, 124, 0, 0.28);
+
+  --mmc-blue-dark: #015a9e; */
+  --mmc-blue-light: #e8f3fb;
+  --mmc-blue-soft: rgba(1, 116, 204, 0.12);
+  --mmc-blue-glow: rgba(1, 116, 204, 0.28);
+
+  --mmc-navy: var(--mmc-dark);
+  --mmc-ink: var(--mmc-dark);
   --mmc-bg: #ffffff;
   --mmc-white: #ffffff;
-  --mmc-border: #e6ebf0;
+  --mmc-surface: #f4f6f8;
+  --mmc-border: #e2e8f0;
+  --mmc-muted: #64748b;
+  --mmc-highlight: rgba(245, 124, 0, 0.22);
+
+  --mmc-gradient-orange-blue: linear-gradient(135deg, var(--mmc-orange), var(--mmc-blue));
+  --mmc-gradient-blue-dark: linear-gradient(135deg, var(--mmc-blue), var(--mmc-dark));
+  --mmc-gradient-orange-dark: linear-gradient(135deg, var(--mmc-orange), var(--mmc-dark));
+
+  /* Functional status only — not brand accents */
   --mmc-success: #1f9d55;
   --mmc-success-bg: #e4f8ec;
-  --mmc-danger: #d64545;
+  --mmc-danger: #c0242c;
   --mmc-danger-bg: #fdeaea;
-  --mmc-muted: #6b7c8c;
-  --mmc-highlight: #ffe08a;
-  --mmc-shadow: 0 10px 30px rgba(17, 24, 39, 0.06);
-  --mmc-shadow-lift: 0 18px 40px rgba(17, 24, 39, 0.10);
+  --mmc-error: var(--mmc-danger);
+
+  --mmc-shadow: 0 10px 30px rgba(30, 41, 59, 0.06);
+  --mmc-shadow-lift: 0 18px 40px rgba(30, 41, 59, 0.10);
+  --mmc-shadow-orange: 0 6px 18px rgba(245, 124, 0, 0.32);
+  --mmc-shadow-blue: 0 6px 18px rgba(1, 116, 204, 0.28);
   --mmc-radius: 18px;
   --mmc-radius-lg: 28px;
   --mmc-font: 'Poppins', 'Segoe UI', sans-serif;
@@ -32,8 +51,8 @@ html, body, #root {
   margin: 0;
   padding: 0;
   font-family: var(--mmc-font);
-  background: #fff;
-  color: var(--mmc-navy);
+  background: var(--mmc-white);
+  color: var(--mmc-dark);
   scroll-behavior: smooth;
   /* Safety net: stops any stray element (long words, fixed-width widgets,
      etc.) from creating horizontal scroll / cut-off content on mobile. */
@@ -94,18 +113,19 @@ img { max-width: 100%; display: block; }
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--mmc-orange), var(--mmc-orange-dark));
-  color: #fff;
-  box-shadow: 0 6px 18px rgba(247, 148, 29, 0.35);
+  background: var(--mmc-orange);
+  color: var(--mmc-white);
+  box-shadow: var(--mmc-shadow-orange);
 }
 .btn-primary:hover:not(:disabled) {
-  box-shadow: 0 10px 22px rgba(247, 148, 29, 0.42);
+  background: var(--mmc-orange-dark);
+  box-shadow: 0 10px 22px var(--mmc-orange-glow);
 }
 
 .btn-secondary {
   background: var(--mmc-blue);
-  color: #fff;
-  box-shadow: 0 6px 18px rgba(13, 109, 173, 0.3);
+  color: var(--mmc-white);
+  box-shadow: var(--mmc-shadow-blue);
 }
 .btn-secondary:hover:not(:disabled) {
   background: var(--mmc-blue-dark);
@@ -121,13 +141,13 @@ img { max-width: 100%; display: block; }
 }
 
 .btn-ink {
-  background: var(--mmc-ink);
-  color: #fff;
-  box-shadow: 0 8px 20px rgba(17, 24, 39, 0.18);
+  background: var(--mmc-dark);
+  color: var(--mmc-white);
+  box-shadow: 0 8px 20px rgba(30, 41, 59, 0.18);
 }
 .btn-ink:hover:not(:disabled) {
-  background: #000;
-  box-shadow: 0 12px 24px rgba(17, 24, 39, 0.22);
+  background: var(--mmc-blue-dark);
+  box-shadow: 0 12px 24px rgba(30, 41, 59, 0.22);
 }
 
 .mmc-mark {
@@ -147,7 +167,7 @@ img { max-width: 100%; display: block; }
   font-size: 2.35rem;
   letter-spacing: -0.03em;
   line-height: 1.2;
-  color: var(--mmc-ink);
+  color: var(--mmc-dark);
   margin: 0 0 12px;
 }
 .section-title span {
@@ -165,7 +185,7 @@ img { max-width: 100%; display: block; }
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #8b93a0;
+  color: var(--mmc-muted);
 }
 
 .mmc-section-eyebrow--light {
@@ -176,7 +196,7 @@ img { max-width: 100%; display: block; }
   background: var(--mmc-white);
   border-radius: var(--mmc-radius);
   box-shadow: var(--mmc-shadow);
-  border: 1px solid rgba(227, 233, 240, 0.8);
+  border: 1px solid var(--mmc-border);
   transition:
     transform var(--mmc-duration-hover, 250ms) var(--mmc-ease, cubic-bezier(0.22, 1, 0.36, 1)),
     box-shadow var(--mmc-duration-hover, 250ms) var(--mmc-ease, cubic-bezier(0.22, 1, 0.36, 1)),
@@ -193,11 +213,11 @@ img { max-width: 100%; display: block; }
 }
 .badge-safe { background: var(--mmc-success-bg); color: var(--mmc-success); }
 .badge-moderate { background: var(--mmc-orange-light); color: var(--mmc-orange-dark); }
-.badge-dream { background: var(--mmc-danger-bg); color: var(--mmc-danger); }
+.badge-dream { background: var(--mmc-blue-light); color: var(--mmc-blue-dark); }
 
 .page-hero {
-  background: linear-gradient(135deg, var(--mmc-blue-dark), var(--mmc-blue));
-  color: #fff;
+  background: var(--mmc-gradient-blue-dark);
+  color: var(--mmc-white);
   padding: 70px 0 50px;
   text-align: center;
 }
@@ -215,7 +235,7 @@ img { max-width: 100%; display: block; }
   border: 1.5px solid var(--mmc-border);
   font-family: var(--mmc-font);
   font-size: 0.95rem;
-  background: #fff;
+  background: var(--mmc-white);
 }
 .form-group input,
 .form-group select,
@@ -228,7 +248,7 @@ img { max-width: 100%; display: block; }
 .form-group textarea:focus {
   outline: none;
   border-color: var(--mmc-blue);
-  box-shadow: 0 0 0 4px rgba(13, 109, 173, 0.12);
+  box-shadow: 0 0 0 4px var(--mmc-blue-soft);
 }
 
 .table-wrap { overflow-x: auto; }
@@ -239,7 +259,7 @@ table th, table td {
   text-align: left;
   font-size: 0.9rem;
 }
-table th { background: #fff; color: var(--mmc-navy); font-weight: 700; }
+table th { background: var(--mmc-white); color: var(--mmc-dark); font-weight: 700; }
 
 .empty-state { text-align: center; padding: 40px 20px; color: var(--mmc-muted); }
 .loading-state { text-align: center; padding: 40px 20px; color: var(--mmc-blue); font-weight: 600; }

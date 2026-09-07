@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import MotionReveal, { staggerDelay } from '../../motion/MotionReveal.jsx';
+import ScrollCard from '../../motion/ScrollCard.jsx';
 import AnimatedText from '../../motion/AnimatedText.jsx';
 import CenterFlow from '../../motion/CenterFlow.jsx';
 import OutlineIcon from '../icons/OutlineIcon.jsx';
@@ -58,12 +59,13 @@ export default function WhatWeOffer() {
           </p>
         </MotionReveal>
 
-        <div className="mmc-offer-grid">
+        <div className="mmc-offer-grid mmc-scroll-stage">
           {OFFERS.map((offer, index) => (
-            <MotionReveal
+            <ScrollCard
               key={offer.to}
+              index={index}
+              delay={staggerDelay(index, 90)}
               className="mmc-offer-scene"
-              delay={staggerDelay(index, 70)}
             >
               <Link
                 to={offer.to}
@@ -81,7 +83,7 @@ export default function WhatWeOffer() {
                   <OutlineIcon name="arrow" size={16} />
                 </span>
               </Link>
-            </MotionReveal>
+            </ScrollCard>
           ))}
         </div>
       </div>

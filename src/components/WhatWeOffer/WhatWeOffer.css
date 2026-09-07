@@ -22,7 +22,7 @@
   font-size: clamp(1.7rem, 3vw, 2.4rem);
   line-height: 1.15;
   letter-spacing: -0.035em;
-  color: #111;
+  color: var(--mmc-dark);
 }
 
 .mmc-offer-head > p:last-child {
@@ -52,7 +52,7 @@
   height: 100%;
   min-height: 220px;
   padding: 22px 20px 20px;
-  border: 1px solid #eceff3;
+  border: 1px solid var(--mmc-border);
   background: #fff;
   color: inherit;
   transform-style: preserve-3d;
@@ -69,9 +69,9 @@
   width: 36px;
   height: 36px;
   margin-bottom: 18px;
-  border: 1px solid #eceff3;
+  border: 1px solid var(--mmc-border);
   background: #fff;
-  color: #1f5c4a;
+  color: var(--mmc-blue);
   transform: translateZ(24px);
   transition: transform 0.5s ease, border-color 0.5s ease, color 0.5s ease;
 }
@@ -82,7 +82,7 @@
   font-size: 1.05rem;
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: #111;
+  color: var(--mmc-dark);
   transform: translateZ(0);
   transition: transform 0.5s ease;
 }
@@ -100,20 +100,20 @@
 
 .mmc-offer-arrow {
   display: inline-flex;
-  color: #1f5c4a;
+  color: var(--mmc-blue);
   transform: translateZ(20px);
   transition: transform 0.5s ease, color 0.5s ease;
 }
 
 .mmc-offer-card:focus-visible {
-  outline: 2px solid #1f5c4a;
+  outline: 2px solid var(--mmc-blue);
   outline-offset: 3px;
 }
 
 @media (hover: hover) and (pointer: fine) and (min-width: 641px) {
   .mmc-offer-card:hover,
   .mmc-offer-card:focus-visible {
-    border-color: #1f5c4a;
+    border-color: var(--mmc-blue);
     box-shadow: 0 16px 32px rgba(31, 92, 74, 0.12);
     transform: translateZ(10px) rotateX(14deg) rotateY(14deg);
   }
@@ -125,7 +125,7 @@
 
   .mmc-offer-card:hover .mmc-offer-icon,
   .mmc-offer-card:focus-visible .mmc-offer-icon {
-    border-color: #1f5c4a;
+    border-color: var(--mmc-blue);
     transform: translateZ(36px);
   }
 
@@ -136,7 +136,7 @@
 
   .mmc-offer-card:hover .mmc-offer-arrow,
   .mmc-offer-card:focus-visible .mmc-offer-arrow {
-    color: #f7941d;
+    color: var(--mmc-orange);
     transform: translateZ(40px) translateX(4px);
   }
 }

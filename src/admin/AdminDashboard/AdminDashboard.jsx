@@ -33,7 +33,7 @@ export default function AdminDashboard() {
 
       <div className="card mmc-admin-card">
         <h3>Quick Tips</h3>
-        <ul style={{ margin: 0, paddingLeft: 20, color: '#55677a', fontSize: '0.9rem', lineHeight: 1.8 }}>
+        <ul style={{ margin: 0, paddingLeft: 20, color: 'var(--mmc-muted)', fontSize: '0.9rem', lineHeight: 1.8 }}>
           <li>Upload previous-year cutoff data under <strong>Predictor Data → KCET/PGCET Cutoff Data</strong> via Excel for fast bulk import.</li>
           <li>Add colleges under <strong>Catalog → Colleges</strong> before uploading cutoff sheets that reference them (or let the uploader auto-create them by name).</li>
           <li>Update the homepage slider under <strong>Website Content → Slider / Banners</strong>.</li>

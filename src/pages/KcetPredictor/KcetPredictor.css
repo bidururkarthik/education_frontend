@@ -7,17 +7,17 @@
    =========================================================== */
 
 .mmc-predictor-page{
-  --ink:#15253B;
-  --ink-2:#1D3A5C;
-  --ink-light:#51677C;
-  --paper:#FFFFFF;
-  --paper-2:#FFFFFF;
-  --brass:#0074CC;
-  --coral:#F57C00;
-  --sage:#2E6690;
-  --success:#16A34A;
-  --white:#FFFFFF;
-  --line: rgba(0,116,204,0.22);
+  --ink: var(--mmc-dark);
+  --ink-2: var(--mmc-blue-dark);
+  --ink-light: var(--mmc-muted);
+  --paper: var(--mmc-white);
+  --paper-2: var(--mmc-white);
+  --brass: var(--mmc-blue);
+  --coral: var(--mmc-orange);
+  --sage: var(--mmc-blue);
+  --success: var(--mmc-success);
+  --white: var(--mmc-white);
+  --line: var(--mmc-blue-soft);
   --radius: 4px;
 
   background:var(--paper);
@@ -70,7 +70,7 @@
 .mmc-pred-hero h1{
   font-size:clamp(1.8rem, 3.6vw, 2.7rem); color:var(--white); max-width:16ch; line-height:1.12; margin-bottom:16px;
 }
-.mmc-pred-hero-inner p{ max-width:52ch; color:#C9D6DC; font-size:1rem; }
+.mmc-pred-hero-inner p{ max-width:52ch; color:rgba(255,255,255,0.78); font-size:1rem; }
 
 /* ---------- LAYOUT ---------- */
 .mmc-pred-section{ padding:70px 0 90px; }

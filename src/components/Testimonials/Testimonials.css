@@ -9,7 +9,7 @@
 
 .mmc-stories-kicker {
   margin: 0 0 8px;
-  color: #8b93a0;
+  color: var(--mmc-muted);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -22,11 +22,11 @@
   font-size: clamp(1.7rem, 3vw, 2.4rem);
   line-height: 1.15;
   letter-spacing: -0.035em;
-  color: #111;
+  color: var(--mmc-dark);
 }
 
 .mmc-stories-list {
-  border-top: 1px solid #eceff3;
+  border-top: 1px solid var(--mmc-border);
 }
 
 .mmc-story-row {
@@ -35,7 +35,7 @@
   gap: 16px;
   align-items: start;
   padding: 22px 0;
-  border-bottom: 1px solid #eceff3;
+  border-bottom: 1px solid var(--mmc-border);
 }
 
 .mmc-story-avatar {
@@ -43,8 +43,8 @@
   height: 48px;
   display: grid;
   place-items: center;
-  background: #eef6ea;
-  color: #1f5c4a;
+  background: var(--mmc-blue-light);
+  color: var(--mmc-blue);
   font-weight: 800;
   font-size: 0.9rem;
 }
@@ -53,7 +53,7 @@
   display: block;
   margin-bottom: 6px;
   font-size: 1.02rem;
-  color: #111;
+  color: var(--mmc-dark);
 }
 
 .mmc-story-copy p {
@@ -63,7 +63,7 @@
 }
 
 .mmc-story-copy small {
-  color: #8b93a0;
+  color: var(--mmc-muted);
 }
 
 .mmc-story-row em {
@@ -72,13 +72,13 @@
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #1f5c4a;
+  color: var(--mmc-blue);
   padding-top: 6px;
 }
 
 @media (hover: hover) {
   .mmc-story-row.is-ready:hover strong {
-    color: #1f5c4a;
+    color: var(--mmc-blue);
   }
 }
 

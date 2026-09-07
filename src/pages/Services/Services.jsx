@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import MotionReveal, { staggerDelay } from '../../motion/MotionReveal.jsx';
+import { staggerDelay } from '../../motion/MotionReveal.jsx';
+import ScrollCard from '../../motion/ScrollCard.jsx';
 import OutlineIcon from '../../components/icons/OutlineIcon.jsx';
 import './Services.css';
 
@@ -34,7 +35,7 @@ export default function Services() {
 
         <div className="mmc-svc-orbit">
           <svg className="mmc-svc-arc" viewBox="0 0 640 280" fill="none" aria-hidden="true">
-            <path d="M40 250 C 80 60 200 20 320 20 C 440 20 560 60 600 250" stroke="#c5d9ce" strokeWidth="1.5" strokeDasharray="6 8" />
+            <path d="M40 250 C 80 60 200 20 320 20 C 440 20 560 60 600 250" stroke="var(--mmc-blue-soft)" strokeWidth="1.5" strokeDasharray="6 8" />
           </svg>
           <div className="mmc-svc-hub">
             <img src="/images/logo.png" alt="MapMyCareer360" />
@@ -58,9 +59,9 @@ export default function Services() {
       </header>
 
       <section className="mmc-svc-section">
-        <div className="container mmc-svc-grid">
+        <div className="container mmc-svc-grid mmc-scroll-stage">
           {SERVICES.map((s, i) => (
-            <MotionReveal as={Link} to={s.link} className="mmc-svc-card" key={s.title} delay={staggerDelay(i, 50)}>
+            <ScrollCard as={Link} to={s.link} className="mmc-svc-card" key={s.title} index={i} delay={staggerDelay(i, 90)}>
               <div className="mmc-svc-frame">
                 <div className="mmc-svc-photo">
                   <OutlineIcon name={s.icon} size={36} />
@@ -68,7 +69,7 @@ export default function Services() {
               </div>
               <strong>{s.title}</strong>
               <span>{s.text}</span>
-            </MotionReveal>
+            </ScrollCard>
           ))}
         </div>
       </section>

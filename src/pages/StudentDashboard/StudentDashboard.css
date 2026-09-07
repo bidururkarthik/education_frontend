@@ -10,7 +10,7 @@
   border: none;
   padding: 12px 18px;
   font-weight: 600;
-  color: #8b98a5;
+  color: var(--mmc-muted);
   border-bottom: 3px solid transparent;
 }
 .mmc-dash-tabs button.active { color: var(--mmc-blue); border-color: var(--mmc-orange); }
@@ -21,8 +21,8 @@
   gap: 20px;
 }
 .mmc-dash-stat { padding: 24px; }
-.mmc-dash-stat span { display: block; color: #8b98a5; font-size: 0.82rem; margin-bottom: 8px; }
-.mmc-dash-stat strong { display: block; font-size: 1.5rem; color: var(--mmc-navy); margin-bottom: 10px; }
+.mmc-dash-stat span { display: block; color: var(--mmc-muted); font-size: 0.82rem; margin-bottom: 8px; }
+.mmc-dash-stat strong { display: block; font-size: 1.5rem; color: var(--mmc-orange); margin-bottom: 10px; }
 .mmc-dash-cta { font-size: 0.8rem; color: var(--mmc-orange); font-weight: 700; }
 
 .mmc-dash-form { max-width: 520px; padding: 30px; }

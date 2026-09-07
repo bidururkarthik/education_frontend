@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import MotionReveal, { staggerDelay } from '../../motion/MotionReveal.jsx';
+import ScrollCard from '../../motion/ScrollCard.jsx';
 import AnimatedText from '../../motion/AnimatedText.jsx';
 import CenterFlow from '../../motion/CenterFlow.jsx';
 import OutlineIcon from '../icons/OutlineIcon.jsx';
@@ -51,13 +52,13 @@ function Stars() {
   );
 }
 
-function ReviewCard({ review, delay }) {
+function ReviewCard({ review, delay, index = 0 }) {
   const [open, setOpen] = useState(false);
   const long = review.review.length > PREVIEW_CHARS;
   const text = !long || open ? review.review : `${review.review.slice(0, PREVIEW_CHARS).trim()}…`;
 
   return (
-    <MotionReveal className={`mmc-rev-scene${review.featured ? ' is-featured' : ''}`} delay={delay}>
+    <ScrollCard index={index} delay={delay} className={`mmc-rev-scene${review.featured ? ' is-featured' : ''}`}>
       <article className="mmc-rev-card">
         <header className="mmc-rev-who">
           <span className="mmc-rev-avatar" aria-hidden="true">{review.name.slice(0, 1)}</span>
@@ -75,7 +76,7 @@ function ReviewCard({ review, delay }) {
           </button>
         ) : null}
       </article>
-    </MotionReveal>
+    </ScrollCard>
   );
 }
 
@@ -142,11 +143,11 @@ export default function StudentReviews() {
           onPointerCancel={() => { startX.current = null; }}
         >
           <div
-            className="mmc-rev-track"
+            className="mmc-rev-track mmc-scroll-stage"
             style={{ '--mmc-rev-index': index, '--mmc-rev-visible': visible }}
           >
             {REVIEWS.map((review, i) => (
-              <ReviewCard key={review.id} review={review} delay={staggerDelay(i, 70)} />
+              <ReviewCard key={review.id} review={review} index={i} delay={staggerDelay(i, 90)} />
             ))}
           </div>
         </div>

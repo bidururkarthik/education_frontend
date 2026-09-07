@@ -63,7 +63,7 @@ export default function Reports() {
 
       <div className="card mmc-admin-card">
         <h3>Export Data</h3>
-        <p style={{ color: '#6b7c8c', fontSize: '0.88rem' }}>Exports are capped at 5,000 most-recent records per collection to keep downloads manageable.</p>
+        <p style={{ color: 'var(--mmc-muted)', fontSize: '0.88rem' }}>Exports are capped at 5,000 most-recent records per collection to keep downloads manageable.</p>
         <div className="mmc-admin-actions">
           {['students', 'payments', 'subscriptions', 'assessments', 'colleges', 'referrals'].map((c) => (
             <button key={c} className="btn btn-outline" onClick={() => exportData(c)} style={{ textTransform: 'capitalize' }}>{c}</button>

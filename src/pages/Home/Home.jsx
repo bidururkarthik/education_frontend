@@ -13,7 +13,9 @@ import MotionReveal from '../../motion/MotionReveal.jsx';
 import AnimatedText from '../../motion/AnimatedText.jsx';
 import OutlineIcon from '../../components/icons/OutlineIcon.jsx';
 import useMotionPointer from '../../motion/useMotionPointer.js';
+import Contact from '../Contact/Contact.jsx';
 import './Home.css';
+
 
 export default function Home() {
   const rootRef = useRef(null);
@@ -23,13 +25,12 @@ export default function Home() {
     <div className="mmc-home" ref={rootRef}>
       <HeroHome />
       <StatsCounter />
-    
       <TransformationBanner />
       <WhatWeOffer />
       <College10Plus />
       <StatsBanner />
       <StudentReviews />
-     
+      <Contact />
 
       <section className="mmc-cta-band">
         <div className="container mmc-cta-band-inner">

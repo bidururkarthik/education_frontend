@@ -1,6 +1,6 @@
 .mmc-services-page {
   background: #fff;
-  color: #111;
+  color: var(--mmc-dark);
 }
 
 .mmc-svc-banner {
@@ -17,7 +17,7 @@
   transform: translateX(-50%);
   width: 520px;
   height: 280px;
-  background: radial-gradient(ellipse at center, rgba(182, 230, 74, 0.45) 0%, rgba(255, 236, 120, 0.18) 40%, transparent 70%);
+  background: radial-gradient(ellipse at center, rgba(245, 124, 0, 0.22) 0%, rgba(1, 116, 204, 0.12) 40%, transparent 70%);
   pointer-events: none;
 }
 
@@ -25,8 +25,8 @@
   position: absolute;
   inset: 0 10% 42%;
   background-image:
-    linear-gradient(rgba(17, 24, 39, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(17, 24, 39, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(30, 41, 59, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 41, 59, 0.04) 1px, transparent 1px);
   background-size: 32px 32px;
   mask-image: radial-gradient(ellipse at 50% 20%, #000 20%, transparent 75%);
   -webkit-mask-image: radial-gradient(ellipse at 50% 20%, #000 20%, transparent 75%);
@@ -58,10 +58,10 @@
   width: 88px;
   height: 88px;
   border-radius: 22px;
-  background: #0d4d3e;
+  background: var(--mmc-dark);
   display: grid;
   place-items: center;
-  box-shadow: 0 16px 36px rgba(13, 77, 62, 0.28);
+  box-shadow: 0 16px 36px rgba(30, 41, 59, 0.28);
   z-index: 2;
   animation: mmc-hub-pulse 4.5s var(--mmc-ease) infinite;
 }
@@ -88,18 +88,18 @@
   display: grid;
   place-items: center;
   background: #fff;
-  box-shadow: 0 10px 22px rgba(17, 24, 39, 0.1);
-  color: #1f5c4a;
+  box-shadow: 0 10px 22px rgba(30, 41, 59, 0.1);
+  color: var(--mmc-blue);
   z-index: 3;
   transition: transform var(--mmc-duration-hover) var(--mmc-ease);
 }
 
 .mmc-svc-node:hover { transform: scale(1.08); }
 
-.mmc-svc-node--lime { color: #3a4a12; background: #eef8c8; }
-.mmc-svc-node--mint { color: #1f5c4a; background: #d8efe4; }
-.mmc-svc-node--sky { color: #0d4d3e; background: #e7f4ee; }
-.mmc-svc-node--ink { color: #111; background: #f3f5f4; }
+.mmc-svc-node--lime { color: var(--mmc-dark); background: var(--mmc-orange-light); }
+.mmc-svc-node--mint { color: var(--mmc-blue); background: var(--mmc-blue-light); }
+.mmc-svc-node--sky { color: var(--mmc-dark); background: var(--mmc-blue-light); }
+.mmc-svc-node--ink { color: var(--mmc-dark); background: var(--mmc-surface); }
 
 .mmc-svc-node--1 { left: 4%; top: 58%; }
 .mmc-svc-node--2 { left: 14%; top: 28%; }
@@ -120,14 +120,14 @@
   letter-spacing: -0.04em;
 }
 
-.mmc-svc-banner h1 span { color: #8b93a0; }
+.mmc-svc-banner h1 span { color: var(--mmc-muted); }
 
 .mmc-svc-banner > p {
   position: relative;
   z-index: 1;
   margin: 0 auto 22px;
   max-width: 46ch;
-  color: #6b7580;
+  color: var(--mmc-muted);
   font-size: 0.98rem;
   line-height: 1.6;
 }
@@ -169,14 +169,14 @@
 
 .mmc-svc-card.is-in:hover .mmc-svc-frame {
   transform: translateY(-4px);
-  border-color: #1f5c4a;
+  border-color: var(--mmc-blue);
 }
 
 .mmc-svc-frame {
   width: 100%;
   aspect-ratio: 1;
   background: transparent;
-  border: 1.5px solid #1f5c4a;
+  border: 1.5px solid var(--mmc-blue);
   border-radius: 22px;
   padding: 18px;
   box-shadow: none;
@@ -193,7 +193,7 @@
   background: transparent;
   display: grid;
   place-items: center;
-  color: #1f5c4a;
+  color: var(--mmc-blue);
 }
 
 .mmc-svc-card strong {
@@ -207,7 +207,7 @@
   display: block;
   font-size: 0.82rem;
   line-height: 1.45;
-  color: #6b7580;
+  color: var(--mmc-muted);
   max-width: 24ch;
 }
 
@@ -224,7 +224,7 @@
 
 .mmc-svc-cta p {
   margin: 0 0 20px;
-  color: #6b7580;
+  color: var(--mmc-muted);
 }
 
 .mmc-services-page .mmc-why-cta {

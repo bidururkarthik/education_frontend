@@ -15,9 +15,9 @@
   height: 40px;
   display: grid;
   place-items: center;
-  border: 1px solid #eceff3;
+  border: 1px solid var(--mmc-border);
   background: #fff;
-  color: #111;
+  color: var(--mmc-dark);
 }
 
 .mmc-slide-btn:first-child .mmc-outline-icon {
@@ -25,8 +25,8 @@
 }
 
 .mmc-slide-btn:hover {
-  border-color: #1f5c4a;
-  color: #1f5c4a;
+  border-color: var(--mmc-blue);
+  color: var(--mmc-blue);
 }
 
 .mmc-slide-viewport {
@@ -57,7 +57,7 @@
 .mmc-slide-card {
   flex: 0 0 calc((100% - (var(--mmc-slide-visible) - 1) * var(--mmc-slide-gap)) / var(--mmc-slide-visible));
   min-width: 0;
-  border: 1px solid #eceff3;
+  border: 1px solid var(--mmc-border);
   background: #fff;
   padding: 0 0 16px;
   color: inherit;
@@ -67,7 +67,7 @@
   width: 100%;
   height: 160px;
   object-fit: cover;
-  background: #eef6ea;
+  background: var(--mmc-blue-light);
 }
 
 .mmc-slide-icon {
@@ -77,8 +77,8 @@
   height: 32px;
   margin: -16px 14px 10px;
   background: #fff;
-  border: 1px solid #eceff3;
-  color: #1f5c4a;
+  border: 1px solid var(--mmc-border);
+  color: var(--mmc-blue);
   position: relative;
 }
 
@@ -99,7 +99,7 @@
 
 @media (hover: hover) {
   .mmc-slide-card:hover {
-    border-color: #1f5c4a;
+    border-color: var(--mmc-blue);
   }
 }
 

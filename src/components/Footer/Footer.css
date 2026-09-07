@@ -1,6 +1,6 @@
 .mmc-footer {
   background: var(--mmc-ink);
-  color: #cfd9e2;
+  color: rgba(255,255,255,0.72);
   padding: 16px 0 0;
   margin-top: 24px;
 }
@@ -38,10 +38,10 @@
 }
 
 .mmc-footer-links a {
-  color: #cfd9e2;
+  color: rgba(255,255,255,0.72);
   transition: color var(--mmc-duration-hover) var(--mmc-ease);
 }
-.mmc-footer-links a:hover { color: #fff; }
+.mmc-footer-links a:hover { color: var(--mmc-orange); }
 
 .mmc-footer-meta {
   display: flex;
@@ -52,10 +52,10 @@
 }
 
 .mmc-footer-meta > a {
-  color: #cfd9e2;
+  color: rgba(255,255,255,0.72);
   white-space: nowrap;
 }
-.mmc-footer-meta > a:hover { color: #fff; }
+.mmc-footer-meta > a:hover { color: var(--mmc-orange); }
 
 .mmc-footer-social { display: flex; gap: 6px; }
 .mmc-footer-social a {
@@ -84,11 +84,11 @@
 
 .mmc-footer-bottom p {
   margin: 0;
-  color: #8b98a5;
+  color: var(--mmc-muted);
 }
 
 .mmc-admin-link {
-  color: #7f8ea0;
+  color: var(--mmc-muted);
   transition: color var(--mmc-duration-hover) var(--mmc-ease);
 }
 .mmc-admin-link:hover { color: var(--mmc-orange); }

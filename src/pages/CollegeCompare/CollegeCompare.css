@@ -7,16 +7,16 @@
    =========================================================== */
 
 .mmc-compare-page{
-  --ink:#15253B;
-  --ink-2:#1D3A5C;
-  --ink-light:#51677C;
-  --paper:#FFFFFF;
-  --paper-2:#FFFFFF;
-  --brass:#0074CC;
-  --coral:#F57C00;
-  --sage:#2E6690;
-  --white:#FFFFFF;
-  --line: rgba(0,116,204,0.22);
+  --ink: var(--mmc-dark);
+  --ink-2: var(--mmc-blue-dark);
+  --ink-light: var(--mmc-muted);
+  --paper: var(--mmc-white);
+  --paper-2: var(--mmc-white);
+  --brass: var(--mmc-blue);
+  --coral: var(--mmc-orange);
+  --sage: var(--mmc-blue);
+  --white: var(--mmc-white);
+  --line: var(--mmc-blue-soft);
   --radius: 4px;
 
   background:var(--paper);
@@ -66,7 +66,7 @@
 .mmc-cmp-hero-contours{ position:absolute; inset:0; opacity:0.35; pointer-events:none; }
 .mmc-cmp-hero-inner{ position:relative; z-index:2; }
 .mmc-cmp-hero h1{ font-size:clamp(2.1rem, 4.4vw, 3.2rem); color:var(--white); margin-bottom:18px; }
-.mmc-cmp-hero-inner p{ max-width:56ch; color:#C9D6DC; font-size:1.02rem; }
+.mmc-cmp-hero-inner p{ max-width:56ch; color:rgba(255,255,255,0.78); font-size:1.02rem; }
 
 /* ---------- SECTION ---------- */
 .mmc-cmp-section{ padding:70px 0 90px; background:var(--paper); }
@@ -80,7 +80,7 @@
   border-radius:var(--radius); border:1.5px solid var(--line);
   background:var(--white); font-family:'Inter',sans-serif; font-size:0.92rem; color:var(--ink);
 }
-.mmc-compare-search::placeholder{ color:#93A6B4; }
+.mmc-compare-search::placeholder{ color:var(--mmc-muted); }
 .mmc-compare-search:focus{ outline:none; border-color:var(--brass); }
 
 /* ---------- COLLEGE GRID ---------- */

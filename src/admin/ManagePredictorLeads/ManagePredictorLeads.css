@@ -9,7 +9,7 @@
 
 .mmc-admin-header p {
   margin: 0 0 20px;
-  color: #666;
+  color: var(--mmc-muted);
   font-size: 0.9rem;
 }
 
@@ -24,7 +24,7 @@
 .mmc-tabs {
   display: flex;
   gap: 6px;
-  background: #f2f2f5;
+  background: var(--mmc-surface);
   padding: 4px;
   border-radius: 8px;
 }
@@ -36,19 +36,19 @@
   border-radius: 6px;
   cursor: pointer;
   font-size: 0.85rem;
-  color: #555;
+  color: var(--mmc-muted);
 }
 
 .mmc-tabs button.active {
   background: #fff;
-  color: #111;
+  color: var(--mmc-dark);
   font-weight: 600;
   box-shadow: 0 1px 2px rgba(0,0,0,0.08);
 }
 
 .mmc-admin-toolbar select {
   padding: 7px 10px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--mmc-border);
   border-radius: 6px;
   font-size: 0.85rem;
 }
@@ -61,7 +61,7 @@
 
 .mmc-admin-search input {
   padding: 7px 10px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--mmc-border);
   border-radius: 6px;
   font-size: 0.85rem;
   min-width: 220px;
@@ -69,7 +69,7 @@
 
 .mmc-admin-table-wrap {
   overflow-x: auto;
-  border: 1px solid #eee;
+  border: 1px solid var(--mmc-border);
   border-radius: 10px;
 }
 
@@ -83,22 +83,22 @@
 .mmc-admin-table td {
   text-align: left;
   padding: 10px 14px;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid var(--mmc-border);
   white-space: nowrap;
 }
 
 .mmc-admin-table th {
-  background: #fafafa;
+  background: var(--mmc-surface);
   font-weight: 600;
-  color: #444;
+  color: var(--mmc-dark);
 }
 
 .mmc-admin-table tbody tr:hover {
-  background: #fafbff;
+  background: var(--mmc-blue-light);
 }
 
 .mmc-admin-table a {
-  color: #2f5fdb;
+  color: var(--mmc-blue);
   text-decoration: none;
 }
 
@@ -110,8 +110,8 @@
   display: inline-block;
   padding: 2px 8px;
   border-radius: 5px;
-  background: #eef1ff;
-  color: #3949ab;
+  background: var(--mmc-blue-light);
+  color: var(--mmc-blue-dark);
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.03em;
@@ -126,13 +126,13 @@
 }
 
 .mmc-tag-sub {
-  background: #e6f7ee;
-  color: #1a8b4c;
+  background: var(--mmc-success-bg);
+  color: var(--mmc-success);
 }
 
 .mmc-tag-onetime {
-  background: #fff3e0;
-  color: #b3690a;
+  background: var(--mmc-orange-light);
+  color: var(--mmc-orange-dark);
 }
 
 .mmc-admin-pagination {
@@ -142,12 +142,12 @@
   gap: 16px;
   margin-top: 18px;
   font-size: 0.85rem;
-  color: #555;
+  color: var(--mmc-muted);
 }
 
 .mmc-admin-pagination button {
   padding: 6px 14px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--mmc-border);
   background: #fff;
   border-radius: 6px;
   cursor: pointer;

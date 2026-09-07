@@ -33,7 +33,7 @@
 }
 
 .mmc-cta-band .btn-ink {
-  background: #1f5c4a;
+  background: var(--mmc-orange);
   border-radius: 4px;
   box-shadow: none;
   letter-spacing: 0.08em;
@@ -42,7 +42,7 @@
 }
 
 .mmc-cta-band .btn-ink:hover:not(:disabled) {
-  background: #163f34;
+  background: var(--mmc-orange-dark);
 }
 
 @media (max-width: 620px) {

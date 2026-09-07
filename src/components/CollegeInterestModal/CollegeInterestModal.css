@@ -17,5 +17,5 @@
   animation: mmc-modal-in var(--mmc-duration-enter) var(--mmc-ease) both;
 }
 .mmc-interest-modal h3 { margin: 0 0 8px; }
-.mmc-interest-sub { color: #6b7c8c; font-size: 0.88rem; margin: 0 0 20px; }
+.mmc-interest-sub { color: var(--mmc-muted); font-size: 0.88rem; margin: 0 0 20px; }
 .mmc-interest-modal-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 18px; }

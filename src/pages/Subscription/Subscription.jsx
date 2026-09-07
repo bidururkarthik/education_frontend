@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../../api/api.js';
 import { useAuth } from '../../context/AuthContext.jsx';
+import ScrollCard from '../../motion/ScrollCard.jsx';
 import './Subscription.css';
 import { loadRazorpayScript } from '../../utils/razorpay.js';
 
@@ -122,7 +123,7 @@ export default function Subscription() {
         },
         modal: { ondismiss: () => setProcessingId(null) },
         prefill: { name: student?.fullName, email: student?.email, contact: student?.phone },
-        theme: { color: '#0074CC' },
+        theme: { color: '#0174cc' },
       };
 
       new window.Razorpay(options).open();
@@ -141,14 +142,17 @@ export default function Subscription() {
 
         {message && <p className="mmc-pricing-message">{message}</p>}
 
-        <div className="mmc-pricing-grid">
-          {orderedPlans.map((plan) => {
+        <div className="mmc-pricing-grid mmc-scroll-stage">
+          {orderedPlans.map((plan, index) => {
             const featured = isFeaturedPlan(plan, orderedPlans);
             const features = [...(plan.features || []), 'Full access via your Student Dashboard'];
 
             return (
-              <article
+              <ScrollCard
+                as="article"
                 key={plan._id}
+                index={index}
+                delay={index * 90}
                 className={`mmc-price-card${featured ? ' mmc-price-card--featured' : ''}`}
               >
                 <span className="mmc-price-badge">
@@ -179,7 +183,7 @@ export default function Subscription() {
                     </li>
                   ))}
                 </ul>
-              </article>
+              </ScrollCard>
             );
           })}
         </div>

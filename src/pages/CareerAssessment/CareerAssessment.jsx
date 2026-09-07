@@ -116,7 +116,7 @@ export default function CareerAssessment() {
         modal: { ondismiss: () => setLoading(false) },
         prefill: { name: student?.fullName, email: student?.email, contact: student?.phone },
         // Coral, matched to the About-page brand palette
-        theme: { color: '#F57C00' },
+        theme: { color: '#f57c00' },
       };
 
       new window.Razorpay(options).open();
@@ -158,10 +158,10 @@ export default function CareerAssessment() {
       {/* HERO - same wavy-contour language as the About page */}
       <header className="mmc-ca-hero">
         <svg className="mmc-ca-hero-contours" viewBox="0 0 1140 460" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M-50,90 C 200,40 400,140 650,85 C 850,40 1000,110 1200,70" stroke="#0074CC" strokeWidth="1" fill="none" />
-          <path d="M-50,170 C 220,120 420,220 660,160 C 860,115 1010,190 1200,150" stroke="#0074CC" strokeWidth="1" fill="none" />
-          <path d="M-50,250 C 240,200 440,300 680,240 C 880,195 1020,270 1200,230" stroke="#0074CC" strokeWidth="1" fill="none" />
-          <path d="M-50,330 C 260,280 460,380 700,320 C 900,275 1030,350 1200,310" stroke="#0074CC" strokeWidth="1" fill="none" />
+          <path d="M-50,90 C 200,40 400,140 650,85 C 850,40 1000,110 1200,70" stroke="#0174cc" strokeWidth="1" fill="none" />
+          <path d="M-50,170 C 220,120 420,220 660,160 C 860,115 1010,190 1200,150" stroke="#0174cc" strokeWidth="1" fill="none" />
+          <path d="M-50,250 C 240,200 440,300 680,240 C 880,195 1020,270 1200,230" stroke="#0174cc" strokeWidth="1" fill="none" />
+          <path d="M-50,330 C 260,280 460,380 700,320 C 900,275 1030,350 1200,310" stroke="#0174cc" strokeWidth="1" fill="none" />
         </svg>
         <div className="container mmc-ca-hero-inner">
           <div className="mono mmc-eyebrow">MMC Navigator · Career Assessment</div>

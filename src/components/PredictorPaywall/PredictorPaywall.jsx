@@ -80,7 +80,7 @@ export default function PredictorPaywall({ predictorName, oneTimeFee, formData, 
         },
         modal: { ondismiss: () => setProcessing(false) },
         prefill: { name: student?.fullName || formData?.name, email: student?.email || formData?.email, contact: student?.phone || formData?.phone },
-        theme: { color: '#0f766e' },
+        theme: { color: '#0174cc' },
       };
 
       new window.Razorpay(options).open();
@@ -132,7 +132,7 @@ export default function PredictorPaywall({ predictorName, oneTimeFee, formData, 
         },
         modal: { ondismiss: () => setOneTimeProcessing(false) },
         prefill: { name: student?.fullName || formData?.name, email: student?.email || formData?.email, contact: student?.phone || formData?.phone },
-        theme: { color: '#0f766e' },
+        theme: { color: '#0174cc' },
       };
 
       new window.Razorpay(options).open();

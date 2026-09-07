@@ -2,6 +2,7 @@ import React, { useEffect, useLayoutEffect, useMemo, useRef, useState } from 're
 import { Link } from 'react-router-dom';
 import api, { getImageUrl } from '../../api/api.js';
 import MotionReveal, { staggerDelay } from '../../motion/MotionReveal.jsx';
+import ScrollCard from '../../motion/ScrollCard.jsx';
 import AnimatedText from '../../motion/AnimatedText.jsx';
 import OutlineIcon from '../icons/OutlineIcon.jsx';
 import { MOCK_COLLEGES } from './collegeMocks.js';
@@ -330,9 +331,9 @@ export default function College10Plus() {
           </p>
 
           {status === 'ready' && shown.length > 0 ? (
-            <div className="mmc-c10-grid" key={`${activeId}-${search}-${filters.location}-${filters.type}-${filters.fees}-${filters.ranking}`}>
+            <div className="mmc-c10-grid mmc-scroll-stage" key={`${activeId}-${search}-${filters.location}-${filters.type}-${filters.fees}-${filters.ranking}`}>
               {shown.map((college, index) => (
-                <CollegeResultCard college={college} key={college._id} delay={staggerDelay(index, 50)} />
+                <CollegeResultCard college={college} key={college._id} index={index} delay={staggerDelay(index, 90)} />
               ))}
             </div>
           ) : null}
@@ -348,13 +349,13 @@ export default function College10Plus() {
   );
 }
 
-function CollegeResultCard({ college, delay }) {
+function CollegeResultCard({ college, delay, index = 0 }) {
   const image = getImageUrl(college.image) || '/images/college-placeholder.jpg';
   const fees = formatFees(college);
   const courses = (college.coursesOffered || []).map((course) => course.name).filter(Boolean).slice(0, 3);
 
   return (
-    <MotionReveal className="mmc-c10-card" delay={delay}>
+    <ScrollCard index={index} delay={delay} className="mmc-c10-card">
       <div className="mmc-c10-photo">
         <img src={image} alt={college.name} />
       </div>
@@ -374,6 +375,6 @@ function CollegeResultCard({ college, delay }) {
           View details <OutlineIcon name="arrow" size={14} />
         </Link>
       </div>
-    </MotionReveal>
+    </ScrollCard>
   );
 }

@@ -1,5 +1,5 @@
 .mmc-stats-banner {
-  background: #0c3a63;
+  background: var(--mmc-dark);
   padding: 36px 0;
 }
 
@@ -17,7 +17,7 @@
 
 .mmc-stats-item strong {
   display: block;
-  color: #fff;
+  color: var(--mmc-orange);
   font-size: clamp(2rem, 3.4vw, 3.1rem);
   font-weight: 800;
   letter-spacing: -0.04em;
@@ -39,7 +39,7 @@
 }
 
 .mmc-stats-item.is-accent strong {
-  color: #f7941d;
+  color: var(--mmc-orange);
 }
 
 .mmc-stats-chip {
@@ -49,8 +49,8 @@
   margin-top: 12px;
   padding: 6px 12px;
   border-radius: 999px;
-  background: rgba(8, 28, 48, 0.45);
-  color: #f7941d;
+  background: rgba(30, 41, 59, 0.45);
+  color: var(--mmc-orange);
   font-size: 0.78rem;
   font-weight: 700;
   transition: background 200ms var(--mmc-ease, cubic-bezier(0.22, 1, 0.36, 1)),
@@ -63,7 +63,7 @@
 
 .mmc-stats-chip:hover,
 .mmc-stats-chip:focus-visible {
-  background: rgba(8, 28, 48, 0.7);
+  background: rgba(30, 41, 59, 0.7);
   transform: translateY(-1px);
 }
 
@@ -73,7 +73,7 @@
 }
 
 .mmc-stats-chip:focus-visible {
-  outline: 2px solid #f7941d;
+  outline: 2px solid var(--mmc-orange);
   outline-offset: 3px;
 }
 
