@@ -6,8 +6,7 @@ import WhatWeOffer from '../../components/WhatWeOffer/WhatWeOffer.jsx';
 import College10Plus from '../../components/College10Plus/College10Plus.jsx';
 import StatsCounter from '../../components/StatsCounter/StatsCounter.jsx';
 import StatsBanner from '../../components/StatsBanner/StatsBanner.jsx';
-import ProcessSteps from '../../components/ProcessSteps/ProcessSteps.jsx';
-import WhyChooseUs from '../../components/WhyChooseUs/WhyChooseUs.jsx';
+import CareerJourney from '../../components/CareerJourney/CareerJourney.jsx';
 import StudentReviews from '../../components/StudentReviews/StudentReviews.jsx';
 import MotionReveal from '../../motion/MotionReveal.jsx';
 import AnimatedText from '../../motion/AnimatedText.jsx';
@@ -25,12 +24,14 @@ export default function Home() {
     <div className="mmc-home" ref={rootRef}>
       <HeroHome />
       <StatsCounter />
+      <CareerJourney />
       <TransformationBanner />
       <WhatWeOffer />
       <College10Plus />
       <StatsBanner />
       <StudentReviews />
       <Contact />
+      
 
       <section className="mmc-cta-band">
         <div className="container mmc-cta-band-inner">

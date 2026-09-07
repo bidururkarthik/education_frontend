@@ -1,6 +1,7 @@
 .mmc-stats-banner {
-  background: var(--mmc-dark);
+  background: aliceblue;
   padding: 36px 0;
+  margin: 0px 70px;
 }
 
 .mmc-stats-banner-grid {
@@ -27,7 +28,7 @@
 .mmc-stats-item span {
   display: block;
   margin-top: 8px;
-  color: rgba(255, 255, 255, 0.88);
+  color: black;
   font-size: 0.95rem;
   font-weight: 500;
 }

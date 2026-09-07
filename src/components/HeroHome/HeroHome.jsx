@@ -41,7 +41,7 @@ export default function HeroHome() {
       <div className="container mmc-hero-stage">
         <div className="mmc-hero-copy">
           <p className="mmc-hero-crumb">Guidance / MapMyCareer360</p>
-          <h1><AnimatedText>Map your career path</AnimatedText></h1>
+          <h1><AnimatedText mark="career">Map your career path</AnimatedText></h1>
           <div className="mmc-hero-meta">
             <strong>1,000+ students</strong>
             <span>150+ colleges</span>
@@ -98,7 +98,7 @@ export default function HeroHome() {
           <CursorPills />
           <CenterFlow className="mmc-hero-flow" />
           <div className="mmc-hero-figure">
-            <SplineHome />
+            <img src="/images/hero-journey-3.png" alt="Hero Home" className='mmc-hero-journey'/>
           </div>
         </div>
       </div>

@@ -184,8 +184,12 @@ export default function College10Plus() {
       <div className="container">
         <MotionReveal className="mmc-c10-head">
           <p className="mmc-section-eyebrow">College 10+</p>
-          <h2><AnimatedText>Explore colleges by course</AnimatedText></h2>
-          <p>Browse 10+ programmes, then search and filter the colleges already listed on MapMyCareer360.</p>
+          <h2 className="mmc-heading-italic">
+            <AnimatedText mark="colleges">Explore colleges by course</AnimatedText>
+          </h2>
+          <p className="mmc-heading-italic mmc-c10-lead">
+            <AnimatedText mark="programmes">Browse 10+ programmes, then search and filter the colleges already listed on MapMyCareer360.</AnimatedText>
+          </p>
         </MotionReveal>
 
         <div className="mmc-c10-tabs-wrap">

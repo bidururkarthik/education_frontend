@@ -52,8 +52,12 @@ export default function WhatWeOffer() {
       <CenterFlow className="mmc-offer-flow" />
       <div className="container">
         <MotionReveal className="mmc-offer-head">
-          <p className="mmc-section-eyebrow">What we offer</p>
-          <h2><AnimatedText>Tools that take you from assessment to admission</AnimatedText></h2>
+          <p className="mmc-section-eyebrow mmc-heading-italic">
+            <AnimatedText mark="offer">What we offer</AnimatedText>
+          </p>
+          <h2 className="mmc-heading-italic">
+            <AnimatedText mark="admission">Tools that take you from assessment to admission</AnimatedText>
+          </h2>
           <p>
             Everything MapMyCareer360 already does for students — predictors, comparison and counsellor support — in one place.
           </p>

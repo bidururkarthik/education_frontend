@@ -6,6 +6,7 @@ export default function AnimatedText({
   children,
   className = '',
   delay = 0,
+  mark,
 }) {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
@@ -38,18 +39,23 @@ export default function AnimatedText({
       ref={ref}
       className={`mmc-anim-text${visible ? ' is-in' : ''} ${className}`.trim()}
     >
-      {words.map((word, index) => (
-        <span
-          key={`${word}-${index}`}
-          className="mmc-anim-word"
-          style={{
-            '--mmc-word-i': index,
-            '--mmc-word-delay': `${delay}ms`,
-          }}
-        >
-          {word}
-        </span>
-      ))}
+      {words.map((word, index) => {
+        const isMark =
+          typeof mark === 'string' &&
+          word.replace(/[^\w]/g, '').toLowerCase() === mark.toLowerCase();
+        return (
+          <span
+            key={`${word}-${index}`}
+            className={`mmc-anim-word${isMark ? ' mmc-anim-word--mark' : ''}`}
+            style={{
+              '--mmc-word-i': index,
+              '--mmc-word-delay': `${delay}ms`,
+            }}
+          >
+            {word}
+          </span>
+        );
+      })}
     </Tag>
   );
 }

@@ -189,6 +189,21 @@
   margin-right: 0;
 }
 
+.mmc-heading-italic {
+  font-style: italic;
+}
+
+.mmc-anim-word--mark {
+  font-style: italic;
+  padding: 0 0.14em;
+  background-image: linear-gradient(rgba(245, 124, 0, 0.38), rgba(245, 124, 0, 0.38));
+  background-repeat: no-repeat;
+  background-size: 100% 46%;
+  background-position: 0 88%;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
 @keyframes mmc-word-in {
   to {
     opacity: 1;
