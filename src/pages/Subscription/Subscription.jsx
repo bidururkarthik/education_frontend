@@ -1,18 +1,65 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../../api/api.js';
 import { useAuth } from '../../context/AuthContext.jsx';
+import ScrollCard from '../../motion/ScrollCard.jsx';
 import './Subscription.css';
 import { loadRazorpayScript } from '../../utils/razorpay.js';
 
-// Launch pricing - ₹1 across all plans for now. Change real prices anytime
-// from Admin Panel → Subscriptions → Plans; these are only the fallback
-// shown if the API hasn't loaded yet.
 const FALLBACK_PLANS = [
   { _id: 'monthly', name: 'Monthly', price: 1, durationInDays: 30, features: ['Career Assessment access', 'KCET Predictor', 'PGCET Predictor'] },
   { _id: 'quarterly', name: 'Quarterly', price: 1, durationInDays: 90, features: ['Career Assessment access', 'KCET Predictor', 'PGCET Predictor', 'Priority support'] },
   { _id: 'yearly', name: 'Yearly', price: 1, durationInDays: 365, features: ['Career Assessment access', 'KCET Predictor', 'PGCET Predictor', 'Priority support', '1-on-1 counselling session'] },
 ];
+
+function periodLabel(days) {
+  if (days >= 360) return '/Year';
+  if (days >= 85) return '/Quarter';
+  return '/Month';
+}
+
+function planCopy(plan) {
+  const name = (plan.name || '').toLowerCase();
+  if (name.includes('year')) {
+    return 'Full-year access with counselling support for the complete admission cycle.';
+  }
+  if (name.includes('quarter')) {
+    return 'Growing students who want predictors, dashboard access, and priority support.';
+  }
+  return 'For students who want assessment plus both predictors for one admission cycle.';
+}
+
+function badgeLabel(plan, featured) {
+  if (featured) return 'Most Popular';
+  const name = (plan.name || '').toLowerCase();
+  if (name.includes('year')) return 'Full Access Plan';
+  return 'Starting Plan';
+}
+
+function CheckIcon() {
+  return (
+    <svg className="mmc-price-check" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+      <circle cx="11" cy="11" r="9.2" stroke="currentColor" strokeWidth="1.4" />
+      <path d="M7.2 11.2 9.8 13.7 14.8 8.4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function BadgeIcon() {
+  return (
+    <svg className="mmc-price-badge-icon" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+      <circle cx="9" cy="9" r="7.2" stroke="currentColor" strokeWidth="1.4" />
+      <path d="M6.2 9h5.6M9.2 6.4 11.8 9 9.2 11.6" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function isFeaturedPlan(plan, list) {
+  if (list.length === 1) return true;
+  if (plan.name === 'Quarterly') return true;
+  if (list.some((p) => p.name === 'Quarterly')) return false;
+  return list.length > 1 && plan._id === list[Math.min(1, list.length - 1)]._id;
+}
 
 export default function Subscription() {
   const [plans, setPlans] = useState(FALLBACK_PLANS);
@@ -26,6 +73,11 @@ export default function Subscription() {
       if (res.data.plans?.length) setPlans(res.data.plans);
     }).catch(() => {});
   }, []);
+
+  const orderedPlans = useMemo(
+    () => [...plans].sort((a, b) => (a.durationInDays || 0) - (b.durationInDays || 0)),
+    [plans]
+  );
 
   const purchase = async (plan) => {
     if (!student) { navigate('/login', { state: { from: '/subscription' } }); return; }
@@ -71,8 +123,7 @@ export default function Subscription() {
         },
         modal: { ondismiss: () => setProcessingId(null) },
         prefill: { name: student?.fullName, email: student?.email, contact: student?.phone },
-        // Brand blue, matched to the logo
-        theme: { color: '#0074CC' },
+        theme: { color: '#0174cc' },
       };
 
       new window.Razorpay(options).open();
@@ -83,55 +134,60 @@ export default function Subscription() {
   };
 
   return (
-    <div className="mmc-subscription-page">
+    <div className="mmc-pricing-page">
+      <div className="container mmc-pricing-inner">
+        <header className="mmc-pricing-head">
+          <h1>Flexible plans that scale with <span>your admission goals</span></h1>
+        </header>
 
-      {/* HERO */}
-      <header className="mmc-sub-hero">
-        <svg className="mmc-sub-hero-contours" viewBox="0 0 1140 380" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M-50,90 C 200,40 400,140 650,85 C 850,40 1000,110 1200,70" stroke="#0074CC" strokeWidth="1" fill="none" />
-          <path d="M-50,170 C 220,120 420,220 660,160 C 860,115 1010,190 1200,150" stroke="#0074CC" strokeWidth="1" fill="none" />
-          <path d="M-50,250 C 240,200 440,300 680,240 C 880,195 1020,270 1200,230" stroke="#0074CC" strokeWidth="1" fill="none" />
-          <path d="M-50,330 C 260,280 460,380 700,320 C 900,275 1030,350 1200,310" stroke="#0074CC" strokeWidth="1" fill="none" />
-        </svg>
-        <div className="container mmc-sub-hero-inner">
-          <div className="mmc-eyebrow mono">Pricing · Full access route</div>
-          <h1>Subscription Plans</h1>
-          <p>Unlock free Career Assessment access plus both KCET & PGCET predictors - all in your own student dashboard.</p>
-        </div>
-      </header>
+        {message && <p className="mmc-pricing-message">{message}</p>}
 
-      {/* SECTION */}
-      <section className="mmc-sub-section">
-        <div className="container">
-          <div className="mmc-launch-banner">
-            🎉 <strong>Launch Offer:</strong> every plan is just ₹1 while we're getting started — lock in full access now.
-          </div>
+        <div className="mmc-pricing-grid mmc-scroll-stage">
+          {orderedPlans.map((plan, index) => {
+            const featured = isFeaturedPlan(plan, orderedPlans);
+            const features = [...(plan.features || []), 'Full access via your Student Dashboard'];
 
-          {message && <p className="mmc-sub-message">{message}</p>}
+            return (
+              <ScrollCard
+                as="article"
+                key={plan._id}
+                index={index}
+                delay={index * 90}
+                className={`mmc-price-card${featured ? ' mmc-price-card--featured' : ''}`}
+              >
+                <span className="mmc-price-badge">
+                  <BadgeIcon />
+                  {badgeLabel(plan, featured)}
+                </span>
 
-          <div className="mmc-plans-grid">
-            {plans.map((plan, i) => (
-              <div className={`mmc-plan-card ${plan.name === 'Quarterly' ? 'featured' : ''}`} key={plan._id}>
-                {plan.name === 'Quarterly' && <span className="mmc-plan-badge">Most Popular</span>}
-                <div className="mmc-plan-index">{String(i + 1).padStart(2, '0')}</div>
-                <h3>{plan.name}</h3>
-                <div className="mmc-plan-price">₹{plan.price}<span>/{plan.durationInDays} days</span></div>
-                <ul className="mmc-plan-features">
-                  {(plan.features || []).map((f) => <li key={f}>✔ {f}</li>)}
-                  <li>✔ Full access via your Student Dashboard</li>
-                </ul>
+                <div className="mmc-price-amount">
+                  ₹{plan.price} <small>INR {periodLabel(plan.durationInDays)}</small>
+                </div>
+
+                <p className="mmc-price-desc">{planCopy(plan)}</p>
+
                 <button
-                  className={plan.name === 'Quarterly' ? 'btn-primary' : 'btn-secondary'}
+                  type="button"
+                  className="mmc-price-cta"
                   onClick={() => purchase(plan)}
                   disabled={processingId === plan._id}
                 >
                   {processingId === plan._id ? 'Processing...' : `Subscribe for ₹${plan.price}`}
                 </button>
-              </div>
-            ))}
-          </div>
+
+                <ul className="mmc-price-features">
+                  {features.map((feature) => (
+                    <li key={feature}>
+                      <CheckIcon />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </ScrollCard>
+            );
+          })}
         </div>
-      </section>
+      </div>
     </div>
   );
 }

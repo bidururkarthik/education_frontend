@@ -7,6 +7,8 @@ import { AdminAuthProvider } from './context/AdminAuthContext.jsx';
 import Navbar from './components/Navbar/Navbar.jsx';
 import Footer from './components/Footer/Footer.jsx';
 import WhatsAppButton from './components/WhatsAppButton/WhatsAppButton.jsx';
+import BackToTop from './components/BackToTop/BackToTop.jsx';
+import PageEnter from './motion/PageEnter.jsx';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute.jsx';
 import AdminProtectedRoute from './components/AdminProtectedRoute/AdminProtectedRoute.jsx';
 
@@ -14,6 +16,8 @@ import AdminProtectedRoute from './components/AdminProtectedRoute/AdminProtected
 import Home from './pages/Home/Home.jsx';
 import About from './pages/About/About.jsx';
 import Services from './pages/Services/Services.jsx';
+import Blog from './pages/Blog/Blog.jsx';
+import BlogPost from './pages/Blog/BlogPost.jsx';
 import Contact from './pages/Contact/Contact.jsx';
 import Login from './pages/Login/Login.jsx';
 import Register from './pages/Register/Register.jsx';
@@ -53,9 +57,12 @@ function PublicLayout({ children }) {
   return (
     <>
       <Navbar />
-      <main style={{ minHeight: '60vh' }}>{children}</main>
+      <main className="mmc-public-main">
+        <PageEnter>{children}</PageEnter>
+      </main>
       <Footer />
       <WhatsAppButton />
+      <BackToTop />
     </>
   );
 }
@@ -70,6 +77,8 @@ export default function App() {
             <Route path="/" element={<PublicLayout><Home /></PublicLayout>} />
             <Route path="/about" element={<PublicLayout><About /></PublicLayout>} />
             <Route path="/services" element={<PublicLayout><Services /></PublicLayout>} />
+            <Route path="/blog" element={<PublicLayout><Blog /></PublicLayout>} />
+            <Route path="/blog/:slug" element={<PublicLayout><BlogPost /></PublicLayout>} />
             <Route path="/contact" element={<PublicLayout><Contact /></PublicLayout>} />
             <Route path="/login" element={<PublicLayout><Login /></PublicLayout>} />
             <Route path="/register" element={<PublicLayout><Register /></PublicLayout>} />

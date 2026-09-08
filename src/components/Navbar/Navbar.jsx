@@ -17,9 +17,6 @@ export default function Navbar() {
     navigate('/');
   };
 
-  // Lock background scroll while the mobile menu is open - otherwise the
-  // page behind the menu keeps scrolling and other sections peek through
-  // the gap above/behind the open panel.
   useEffect(() => {
     if (open) {
       const scrollY = window.scrollY;
@@ -41,22 +38,26 @@ export default function Navbar() {
     }
   }, [open]);
 
+  const authButtons = (
+    <>
+      {student ? (
+        <>
+          <NavLink to="/dashboard" className="mmc-nav-login" onClick={close}>Dashboard</NavLink>
+          <button type="button" className="mmc-nav-cta" onClick={handleLogout}>Log out</button>
+        </>
+      ) : (
+        <>
+          <NavLink to="/register" onClick={close} className="mmc-nav-login">Sign up</NavLink>
+          <NavLink to="/login" onClick={close} className="mmc-nav-cta">Log In</NavLink>
+        </>
+      )}
+    </>
+  );
+
   return (
     <>
-      {/* Slim top contact bar - hidden on mobile via CSS to save space */}
-      <div className="mmc-topbar">
-        <div className="container mmc-topbar-inner">
-          <div className="mmc-topbar-contact">
-            <a href="tel:+919008804368">📞 +91 90088 04368</a>
-            <a href="mailto:info@mapmycareer360.com" className="mmc-topbar-email">✉️ info@mapmycareer360.com</a>
-          </div>
-          <Link to="/career-assessment" className="mmc-topbar-cta">🎯 Free Career Assessment</Link>
-        </div>
-      </div>
-
       <header className="mmc-navbar">
         <div className="container mmc-navbar-inner">
-          {/* Logo only - no text wordmark alongside it. */}
           <Link to="/" className="mmc-brand" onClick={close}>
             <img
               src="/images/logo.png"
@@ -69,29 +70,21 @@ export default function Navbar() {
 
           <nav className={`mmc-nav-links ${open ? 'open' : ''}`}>
             <NavLink to="/" end onClick={close}>Home</NavLink>
-            <NavLink to="/about" onClick={close}>About Us</NavLink>
+            <NavLink to="/about" onClick={close}>About</NavLink>
             <NavLink to="/services" onClick={close}>Services</NavLink>
-            <NavLink to="/career-assessment" onClick={close}>Career Assessment</NavLink>
-            <NavLink to="/kcet-predictor" onClick={close}>KCET Predictor</NavLink>
-            <NavLink to="/pgcet-predictor" onClick={close}>PGCET Predictor</NavLink>
-            <NavLink to="/college-compare" onClick={close}>Compare Colleges</NavLink>
-            <NavLink to="/subscription" onClick={close}>Subscription</NavLink>
+            <NavLink to="/blog" onClick={close}>Blog</NavLink>
             <NavLink to="/contact" onClick={close}>Contact</NavLink>
-
-            <div className="mmc-nav-auth">
-              {student ? (
-                <>
-                  <NavLink to="/dashboard" className="mmc-nav-dash" onClick={close}>My Dashboard</NavLink>
-                  <button className="btn btn-outline" onClick={handleLogout}>Logout</button>
-                </>
-              ) : (
-                <>
-                  <NavLink to="/login" onClick={close} className="mmc-nav-login">Login</NavLink>
-                  <NavLink to="/register" onClick={close} className="btn btn-primary">Sign Up</NavLink>
-                </>
-              )}
-            </div>
+            <Link
+              to={student ? '/dashboard' : '/register'}
+              className="mmc-nav-referral"
+              onClick={close}
+            >
+              Refer a friend
+            </Link>
+            <div className="mmc-nav-auth mmc-nav-mobile-only">{authButtons}</div>
           </nav>
+
+          <div className="mmc-nav-auth mmc-nav-desktop-only">{authButtons}</div>
 
           <button
             className={`mmc-burger ${open ? 'open' : ''}`}
@@ -104,7 +97,6 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* Dims the page behind the open mobile menu, and closing on tap outside */}
       {open && <div className="mmc-nav-backdrop" onClick={close} />}
     </>
   );

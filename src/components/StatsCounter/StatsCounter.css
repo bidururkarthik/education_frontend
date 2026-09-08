@@ -1,28 +1,71 @@
 .mmc-stats {
-  background: linear-gradient(120deg, var(--mmc-blue-dark), var(--mmc-blue));
-  padding: 40px 0;
-}
-.mmc-stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  text-align: center;
-}
-.mmc-stat-item { color: #fff; position: relative; }
-.mmc-stat-number { font-size: 2.2rem; font-weight: 800; }
-.mmc-stat-label { font-size: 0.85rem; opacity: 0.85; margin-top: 4px; }
-.mmc-stat-item.highlight .mmc-stat-number { color: var(--mmc-orange); }
-.mmc-stat-tag {
-  display: inline-block;
-  margin-top: 6px;
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--mmc-orange);
-  background: rgba(247,148,29,0.15);
-  padding: 3px 10px;
-  border-radius: 12px;
+  background: #fff;
+  padding: 20px 0;
+  border-top: 1px solid var(--mmc-border);
+  border-bottom: 1px solid var(--mmc-border);
 }
 
-@media (max-width: 700px) {
-  .mmc-stats-grid { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+.mmc-logo-marquee {
+  overflow: hidden;
+  width: 100%;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 10%, #000 90%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 10%, #000 90%, transparent 100%);
+}
+
+.mmc-logo-track {
+  display: flex;
+  align-items: center;
+  gap: 72px;
+  width: max-content;
+  padding: 8px 0;
+  animation: mmc-logo-marquee 36s linear infinite;
+}
+
+.mmc-logo-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--mmc-muted);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.mmc-logo-mark {
+  width: 28px;
+  height: 28px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+@keyframes mmc-logo-marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
+@media (max-width: 640px) {
+  .mmc-logo-track { gap: 48px; }
+  .mmc-logo-item { font-size: 1.15rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mmc-logo-track {
+    animation: none;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 28px 40px;
+    padding: 8px 20px;
+  }
+
+  .mmc-logo-marquee {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
 }

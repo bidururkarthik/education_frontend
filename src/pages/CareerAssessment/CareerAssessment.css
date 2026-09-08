@@ -7,16 +7,16 @@
    =========================================================== */
 
 .mmc-assessment-page{
-  --ink:#15253B;
-  --ink-2:#1D3A5C;
-  --ink-light:#51677C;
-  --paper:#F7FAFC;
-  --paper-2:#EAF2FB;
-  --brass:#0074CC;
-  --coral:#F57C00;
-  --sage:#2E6690;
-  --white:#FFFFFF;
-  --line: rgba(0,116,204,0.22);
+  --ink: var(--mmc-dark);
+  --ink-2: var(--mmc-blue-dark);
+  --ink-light: var(--mmc-muted);
+  --paper: var(--mmc-white);
+  --paper-2: var(--mmc-white);
+  --brass: var(--mmc-blue);
+  --coral: var(--mmc-orange);
+  --sage: var(--mmc-blue);
+  --white: var(--mmc-white);
+  --line: var(--mmc-blue-soft);
   --radius: 4px;
 
   background:var(--paper);
@@ -106,7 +106,7 @@
   line-height:1.1;
 }
 .mmc-ca-hero h1 em{ font-style:italic; color:var(--brass); font-weight:500; }
-.mmc-ca-hero-sub{ margin-top:22px; max-width:52ch; color:#C9D6DC; font-size:1.02rem; }
+.mmc-ca-hero-sub{ margin-top:22px; max-width:52ch; color:rgba(255,255,255,0.78); font-size:1.02rem; }
 
 /* ---------- SHARED SECTION SPACING ---------- */
 .mmc-ca-section{ padding:76px 0; }
@@ -154,7 +154,7 @@
 .mmc-ca-benefits h2{ color:var(--white); font-size:1.9rem; max-width:14ch; }
 .mmc-ca-check-list{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:14px 32px; }
 .mmc-ca-check-list li{
-  position:relative; padding-left:26px; color:#D7E1E6; font-size:0.95rem; line-height:1.55;
+  position:relative; padding-left:26px; color:rgba(255,255,255,0.82); font-size:0.95rem; line-height:1.55;
 }
 .mmc-ca-check-list li::before{
   content:'✔'; position:absolute; left:0; top:0; color:var(--brass); font-weight:700; font-size:0.82rem;
@@ -245,7 +245,7 @@
   cursor:pointer; transition:border-color 0.2s, background 0.2s;
 }
 .mmc-ca-quiz-option:hover{ border-color:var(--coral); }
-.mmc-ca-quiz-option.selected{ border-color:var(--coral); background:#FBE7E0; font-weight:600; }
+.mmc-ca-quiz-option.selected{ border-color:var(--coral); background:var(--mmc-orange-light); font-weight:600; }
 
 .mmc-ca-quiz-nav{ display:flex; justify-content:space-between; gap:12px; }
 

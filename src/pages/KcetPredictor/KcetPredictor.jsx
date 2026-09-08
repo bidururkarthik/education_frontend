@@ -57,9 +57,9 @@ export default function KcetPredictor() {
     <div className="mmc-predictor-page">
       <header className="mmc-pred-hero">
         <svg className="mmc-pred-hero-contours" viewBox="0 0 1140 380" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M-50,80 C 200,30 400,130 650,75 C 850,30 1000,100 1200,60" stroke="#0074CC" strokeWidth="1" fill="none" />
-          <path d="M-50,150 C 220,100 420,200 660,140 C 860,95 1010,170 1200,130" stroke="#0074CC" strokeWidth="1" fill="none" />
-          <path d="M-50,220 C 240,170 440,270 680,210 C 880,165 1020,240 1200,200" stroke="#0074CC" strokeWidth="1" fill="none" />
+          <path d="M-50,80 C 200,30 400,130 650,75 C 850,30 1000,100 1200,60" stroke="#0174cc" strokeWidth="1" fill="none" />
+          <path d="M-50,150 C 220,100 420,200 660,140 C 860,95 1010,170 1200,130" stroke="#0174cc" strokeWidth="1" fill="none" />
+          <path d="M-50,220 C 240,170 440,270 680,210 C 880,165 1020,240 1200,200" stroke="#0174cc" strokeWidth="1" fill="none" />
         </svg>
         <div className="container mmc-pred-hero-inner">
           <span className="mono mmc-eyebrow">KCET · Engineering Admissions</span>

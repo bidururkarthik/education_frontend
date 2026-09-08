@@ -1,4 +1,5 @@
 import React from 'react';
+import OutlineIcon from '../icons/OutlineIcon.jsx';
 import './WhatsAppButton.css';
 
 export default function WhatsAppButton() {
@@ -10,7 +11,7 @@ export default function WhatsAppButton() {
       className="mmc-whatsapp-float"
       aria-label="Chat with us on WhatsApp"
     >
-      💬
+      <OutlineIcon name="whatsapp" size={28} />
       <span className="mmc-whatsapp-tooltip">Chat with a counsellor</span>
     </a>
   );

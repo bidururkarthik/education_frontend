@@ -1,101 +1,139 @@
-import React, { useState } from 'react';
-import api from '../../api/api.js';
+import React from 'react';
+
+import MotionReveal, { staggerDelay } from '../../motion/MotionReveal.jsx';
+import AnimatedText from '../../motion/AnimatedText.jsx';
+import OutlineIcon from '../../components/icons/OutlineIcon.jsx';
+import ErrorBoundary from '../../components/ErrorBoundary.jsx';
+import ContactForm from './ContactForm.jsx';
+import SplineScene from './SplineScene.jsx';
+import Faq from './Faq.jsx';
+
 import './Contact.css';
 
-export default function Contact() {
-  const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
-  const [status, setStatus] = useState({ loading: false, sent: false, error: '' });
+const REACH = [
+  {
+    icon: 'pin',
+    href: null,
+    label: 'Kasturi Nagar, Bangalore',
+  },
+  {
+    icon: 'phone',
+    href: 'tel:+919008804368',
+    label: '+91 90088 04368',
+  },
+  {
+    icon: 'phone',
+    href: 'tel:+916366018352',
+    label: '+91 63660 18352',
+  },
+  {
+    icon: 'mail',
+    href: 'mailto:info@mapmycareer360.com',
+    label: 'info@mapmycareer360.com',
+  },
+  {
+    icon: 'whatsapp',
+    href: 'https://wa.link/czgq77',
+    label: 'WhatsApp a counsellor',
+    external: true,
+  },
+];
 
-  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+/**
+ * SafeIcon: guards against OutlineIcon throwing when it doesn't recognise a
+ * given `name` (this is what was crashing the whole page — check
+ * OutlineIcon.jsx's icon map for "pin" and "whatsapp" entries; one of them
+ * is very likely missing or set to '' instead of a component/null).
+ * Once OutlineIcon.jsx is fixed at the source, this wrapper is optional but
+ * harmless to leave in as a safety net.
+ */
+function SafeIcon({ name, size }) {
+  return (
+    <ErrorBoundary fallback={<span className="mmc-icon-fallback" aria-hidden="true" />}>
+      <OutlineIcon name={name} size={size} />
+    </ErrorBoundary>
+  );
+}
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setStatus({ loading: true, sent: false, error: '' });
-    try {
-      await api.post('/contact', form);
-      setStatus({ loading: false, sent: true, error: '' });
-      setForm({ name: '', email: '', phone: '', message: '' });
-    } catch (err) {
-      setStatus({ loading: false, sent: false, error: 'Something went wrong. Please try again.' });
-    }
-  };
-
+function Contact() {
   return (
     <div className="mmc-contact-page">
+      <section className="container mmc-contact-shell">
 
-      {/* HERO */}
-      <header className="mmc-ct-hero">
-        <svg className="mmc-ct-hero-contours" viewBox="0 0 1140 380" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M-50,90 C 200,40 400,140 650,85 C 850,40 1000,110 1200,70" stroke="#0074CC" strokeWidth="1" fill="none" />
-          <path d="M-50,170 C 220,120 420,220 660,160 C 860,115 1010,190 1200,150" stroke="#0074CC" strokeWidth="1" fill="none" />
-          <path d="M-50,250 C 240,200 440,300 680,240 C 880,195 1020,270 1200,230" stroke="#0074CC" strokeWidth="1" fill="none" />
-          <path d="M-50,330 C 260,280 460,380 700,320 C 900,275 1030,350 1200,310" stroke="#0074CC" strokeWidth="1" fill="none" />
-        </svg>
-        <div className="container mmc-ct-hero-inner">
-          <div className="mmc-eyebrow mono">Get in touch</div>
-          <h1>Contact Us</h1>
-          <p>Have a question about assessments, predictors or admissions? We're here to help.</p>
+        <MotionReveal className="mmc-contact-head">
+          <p className="mmc-section-eyebrow">
+            Contact us
+          </p>
+
+          <h1>
+            <AnimatedText>
+              Contact Us
+            </AnimatedText>
+          </h1>
+
+          <p>
+            Have a question or want to know more?
+            We'd love to hear from you.
+          </p>
+        </MotionReveal>
+
+        <div className="mmc-contact-split">
+
+          <MotionReveal
+            className="mmc-contact-visual"
+            delay={90}
+          >
+            <SplineScene />
+          </MotionReveal>
+
+          <MotionReveal
+            className="mmc-contact-panel"
+            delay={140}
+          >
+            <ContactForm />
+          </MotionReveal>
+
         </div>
-      </header>
 
-      {/* SECTION */}
-      <section className="mmc-ct-section">
-        <div className="container mmc-contact-grid">
+        <ul className="mmc-contact-reach">
+          {REACH.map((item, index) => (
+            <MotionReveal
+              as="li"
+              key={`${item.label}-${index}`}
+              delay={staggerDelay(index, 50, 80)}
+            >
+              <SafeIcon name={item.icon} size={16} />
 
-          <div className="mmc-contact-info">
-            <span className="mono">Reach us</span>
-            <h3>Talk to a counsellor</h3>
+              {item.href ? (
+                <a
+                  href={item.href}
+                  {...(
+                    item.external
+                      ? {
+                          target: '_blank',
+                          rel: 'noreferrer',
+                        }
+                      : {}
+                  )}
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <span>
+                  {item.label}
+                </span>
+              )}
+            </MotionReveal>
+          ))}
+        </ul>
 
-            <div className="mmc-contact-row">
-              <span className="mmc-contact-icon">📍</span>
-              <p>Kasturi Nagar, Bangalore</p>
-            </div>
-            <div className="mmc-contact-row">
-              <span className="mmc-contact-icon">📞</span>
-              <p><a href="tel:+919008804368">+91 90088 04368</a></p>
-            </div>
-            <div className="mmc-contact-row">
-              <span className="mmc-contact-icon">📞</span>
-              <p><a href="tel:+916366018352">+91 63660 18352</a></p>
-            </div>
-            <div className="mmc-contact-row">
-              <span className="mmc-contact-icon">✉️</span>
-              <p><a href="mailto:info@mapmycareer360.com">info@mapmycareer360.com</a></p>
-            </div>
-            <div className="mmc-contact-row">
-              <span className="mmc-contact-icon">💬</span>
-              <p><a href="https://wa.link/czgq77" target="_blank" rel="noreferrer">Chat with us on WhatsApp</a></p>
-            </div>
-          </div>
+        <MotionReveal delay={160}>
+          <Faq />
+        </MotionReveal>
 
-          <form className="mmc-contact-form" onSubmit={handleSubmit}>
-            <h3>Send a Message</h3>
-            <p className="mmc-contact-form-sub">We usually reply within one business day.</p>
-
-            <div className="mmc-form-group">
-              <label>Full Name</label>
-              <input name="name" value={form.name} onChange={handleChange} required />
-            </div>
-            <div className="mmc-form-group">
-              <label>Email</label>
-              <input type="email" name="email" value={form.email} onChange={handleChange} required />
-            </div>
-            <div className="mmc-form-group">
-              <label>Phone</label>
-              <input name="phone" value={form.phone} onChange={handleChange} required />
-            </div>
-            <div className="mmc-form-group">
-              <label>Message</label>
-              <textarea name="message" rows="4" value={form.message} onChange={handleChange} required />
-            </div>
-            {status.error && <p className="mmc-error-msg">{status.error}</p>}
-            {status.sent && <p className="mmc-success-msg">Thanks! We'll get back to you shortly.</p>}
-            <button className="btn-primary" type="submit" disabled={status.loading}>
-              {status.loading ? 'Sending...' : 'Send Message'}
-            </button>
-          </form>
-        </div>
       </section>
     </div>
   );
 }
+
+export default Contact;

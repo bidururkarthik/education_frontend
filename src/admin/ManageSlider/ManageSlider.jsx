@@ -71,10 +71,10 @@ export default function ManageSlider() {
                           style={{ width: 72, height: 40, objectFit: 'cover', borderRadius: 6 }}
                         />
                       ) : (
-                        <span style={{ color: '#8b98a5', fontSize: '0.78rem' }}>No image</span>
+                        <span style={{ color: 'var(--mmc-muted)', fontSize: '0.78rem' }}>No image</span>
                       )}
                     </td>
-                    <td>{s.imageOnly ? <em style={{ color: '#8b98a5' }}>Image only</em> : s.title}</td>
+                    <td>{s.imageOnly ? <em style={{ color: 'var(--mmc-muted)' }}>Image only</em> : s.title}</td>
                     <td>{s.imageOnly ? '—' : s.ctaLink}</td>
                     <td>{s.order}</td>
                     <td className="mmc-admin-actions">

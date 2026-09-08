@@ -55,10 +55,10 @@ export default function CollegeCompare() {
       {/* HERO */}
       <header className="mmc-cmp-hero">
         <svg className="mmc-cmp-hero-contours" viewBox="0 0 1140 380" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M-50,90 C 200,40 400,140 650,85 C 850,40 1000,110 1200,70" stroke="#0074CC" strokeWidth="1" fill="none" />
-          <path d="M-50,170 C 220,120 420,220 660,160 C 860,115 1010,190 1200,150" stroke="#0074CC" strokeWidth="1" fill="none" />
-          <path d="M-50,250 C 240,200 440,300 680,240 C 880,195 1020,270 1200,230" stroke="#0074CC" strokeWidth="1" fill="none" />
-          <path d="M-50,330 C 260,280 460,380 700,320 C 900,275 1030,350 1200,310" stroke="#0074CC" strokeWidth="1" fill="none" />
+          <path d="M-50,90 C 200,40 400,140 650,85 C 850,40 1000,110 1200,70" stroke="#0174cc" strokeWidth="1" fill="none" />
+          <path d="M-50,170 C 220,120 420,220 660,160 C 860,115 1010,190 1200,150" stroke="#0174cc" strokeWidth="1" fill="none" />
+          <path d="M-50,250 C 240,200 440,300 680,240 C 880,195 1020,270 1200,230" stroke="#0174cc" strokeWidth="1" fill="none" />
+          <path d="M-50,330 C 260,280 460,380 700,320 C 900,275 1030,350 1200,310" stroke="#0174cc" strokeWidth="1" fill="none" />
         </svg>
         <div className="container mmc-cmp-hero-inner">
           <div className="mmc-eyebrow mono">Side by side · up to 4 colleges</div>

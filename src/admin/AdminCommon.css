@@ -7,7 +7,7 @@
   margin-bottom: 22px;
 }
 .mmc-admin-page-header h1 { margin: 0; font-size: 1.5rem; color: var(--mmc-navy); }
-.mmc-admin-page-header p { margin: 4px 0 0; color: #6b7c8c; font-size: 0.88rem; }
+.mmc-admin-page-header p { margin: 4px 0 0; color: var(--mmc-muted); font-size: 0.88rem; }
 
 .mmc-admin-toolbar {
   display: flex;
@@ -34,8 +34,8 @@
 .mmc-admin-stat {
   padding: 20px;
 }
-.mmc-admin-stat span { display: block; color: #8b98a5; font-size: 0.78rem; margin-bottom: 8px; }
-.mmc-admin-stat strong { font-size: 1.6rem; color: var(--mmc-navy); }
+.mmc-admin-stat span { display: block; color: var(--mmc-muted); font-size: 0.78rem; margin-bottom: 8px; }
+.mmc-admin-stat strong { font-size: 1.6rem; color: var(--mmc-orange); }
 
 .mmc-admin-pagination {
   display: flex;
@@ -44,7 +44,7 @@
   gap: 10px;
   margin-top: 16px;
   font-size: 0.85rem;
-  color: #6b7c8c;
+  color: var(--mmc-muted);
 }
 .mmc-admin-pagination button {
   padding: 6px 14px;
@@ -62,12 +62,12 @@
   font-size: 0.78rem;
   font-weight: 600;
 }
-.mmc-admin-btn-edit { background: #eef7ff; color: var(--mmc-blue); }
-.mmc-admin-btn-delete { background: #fdeaea; color: var(--mmc-danger); }
+.mmc-admin-btn-edit { background: var(--mmc-blue-light); color: var(--mmc-blue); }
+.mmc-admin-btn-delete { background: var(--mmc-danger-bg); color: var(--mmc-danger); }
 
 .mmc-admin-modal-backdrop {
   position: fixed; inset: 0;
-  background: rgba(15, 30, 45, 0.5);
+  background: rgba(30, 41, 59, 0.5);
   display: flex; align-items: center; justify-content: center;
   z-index: 500;
   padding: 20px;
@@ -92,7 +92,7 @@
   margin-bottom: 20px;
 }
 .mmc-upload-box input[type="file"] { margin: 12px auto; display: block; }
-.mmc-upload-hint { font-size: 0.8rem; color: #8b98a5; margin-top: 8px; }
+.mmc-upload-hint { font-size: 0.8rem; color: var(--mmc-muted); margin-top: 8px; }
 .mmc-upload-result { margin-top: 14px; font-size: 0.85rem; text-align: left; }
 .mmc-upload-result .success { color: var(--mmc-success); font-weight: 600; }
 .mmc-upload-result ul { max-height: 140px; overflow-y: auto; margin-top: 8px; }
@@ -108,7 +108,7 @@
 .mmc-admin-count {
   margin-left: auto;
   font-size: 0.85rem;
-  color: #666;
+  color: var(--mmc-muted);
 }
 
 /* Search/filter inputs in toolbars that previously used inline minWidth styles */

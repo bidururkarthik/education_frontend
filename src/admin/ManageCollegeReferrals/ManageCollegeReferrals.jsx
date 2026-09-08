@@ -109,7 +109,7 @@ export default function ManageCollegeReferrals() {
         <div className="mmc-admin-modal-backdrop" onClick={() => setViewing(null)}>
           <div className="mmc-admin-modal" onClick={(e) => e.stopPropagation()}>
             <h3>Enquiries for {viewing.referralLinkCode}</h3>
-            <p style={{ fontSize: '0.85rem', color: '#6b7c8c', wordBreak: 'break-all' }}>{linkFor(viewing.referralLinkCode)}</p>
+            <p style={{ fontSize: '0.85rem', color: 'var(--mmc-muted)', wordBreak: 'break-all' }}>{linkFor(viewing.referralLinkCode)}</p>
             {viewing.enquiries?.length === 0 ? <div className="empty-state">No enquiries yet.</div> : (
               <div className="table-wrap">
                 <table>

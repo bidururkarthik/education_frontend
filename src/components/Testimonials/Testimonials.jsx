@@ -1,30 +1,51 @@
 import React from 'react';
+import MotionReveal, { staggerDelay } from '../../motion/MotionReveal.jsx';
 import './Testimonials.css';
 
-const TESTIMONIALS = [
-  { name: 'Ananya R.', role: 'Engineering Student, Bangalore', quote: 'The KCET predictor showed me exactly which colleges I could realistically get into - saved me weeks of guesswork.' },
-  { name: 'Rahul K.', role: 'PGCET Aspirant', quote: 'My counsellor helped me shortlist colleges and the predictor confirmed I was aiming at the right ones.' },
-  { name: 'Sneha M.', role: 'PU Student', quote: 'The career assessment actually matched what I ended up loving in college. Wish I had this sooner.' },
+const STORIES = [
+  {
+    name: 'Ananya R.',
+    role: 'Engineering · Bangalore',
+    title: 'KCET made simple',
+    text: 'The predictor showed exactly which colleges were realistic — Safe, Moderate, Dream.',
+    tag: 'KCET',
+  },
+  {
+    name: 'Rahul K.',
+    role: 'PGCET aspirant',
+    title: 'Counsellor + predictor',
+    text: 'Together they saved weeks of guesswork on PGCET shortlists.',
+    tag: 'PGCET',
+  },
+  {
+    name: 'Sneha M.',
+    role: 'Career assessment',
+    title: 'Assessment that fits',
+    text: 'The career test matched what Sneha actually enjoyed in college.',
+    tag: 'Assessment',
+  },
 ];
 
 export default function Testimonials() {
   return (
     <section className="section mmc-testimonials-section">
       <div className="container">
-        <div className="section-title">
-          <h2>Our Students' <span>Feedback</span></h2>
-          <p>Real experiences from students who used our counselling and predictor tools.</p>
-        </div>
-        <div className="mmc-testimonials-grid">
-          {TESTIMONIALS.map((t) => (
-            <div className="card mmc-testimonial-card" key={t.name}>
-              <span className="mmc-testimonial-quote-mark">“</span>
-              <p>{t.quote}</p>
-              <div className="mmc-testimonial-author">
-                <strong>{t.name}</strong>
-                <span>{t.role}</span>
+        <MotionReveal className="mmc-stories-head">
+          <p className="mmc-stories-kicker">Student stories</p>
+          <h2>Map your admission path from start to finish</h2>
+        </MotionReveal>
+
+        <div className="mmc-stories-list">
+          {STORIES.map((story, i) => (
+            <MotionReveal as="article" className="mmc-story-row" key={story.name} delay={staggerDelay(i, 60)}>
+              <span className="mmc-story-avatar">{story.name.slice(0, 1)}</span>
+              <div className="mmc-story-copy">
+                <strong>{story.title}</strong>
+                <p>{story.text}</p>
+                <small>{story.name} · {story.role}</small>
               </div>
-            </div>
+              <em>{story.tag}</em>
+            </MotionReveal>
           ))}
         </div>
       </div>

@@ -8,7 +8,7 @@
   width: 260px;
   flex-shrink: 0;
   background: var(--mmc-navy);
-  color: #cfd9e2;
+  color: rgba(255,255,255,0.72);
   overflow-y: auto;
   height: 100vh;
   position: sticky;
@@ -28,7 +28,7 @@
   display: none;
   background: transparent;
   border: none;
-  color: #cfd9e2;
+  color: rgba(255,255,255,0.72);
   font-size: 1.2rem;
   line-height: 1;
   padding: 6px;
@@ -41,7 +41,7 @@
   text-transform: uppercase;
   font-size: 0.68rem;
   letter-spacing: 0.08em;
-  color: #6f8194;
+  color: var(--mmc-muted);
   padding: 0 10px;
   margin: 0 0 6px;
 }
@@ -50,7 +50,7 @@
   padding: 10px 12px;
   border-radius: 8px;
   font-size: 0.88rem;
-  color: #cfd9e2;
+  color: rgba(255,255,255,0.72);
   margin-bottom: 2px;
 }
 .mmc-admin-nav-group a:hover { background: rgba(255,255,255,0.06); }

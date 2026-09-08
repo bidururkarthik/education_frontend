@@ -77,7 +77,7 @@ export default function ManagePgcetData() {
 
       <div className="mmc-upload-box card">
         <strong>📥 Bulk Upload via Excel</strong>
-        <p style={{ margin: '6px 0', color: '#6b7c8c', fontSize: '0.88rem' }}>
+        <p style={{ margin: '6px 0', color: 'var(--mmc-muted)', fontSize: '0.88rem' }}>
           Columns expected (header row): <code>Year, College, Course, Category, CollegeType, CutoffRank</code>.
           College/Course names not already in the system will be created automatically.
         </p>
