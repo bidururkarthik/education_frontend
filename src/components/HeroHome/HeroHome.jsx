@@ -6,7 +6,7 @@ import AnimatedText from '../../motion/AnimatedText.jsx';
 import CursorPills from '../../motion/CursorPills.jsx';
 import CenterFlow from '../../motion/CenterFlow.jsx';
 import './HeroHome.css';
-import SplineHome from './SplineHome.jsx';
+
 
 const HERO_PILLS = [
   { to: '/career-assessment', label: 'Assessment', icon: 'compass' },
@@ -14,10 +14,10 @@ const HERO_PILLS = [
   { to: '/pgcet-predictor', label: 'PGCET', icon: 'book' },
 ];
 
-const HERO_LISTINGS = [
-  { to: '/college-compare', title: 'Compare colleges', meta: 'Fees · courses · ranks', accent: '₹1' },
-  { to: '/college-admission-enquiry', title: 'Admission support', meta: 'Counsellor-led enquiries', accent: 'Guided' },
-];
+// const HERO_LISTINGS = [
+//   { to: '/college-compare', title: 'Compare colleges', meta: 'Fees · courses · ranks', accent: '₹1' },
+//   { to: '/college-admission-enquiry', title: 'Admission support', meta: 'Counsellor-led enquiries', accent: 'Guided' },
+// ];
 
 export default function HeroHome() {
   const [email, setEmail] = useState('');

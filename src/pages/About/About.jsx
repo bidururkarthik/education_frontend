@@ -5,7 +5,6 @@ import OutlineIcon from '../../components/icons/OutlineIcon.jsx';
 import MotionReveal from '../../motion/MotionReveal.jsx';
 import AnimatedText from '../../motion/AnimatedText.jsx';
 import useMotionPointer from '../../motion/useMotionPointer.js';
-import Contact from '../Contact/Contact.jsx';
 import AboutHero from './AboutHero.jsx';
 import OurStory from './OurStory.jsx';
 import Mission from './Mission.jsx';

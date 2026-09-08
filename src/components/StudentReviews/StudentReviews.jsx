@@ -4,7 +4,7 @@ import ScrollCard from '../../motion/ScrollCard.jsx';
 import AnimatedText from '../../motion/AnimatedText.jsx';
 import CenterFlow from '../../motion/CenterFlow.jsx';
 import OutlineIcon from '../icons/OutlineIcon.jsx';
-import SectionAsideVisual from '../CareerJourney/SectionAsideVisual.jsx';
+
 import './StudentReviews.css';
 
 const PREVIEW_CHARS = 160;

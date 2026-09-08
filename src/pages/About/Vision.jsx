@@ -1,5 +1,5 @@
 import React from 'react';
-import OutlineIcon from '../../components/icons/OutlineIcon.jsx';
+
 import MotionReveal from '../../motion/MotionReveal.jsx';
 import AnimatedText from '../../motion/AnimatedText.jsx';
 

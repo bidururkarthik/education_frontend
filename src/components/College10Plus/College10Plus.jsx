@@ -5,7 +5,6 @@ import MotionReveal, { staggerDelay } from '../../motion/MotionReveal.jsx';
 import ScrollCard from '../../motion/ScrollCard.jsx';
 import AnimatedText from '../../motion/AnimatedText.jsx';
 import OutlineIcon from '../icons/OutlineIcon.jsx';
-import SectionAsideVisual from '../CareerJourney/SectionAsideVisual.jsx';
 import { MOCK_COLLEGES } from './collegeMocks.js';
 import './College10Plus.css';
 

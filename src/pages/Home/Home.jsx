@@ -12,7 +12,7 @@ import MotionReveal from '../../motion/MotionReveal.jsx';
 import AnimatedText from '../../motion/AnimatedText.jsx';
 import OutlineIcon from '../../components/icons/OutlineIcon.jsx';
 import useMotionPointer from '../../motion/useMotionPointer.js';
-import Contact from '../Contact/Contact.jsx';
+
 import './Home.css';
 
 
