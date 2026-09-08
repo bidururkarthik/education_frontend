@@ -257,7 +257,7 @@
 .mmc-burger span {
   width: 22px;
   height: 2px;
-  background: var(--mmc-dark);
+  background: #000;
   border-radius: 3px;
   transition: transform var(--mmc-duration-hover) var(--mmc-ease), opacity var(--mmc-duration-micro) var(--mmc-ease);
 }

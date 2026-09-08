@@ -6,14 +6,14 @@ import OutlineIcon from '../../components/icons/OutlineIcon.jsx';
 import './Services.css';
 
 const SERVICES = [
-  { icon: 'compass', title: 'Career Assessment', text: 'Aptitude, interest and personality mapped to streams.', link: '/career-assessment' },
-  { icon: 'cap', title: 'KCET Predictor', text: 'Safe, Moderate and Dream colleges from live cutoffs.', link: '/kcet-predictor' },
-  { icon: 'book', title: 'PGCET Predictor', text: 'Postgraduate matches by rank, category and course.', link: '/pgcet-predictor' },
-  { icon: 'scale', title: 'College Compare', text: 'Fees, courses and rankings side by side.', link: '/college-compare' },
-  { icon: 'target', title: 'Subscription Plans', text: 'Unlock assessment and both predictors from ₹1.', link: '/subscription' },
-  { icon: 'handshake', title: 'Referral Program', text: 'Share your link and track conversions in dashboard.', link: '/dashboard' },
-  { icon: 'chart', title: 'Admission Support', text: 'Guided enquiries handled by our counselling team.', link: '/college-admission-enquiry' },
-  { icon: 'chat', title: 'Personal Counselling', text: 'One-on-one mentorship to turn results into a decision.', link: '/contact' },
+  { icon: 'compass', title: 'Career Assessment', text: 'Aptitude, interest and personality mapped to streams.', link: '/career-assessment', tone: 'orange' },
+  { icon: 'cap', title: 'KCET Predictor', text: 'Safe, Moderate and Dream colleges from live cutoffs.', link: '/kcet-predictor', tone: 'blue' },
+  { icon: 'book', title: 'PGCET Predictor', text: 'Postgraduate matches by rank, category and course.', link: '/pgcet-predictor', tone: 'dark' },
+  { icon: 'scale', title: 'College Compare', text: 'Fees, courses and rankings side by side.', link: '/college-compare', tone: 'blue' },
+  { icon: 'target', title: 'Subscription Plans', text: 'Unlock assessment and both predictors from ₹1.', link: '/subscription', tone: 'orange' },
+  { icon: 'handshake', title: 'Referral Program', text: 'Share your link and track conversions in dashboard.', link: '/dashboard', tone: 'dark' },
+  { icon: 'chart', title: 'Admission Support', text: 'Guided enquiries handled by our counselling team.', link: '/college-admission-enquiry', tone: 'blue' },
+  { icon: 'chat', title: 'Personal Counselling', text: 'One-on-one mentorship to turn results into a decision.', link: '/contact', tone: 'orange' },
 ];
 
 export default function Services() {
@@ -61,14 +61,27 @@ export default function Services() {
       <section className="mmc-svc-section">
         <div className="container mmc-svc-grid mmc-scroll-stage">
           {SERVICES.map((s, i) => (
-            <ScrollCard as={Link} to={s.link} className="mmc-svc-card" key={s.title} index={i} delay={staggerDelay(i, 90)}>
-              <div className="mmc-svc-frame">
-                <div className="mmc-svc-photo">
-                  <OutlineIcon name={s.icon} size={36} />
-                </div>
-              </div>
-              <strong>{s.title}</strong>
-              <span>{s.text}</span>
+            <ScrollCard
+              as={Link}
+              to={s.link}
+              className={`mmc-svc-card mmc-svc-card--${s.tone}`}
+              key={s.title}
+              index={i}
+              delay={staggerDelay(i, 90)}
+              aria-label={`${s.title}. ${s.text}`}
+            >
+              <span className="mmc-svc-card-spin" aria-hidden="true" />
+              <article className="mmc-svc-card-inner">
+                <span className="mmc-svc-index">{String(i + 1).padStart(2, '0')}</span>
+                <span className="mmc-svc-icon">
+                  <OutlineIcon name={s.icon} size={22} />
+                </span>
+                <strong>{s.title}</strong>
+                <span className="mmc-svc-text">{s.text}</span>
+                <span className="mmc-svc-go">
+                  Explore <OutlineIcon name="arrow" size={14} />
+                </span>
+              </article>
             </ScrollCard>
           ))}
         </div>

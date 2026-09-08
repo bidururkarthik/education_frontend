@@ -3,8 +3,16 @@
   padding-top: 32px;
 }
 
-.mmc-c10-head {
+.mmc-c10-head-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(220px, 0.85fr);
+  gap: 28px;
+  align-items: center;
   margin: 0 0 28px;
+}
+
+.mmc-c10-head {
+  margin: 0;
   max-width: 42rem;
 }
 
@@ -394,6 +402,10 @@
 }
 
 @media (max-width: 980px) {
+  .mmc-c10-head-row {
+    grid-template-columns: 1fr;
+  }
+
   .mmc-c10-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }

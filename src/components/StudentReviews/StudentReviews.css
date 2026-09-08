@@ -12,11 +12,18 @@
 }
 
 .mmc-rev-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(220px, 0.85fr);
+  gap: 28px;
+  align-items: center;
   margin-bottom: 28px;
+}
+
+.mmc-rev-aside {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
 }
 
 .mmc-rev-head {
@@ -265,9 +272,23 @@
   .mmc-rev-card:hover .mmc-rev-stars svg:nth-child(5) { transition-delay: 160ms; }
 }
 
+@media (max-width: 900px) {
+  .mmc-rev-top {
+    grid-template-columns: 1fr;
+  }
+
+  .mmc-rev-aside {
+    align-items: flex-start;
+  }
+}
+
 @media (max-width: 640px) {
   .mmc-rev-top {
-    flex-direction: column;
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+
+  .mmc-rev-aside {
     align-items: flex-start;
   }
 

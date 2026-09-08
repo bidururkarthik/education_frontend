@@ -156,59 +156,182 @@
 .mmc-svc-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 28px 22px;
+  gap: 16px;
 }
 
 .mmc-svc-card {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  padding: 1px;
+  border-radius: 4px;
+  background: #e2e8f0;
+  color: inherit;
+  box-shadow: var(--mmc-shadow);
+  transition:
+    transform 280ms var(--mmc-ease, cubic-bezier(0.22, 1, 0.36, 1)),
+    box-shadow 280ms var(--mmc-ease, cubic-bezier(0.22, 1, 0.36, 1));
+}
+
+.mmc-svc-card-spin {
+  position: absolute;
+  inset: -70%;
+  background: conic-gradient(
+    from 180deg,
+    transparent 0 55%,
+    #f57c00 66%,
+    #0174cc 78%,
+    #1e293b 88%,
+    transparent 96% 100%
+  );
+  opacity: 0;
+  animation: mmc-svc-spin 4.8s linear infinite;
+  animation-play-state: paused;
+  transition: opacity 280ms ease;
+  pointer-events: none;
+}
+
+.mmc-svc-card-inner {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  color: inherit;
-}
-
-.mmc-svc-card.is-in:hover .mmc-svc-frame {
-  transform: translateY(-4px);
-  border-color: var(--mmc-blue);
-}
-
-.mmc-svc-frame {
-  width: 100%;
-  aspect-ratio: 1;
-  background: transparent;
-  border: 1.5px solid var(--mmc-blue);
-  border-radius: 22px;
-  padding: 18px;
-  box-shadow: none;
-  margin-bottom: 14px;
-  transition:
-    transform var(--mmc-duration-hover) var(--mmc-ease),
-    border-color var(--mmc-duration-hover) var(--mmc-ease);
-}
-
-.mmc-svc-photo {
-  width: 100%;
+  align-items: flex-start;
   height: 100%;
-  border-radius: 16px;
-  background: transparent;
+  min-height: 248px;
+  padding: 22px 20px 20px;
+  border-radius: 3px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+}
+
+.mmc-svc-card-inner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.72) 50%,
+    transparent 65%
+  );
+  transform: translateX(-130%);
+  pointer-events: none;
+}
+
+.mmc-svc-index {
+  display: block;
+  margin-bottom: 18px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--mmc-orange);
+}
+
+.mmc-svc-icon {
   display: grid;
   place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 18px;
+  border: 1px solid rgba(1, 116, 204, 0.18);
+  border-radius: 4px;
+  background: var(--mmc-blue-soft);
   color: var(--mmc-blue);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  transition:
+    transform 280ms var(--mmc-ease, cubic-bezier(0.22, 1, 0.36, 1)),
+    background 280ms var(--mmc-ease, cubic-bezier(0.22, 1, 0.36, 1)),
+    color 280ms var(--mmc-ease, cubic-bezier(0.22, 1, 0.36, 1)),
+    border-color 280ms var(--mmc-ease, cubic-bezier(0.22, 1, 0.36, 1));
+}
+
+.mmc-svc-card--orange .mmc-svc-icon {
+  color: var(--mmc-orange);
+  background: var(--mmc-orange-soft);
+  border-color: rgba(245, 124, 0, 0.22);
+}
+
+.mmc-svc-card--dark .mmc-svc-icon {
+  color: #fff;
+  background: #1e293b;
+  border-color: #1e293b;
 }
 
 .mmc-svc-card strong {
   display: block;
-  font-size: 1rem;
-  letter-spacing: -0.02em;
-  margin-bottom: 4px;
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.25;
+  color: var(--mmc-dark, #1e293b);
 }
 
-.mmc-svc-card span {
+.mmc-svc-text {
   display: block;
-  font-size: 0.82rem;
-  line-height: 1.45;
+  flex: 1;
+  margin: 0 0 18px;
+  font-size: 0.88rem;
+  line-height: 1.55;
   color: var(--mmc-muted);
-  max-width: 24ch;
+}
+
+.mmc-svc-go {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  padding: 8px 0 0;
+  border-top: 1px solid var(--mmc-border);
+  width: 100%;
+  color: var(--mmc-blue);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.mmc-svc-go .mmc-outline-icon {
+  transition: transform 180ms var(--mmc-ease, cubic-bezier(0.22, 1, 0.36, 1));
+}
+
+.mmc-svc-card:focus-visible {
+  outline: 2px solid var(--mmc-blue);
+  outline-offset: 3px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .mmc-svc-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 22px 44px rgba(30, 41, 59, 0.14);
+  }
+
+  .mmc-svc-card:hover .mmc-svc-card-spin {
+    opacity: 1;
+    animation-play-state: running;
+  }
+
+  .mmc-svc-card:hover .mmc-svc-card-inner::after {
+    transform: translateX(130%);
+    transition: transform 700ms var(--mmc-ease, cubic-bezier(0.22, 1, 0.36, 1));
+  }
+
+  .mmc-svc-card:hover .mmc-svc-icon {
+    transform: translateY(-2px) scale(1.04);
+  }
+
+  .mmc-svc-card:hover .mmc-svc-go {
+    color: var(--mmc-orange);
+  }
+
+  .mmc-svc-card:hover .mmc-svc-go .mmc-outline-icon {
+    transform: translateX(4px);
+  }
+}
+
+@keyframes mmc-svc-spin {
+  to { transform: rotate(360deg); }
 }
 
 .mmc-svc-cta {
@@ -229,6 +352,23 @@
 
 .mmc-services-page .mmc-why-cta {
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--mmc-orange);
+  color: var(--mmc-white);
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 14px 22px;
+  border-radius: 4px;
+  transition: background var(--mmc-duration-hover, 220ms) var(--mmc-ease, cubic-bezier(0.22, 1, 0.36, 1)),
+    transform var(--mmc-duration-hover, 220ms) var(--mmc-ease, cubic-bezier(0.22, 1, 0.36, 1));
+}
+
+.mmc-services-page .mmc-why-cta:hover {
+  background: var(--mmc-orange-dark);
+  transform: translateY(-1px);
 }
 
 @media (max-width: 980px) {
@@ -236,5 +376,32 @@
 }
 
 @media (max-width: 560px) {
-  .mmc-svc-grid { grid-template-columns: 1fr; max-width: 320px; }
+  .mmc-svc-grid {
+    grid-template-columns: 1fr;
+    max-width: 380px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .mmc-svc-card-inner {
+    min-height: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mmc-svc-card-spin,
+  .mmc-svc-card,
+  .mmc-svc-icon,
+  .mmc-svc-go .mmc-outline-icon,
+  .mmc-svc-card-inner::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .mmc-svc-card:hover,
+  .mmc-svc-card:hover .mmc-svc-icon,
+  .mmc-svc-card:hover .mmc-svc-go .mmc-outline-icon,
+  .mmc-svc-card:hover .mmc-svc-card-inner::after {
+    transform: none;
+  }
 }

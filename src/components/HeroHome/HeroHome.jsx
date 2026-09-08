@@ -41,14 +41,14 @@ export default function HeroHome() {
       <div className="container mmc-hero-stage">
         <div className="mmc-hero-copy">
           <p className="mmc-hero-crumb">Guidance / MapMyCareer360</p>
-          <h1><AnimatedText mark="career">Map your career path</AnimatedText></h1>
+          <h1><AnimatedText mark="Empower">Educate Empower Excel</AnimatedText></h1>
           <div className="mmc-hero-meta">
             <strong>1,000+ students</strong>
             <span>150+ colleges</span>
             <span>24/7 support</span>
           </div>
           <p className="mmc-hero-sub">
-            Assessments, KCET &amp; PGCET predictors, and admission support — in one place for students and parents.
+          Your trusted partner for career counselling, college admissions, and placement success.
           </p>
           <p className="mmc-hero-sub mmc-hero-sub--2">
             Start with a free assessment, then shortlist campuses that actually match your rank.
@@ -84,7 +84,7 @@ export default function HeroHome() {
                 onChange={(e) => setEmail(e.target.value)}
                 autoComplete="email"
               />
-              <button type="submit" className="mmc-hero-cta">Get started</button>
+              <button type="submit" className="mmc-hero-cta">Book a Free Counselling</button>
             </form>
           )}
 

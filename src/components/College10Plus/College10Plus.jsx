@@ -5,6 +5,7 @@ import MotionReveal, { staggerDelay } from '../../motion/MotionReveal.jsx';
 import ScrollCard from '../../motion/ScrollCard.jsx';
 import AnimatedText from '../../motion/AnimatedText.jsx';
 import OutlineIcon from '../icons/OutlineIcon.jsx';
+import SectionAsideVisual from '../CareerJourney/SectionAsideVisual.jsx';
 import { MOCK_COLLEGES } from './collegeMocks.js';
 import './College10Plus.css';
 
@@ -182,15 +183,20 @@ export default function College10Plus() {
   return (
     <section className="section mmc-c10-section">
       <div className="container">
-        <MotionReveal className="mmc-c10-head">
-          <p className="mmc-section-eyebrow">College 10+</p>
-          <h2 className="mmc-heading-italic">
-            <AnimatedText mark="colleges">Explore colleges by course</AnimatedText>
-          </h2>
-          <p className="mmc-heading-italic mmc-c10-lead">
-            <AnimatedText mark="programmes">Browse 10+ programmes, then search and filter the colleges already listed on MapMyCareer360.</AnimatedText>
-          </p>
-        </MotionReveal>
+        <div className="mmc-c10-head-row">
+          <MotionReveal className="mmc-c10-head">
+            <p className="mmc-section-eyebrow">College 10+</p>
+            <h2 className="mmc-heading-italic">
+              <AnimatedText mark="colleges">Explore colleges by course</AnimatedText>
+            </h2>
+            <p className="mmc-heading-italic mmc-c10-lead">
+              <AnimatedText mark="programmes">Browse 10+ programmes, then search and filter the colleges already listed on MapMyCareer360.</AnimatedText>
+            </p>
+          </MotionReveal>
+          <MotionReveal variant="right" delay={90}>
+          <img src="/images/explore_college.jpg" alt="" loading="lazy" />
+          </MotionReveal>
+        </div>
 
         <div className="mmc-c10-tabs-wrap">
           <div

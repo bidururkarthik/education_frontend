@@ -8,10 +8,12 @@ export default function Mission() {
     <section className="mmc-about-mv mmc-about-mv--mission" aria-labelledby="mmc-mission-heading">
       <div className="container mmc-about-mv-grid">
         <MotionReveal variant="left" className="mmc-about-mv-visual">
-          <div className="mmc-about-mv-orb mmc-about-mv-orb--orange" aria-hidden="true" />
-          <div className="mmc-about-mv-icon mmc-float">
-            <OutlineIcon name="target" size={36} />
-          </div>
+        <img
+              src="/images/vision.jpg"
+              alt=""
+              loading="lazy"
+              className='mmc-about-mv-visual-img'
+            />
         </MotionReveal>
         <MotionReveal className="mmc-about-mv-copy">
           <p className="mmc-section-eyebrow">Our Mission</p>

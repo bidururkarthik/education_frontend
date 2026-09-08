@@ -29,7 +29,7 @@ export default function About() {
       <Vision />
       <AboutGallery />
       <AboutTeam />
-      <Contact />
+     
 
       <section className="mmc-cta-band">
         <div className="container mmc-cta-band-inner">

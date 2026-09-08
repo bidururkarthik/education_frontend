@@ -30,9 +30,7 @@ export default function Home() {
       <College10Plus />
       <StatsBanner />
       <StudentReviews />
-      <Contact />
-      
-
+    
       <section className="mmc-cta-band">
         <div className="container mmc-cta-band-inner">
           <MotionReveal strong>

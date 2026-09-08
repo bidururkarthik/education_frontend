@@ -4,6 +4,7 @@ import ScrollCard from '../../motion/ScrollCard.jsx';
 import AnimatedText from '../../motion/AnimatedText.jsx';
 import CenterFlow from '../../motion/CenterFlow.jsx';
 import OutlineIcon from '../icons/OutlineIcon.jsx';
+import SectionAsideVisual from '../CareerJourney/SectionAsideVisual.jsx';
 import './StudentReviews.css';
 
 const PREVIEW_CHARS = 160;
@@ -124,16 +125,21 @@ export default function StudentReviews() {
             <p className="mmc-rev-trust">Loved by students</p>
           </MotionReveal>
 
-          {maxIndex > 0 ? (
-            <div className="mmc-rev-toolbar">
-              <button type="button" className="mmc-rev-nav" onClick={prev} aria-label="Previous reviews">
-                <OutlineIcon name="arrow" size={16} />
-              </button>
-              <button type="button" className="mmc-rev-nav" onClick={next} aria-label="Next reviews">
-                <OutlineIcon name="arrow" size={16} />
-              </button>
-            </div>
-          ) : null}
+          <div className="mmc-rev-aside">
+            <MotionReveal variant="right" delay={90}>
+            <img src="/images/review.jpg" alt="" loading="lazy" />
+            </MotionReveal>
+            {maxIndex > 0 ? (
+              <div className="mmc-rev-toolbar">
+                <button type="button" className="mmc-rev-nav" onClick={prev} aria-label="Previous reviews">
+                  <OutlineIcon name="arrow" size={16} />
+                </button>
+                <button type="button" className="mmc-rev-nav" onClick={next} aria-label="Next reviews">
+                  <OutlineIcon name="arrow" size={16} />
+                </button>
+              </div>
+            ) : null}
+          </div>
         </div>
 
         <div

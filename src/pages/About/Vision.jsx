@@ -17,10 +17,12 @@ export default function Vision() {
           </p>
         </MotionReveal>
         <MotionReveal variant="right" className="mmc-about-mv-visual">
-          <div className="mmc-about-mv-orb mmc-about-mv-orb--blue" aria-hidden="true" />
-          <div className="mmc-about-mv-icon mmc-about-mv-icon--blue mmc-float">
-            <OutlineIcon name="compass" size={36} />
-          </div>
+        <img
+              src="/images/mission.jpg"
+              alt=""
+              loading="lazy"
+              className='mmc-about-mv-visual-img'
+            />
         </MotionReveal>
       </div>
     </section>

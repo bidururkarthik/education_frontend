@@ -5,6 +5,7 @@ import ScrollCard from '../../motion/ScrollCard.jsx';
 import AnimatedText from '../../motion/AnimatedText.jsx';
 import CenterFlow from '../../motion/CenterFlow.jsx';
 import OutlineIcon from '../icons/OutlineIcon.jsx';
+import SectionAsideVisual from '../CareerJourney/SectionAsideVisual.jsx';
 import './WhatWeOffer.css';
 
 const OFFERS = [
@@ -51,17 +52,22 @@ export default function WhatWeOffer() {
     <section className="section mmc-offer-section">
       <CenterFlow className="mmc-offer-flow" />
       <div className="container">
-        <MotionReveal className="mmc-offer-head">
-          <p className="mmc-section-eyebrow mmc-heading-italic">
-            <AnimatedText mark="offer">What we offer</AnimatedText>
-          </p>
-          <h2 className="mmc-heading-italic">
-            <AnimatedText mark="admission">Tools that take you from assessment to admission</AnimatedText>
-          </h2>
-          <p>
-            Everything MapMyCareer360 already does for students — predictors, comparison and counsellor support — in one place.
-          </p>
-        </MotionReveal>
+        <div className="mmc-offer-head-row">
+          <MotionReveal className="mmc-offer-head">
+            <p className="mmc-section-eyebrow mmc-heading-italic">
+              <AnimatedText mark="offer">What we offer</AnimatedText>
+            </p>
+            <h2 className="mmc-heading-italic">
+              <AnimatedText mark="admission">Tools that take you from assessment to admission</AnimatedText>
+            </h2>
+            <p>
+              Everything MapMyCareer360 already does for students — predictors, comparison and counsellor support — in one place.
+            </p>
+          </MotionReveal>
+          <MotionReveal variant="right" delay={90}>
+            <SectionAsideVisual variant="fan" />
+          </MotionReveal>
+        </div>
 
         <div className="mmc-offer-grid mmc-scroll-stage">
           {OFFERS.map((offer, index) => (
