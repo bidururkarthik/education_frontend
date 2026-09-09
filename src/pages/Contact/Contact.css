@@ -55,7 +55,7 @@
   .mmc-contact-visual {
     position: relative;
     min-height: 520px;
-    background: #ffffff;
+    background: var(--mmc-ink);
     overflow: hidden;
   }
 
@@ -66,37 +66,20 @@
     pointer-events: none;
     z-index: 2;
     background:
-      radial-gradient(ellipse at 78% 18%, rgba(245, 124, 0, 0.1) 0%, transparent 42%),
-      radial-gradient(ellipse at 16% 86%, rgba(1, 116, 204, 0.1) 0%, transparent 50%);
+      radial-gradient(ellipse at 78% 18%, var(--mmc-orange-glow) 0%, transparent 42%),
+      radial-gradient(ellipse at 16% 86%, var(--mmc-blue-glow) 0%, transparent 50%);
   }
   
   .mmc-spline-stage {
     position: absolute;
-    inset: 0;
-    overflow: hidden;
-    background: #fff;
+    inset: -8% -6% -12%;
   }
   
+  .mmc-spline-stage canvas,
+  .mmc-spline-stage > div,
   .mmc-spline-stage iframe {
-    display: block;
-    position: absolute;
-    inset: 0 0 -56px 0;
     width: 100% !important;
-    height: calc(100% + 56px) !important;
-    border: 0;
-    background: #fff;
-  }
-
-  /* Hide "Built with Spline" watermark */
-  .mmc-spline-badge-cover {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    z-index: 6;
-    width: 180px;
-    height: 56px;
-    pointer-events: none;
-    background: #fff;
+    height: 100% !important;
   }
   
   .mmc-spline-wait {
@@ -298,24 +281,8 @@
     }
   
     .mmc-contact-visual {
-      min-height: 400px;
+      min-height: 360px;
       order: 0;
-    }
-
-    .mmc-spline-stage iframe {
-      inset: 0 0 -70px 0;
-      height: calc(100% + 70px) !important;
-      width: 120% !important;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    .mmc-spline-badge-cover {
-      left: 0;
-      right: 0;
-      width: 100%;
-      height: 64px;
-      background: #fff;
     }
   
     .mmc-contact-head {
@@ -329,24 +296,7 @@
     }
   
     .mmc-contact-visual {
-      min-height: 570px;
-    }
-
-    .mmc-spline-stage iframe {
-      inset: 0 0 -80px 0;
-      height: calc(100% + 80px) !important;
-      width: 135% !important;
-      left: 50%;
-      transform: translateX(-50%) scale(0.92);
-      transform-origin: center center;
-    }
-
-    .mmc-spline-badge-cover {
-      left: 0;
-      right: 0;
-      width: 100%;
-      height: 72px;
-      background: #fff;
+      min-height: 280px;
     }
   
     .mmc-contact-panel {
