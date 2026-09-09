@@ -5,20 +5,16 @@ export const CONTACT_SPLINE_SCENE =
 
 export default function SplineScene() {
   return (
-    <div className="mmc-spline-stage">
+    <div className="mmc-spline-stage" aria-hidden="true">
       <iframe
         src={CONTACT_SPLINE_SCENE}
         title="3D Contact Scene"
+        loading="lazy"
         frameBorder="0"
-        width="100%"
-        height="100%"
-        style={{
-          border: 'none',
-          width: '100%',
-          height: '100%',
-        }}
         allow="fullscreen"
       />
+      {/* Covers Spline free-tier badge (cross-origin iframe can't remove it) */}
+      <span className="mmc-spline-badge-cover" />
     </div>
   );
 }
