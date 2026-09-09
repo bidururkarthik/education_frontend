@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import MotionReveal, { staggerDelay } from '../../motion/MotionReveal.jsx';
 import ScrollCard from '../../motion/ScrollCard.jsx';
 import AnimatedText from '../../motion/AnimatedText.jsx';
-import OutlineIcon from '../icons/OutlineIcon.jsx';
 import './CareerJourney.css';
 
 const STEPS = [
