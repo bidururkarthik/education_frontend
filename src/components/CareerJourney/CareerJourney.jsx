@@ -11,7 +11,8 @@ const STEPS = [
     n: '01',
     title: 'Confusion',
     mark: 'Confusion',
-    image: '/images/journey-confusion.png',
+    text: 'Students need direction, not guesswork.',
+    image: '/images/journey-confusion.jpg',
     to: '/career-assessment',
     alt: 'Student feeling overwhelmed before choosing a path',
   },
@@ -19,7 +20,8 @@ const STEPS = [
     n: '02',
     title: 'Choose roadmap',
     mark: 'roadmap',
-    image: '/images/journey-roadmap.png',
+    text: 'Assessment maps aptitude and interest to the right stream.',
+    image: '/images/journey-roadmap.jpg',
     to: '/career-assessment',
     alt: 'A mapped path with checkpoints toward a goal',
   },
@@ -27,7 +29,8 @@ const STEPS = [
     n: '03',
     title: 'Learning',
     mark: 'Learning',
-    image: '/images/journey-learning (2).png',
+    text: 'Predictors, comparison and shortlists — in one place.',
+    image: '/images/journey-learning.jpg',
     to: '/kcet-predictor',
     alt: 'Student learning and researching colleges on a laptop',
   },
@@ -35,7 +38,8 @@ const STEPS = [
     n: '04',
     title: 'Professional',
     mark: 'Professional',
-    image: '/images/journey-professional (2).png',
+    text: 'Admission support and counsellor follow-through until you join.',
+    image: '/images/journey-professional.jpg',
     to: '/college-admission-enquiry',
     alt: 'A confident student ready for college and career',
   },
@@ -68,7 +72,10 @@ export default function CareerJourney() {
                     {step.title}
                   </AnimatedText>
                 </strong>
-               
+                <span>{step.text}</span>
+                <span className="mmc-journey-go" aria-hidden="true">
+                  <OutlineIcon name="arrow" size={16} />
+                </span>
               </Link>
             </ScrollCard>
           ))}
